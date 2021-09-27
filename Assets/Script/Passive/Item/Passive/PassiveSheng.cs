@@ -20,6 +20,7 @@ public class PassiveSheng : Item
         add.AttackSpeeds = Data[4];
         del = add;
         role.Properties += del;
+        role.Health += Data[2];
     }
     public override void DiscardItem()
     {

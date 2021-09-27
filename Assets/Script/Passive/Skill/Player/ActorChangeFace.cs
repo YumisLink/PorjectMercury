@@ -27,6 +27,9 @@ public class ActorChangeFace : Skill
     }
     public override void Before()
     {
+        Effect.Create(GameManager.Effect[5],role.gameObject,transform.position);
+        var go = Effect.Create(GameManager.Effect[5], role.gameObject, transform.position);
+        Lib.Rotate(go.gameObject, 45);
         state++;
         if (state == 4)
             state = 1;

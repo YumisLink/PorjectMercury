@@ -40,11 +40,15 @@ public class ActorSpearAttack : Skill
     }
     public  override void OnUpdate()
     {
+        if (Face == null)
+            return;
+        if (Face.state !=2)
+            return;
         if (role.SkillState == "Dash")
         {
             if (Player.player.dash.UsingTime >= 0.05)
             {
-                CoolTime = 0;
+                CoolTime = -10;
                 this.NextSkill();
             }
         }
