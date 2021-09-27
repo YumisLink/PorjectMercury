@@ -13,6 +13,7 @@ public class UiManager : MonoBehaviour
     public Image BossesHp;
     public Image Spirit;
     public Image Health;
+    public Text ItemTextShower;
 
     public static Role player;
     public static List<Role> Bosses = new List<Role>();
@@ -49,6 +50,10 @@ public class UiManager : MonoBehaviour
         }
         Spirit.fillAmount = player.Spirit / player.Properties.MaxSpirit;
         Health.fillAmount = player.Health / player.Properties.MaxHealth;
+    }
+    public static void ShowItemDetail(float tim,string str)
+    {
+        Manager.ItemTextShower.GetComponent<ItemTextShower>().Show(tim, str);
     }
     public static void CreateDamageShow(Damage dam,Vector2 position)
     {

@@ -7,12 +7,12 @@ public class BlessLuckSword : Item
 {
     public override void GetItem()
     {
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
             a.color = Colors.Luck;
     }
     public override void DiscardItem()
     {
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
             a.color = Color.white;
     }
     public override void BeforeDealDamage(Damage damage, Role target)

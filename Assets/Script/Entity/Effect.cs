@@ -6,6 +6,9 @@ public class Effect : Entity
 {
     private bool OnlyEffect = false;
     public GameObject Master;
+    /// <summary>
+    /// 剩余持续时间
+    /// </summary>
     public float Duration = 1;
     public Damage damage;
     public bool CanDealDamage = false;

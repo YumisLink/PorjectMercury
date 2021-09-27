@@ -23,7 +23,7 @@ public class Item : Passive
     /// <summary>
     /// 物品详情
     /// </summary>
-    public string Message => GameManager.ItemDetails[Id].ItemDescribe;
+    public string Message => GameManager.ItemData[Id].ItemDescribe;
     /// <summary>
     /// 物品展示样子
     /// </summary>

@@ -6,7 +6,7 @@ public class BlessTimeSword : Item
 {
     public override void GetItem()
     {
-        if (TryGetComponent<Attack>(out var attack))
+        if (TryGetComponent<ActorSwordAttack>(out var attack))
         {
             attack.color = Colors.Time;
             attack.CoolDown -= 0.1f;
@@ -14,7 +14,7 @@ public class BlessTimeSword : Item
     }
     public override void DiscardItem()
     {
-        if (TryGetComponent<Attack>(out var attack))
+        if (TryGetComponent<ActorSwordAttack>(out var attack))
         {
             attack.color = Color.white;
             attack.CoolDown += 0.1f;

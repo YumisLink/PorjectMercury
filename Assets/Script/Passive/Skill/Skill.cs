@@ -7,6 +7,8 @@ public class SkillEffect
 {
     public float Time;
     public Action SkillAction;
+    public float[] Data;
+
     public bool Use = false;
     public SkillEffect(float time,Action action)
     {
@@ -18,11 +20,20 @@ public class Skill : Passive
 {
     public float InputTime;
     public string SkillState;
+    public float[] Data;
+    public Sprite SkillImage;
     protected override void OnStart()
     {
         InputTime = Time.time;
         CoolTime = 0;
+        string n = GetType().Name;
+        ReleaseTime = GameManager.SkillData[n].ReleaseTime;
+        CoolDown = GameManager.SkillData[n].CoolDown;
+        SkillState = GameManager.SkillData[n].SkillState;
+        Data = GameManager.SkillData[n].Data;
         Init();
+
+
     }
     /// <summary>
     /// 技能释放到的时间

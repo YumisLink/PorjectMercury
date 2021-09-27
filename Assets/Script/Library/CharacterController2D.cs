@@ -11,7 +11,7 @@ public class CharacterController2D : MonoBehaviour
     public float GravityMult = 1;
     public bool CanMove = true;
 
-    public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 7;
+    public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 5;
     public float HitBackDefense = 250;
     public float BaseMoveSpeed = 250;
 
@@ -63,9 +63,9 @@ public class CharacterController2D : MonoBehaviour
                 limit = 8 * GravityMult;
             if (Velocity.y >= -limit)
             {
-                if (Velocity.y - 25 * Time.fixedDeltaTime < -limit)
+                if (Velocity.y - 25 * Time.fixedDeltaTime < -limit * 2)
                 {
-                    Velocity.y = -LimitSpeed;
+                    Velocity.y = -LimitSpeed * 2;
                     FallTime = 0;
                 }
                 else
@@ -168,6 +168,10 @@ public class CharacterController2D : MonoBehaviour
                 else
                     Velocity.x += BaseMoveSpeed * Time.fixedDeltaTime;
             }
+            else
+            {
+                Velocity.x -= BaseMoveSpeed * 0.1f * Time.deltaTime;
+            }
         }
         //左
         if (MoveDirection == -1)
@@ -178,6 +182,10 @@ public class CharacterController2D : MonoBehaviour
                     Velocity.x = -LimitSpeed;
                 else
                     Velocity.x -= BaseMoveSpeed * Time.fixedDeltaTime;
+            }
+            else
+            {
+                Velocity.x += BaseMoveSpeed * 0.1f * Time.deltaTime;
             }
         }
     }

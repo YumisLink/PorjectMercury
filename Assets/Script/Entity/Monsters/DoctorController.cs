@@ -8,6 +8,7 @@ public class DoctorController : Role
     public Skill Act;
     private float TimeDc = 0;
     public Vector2 v2dMove;
+    public bool IsWeak = false;
     public override void Init()
     {
         base.Init();
@@ -17,6 +18,10 @@ public class DoctorController : Role
     }
     public override void OnUpdate()
     {
+        if (GetDistance().magnitude <= 20)
+            IsWeak = true;
+        if (!IsWeak)
+            return;
         base.OnUpdate();
         if (Health <= 0)
             return;

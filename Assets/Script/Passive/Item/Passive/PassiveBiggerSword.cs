@@ -14,7 +14,7 @@ public class PassiveBiggerSword : Item
         role.Properties.RangeChange += Data[0]/ 100 * role.BaseProperties.RangeChange;
         role.Properties.Attack += (Data[1]/100) * role.BaseProperties.Attack;
         role.Properties.AttackSpeeds -= Data[2];
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
         {
             a.IgnoreHitBack++;
             coolDownAttack = a.CoolDown;
@@ -27,7 +27,7 @@ public class PassiveBiggerSword : Item
         role.Properties.RangeChange -= Data[0] / 100;
         role.Properties.Attack -= Data[1] / 100;
         role.Properties.AttackSpeeds += Data[2];
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
         {
             a.IgnoreHitBack--;
             a.CoolDown -= 1.5f * coolDownAttack;

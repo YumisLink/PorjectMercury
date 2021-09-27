@@ -6,12 +6,12 @@ public class BlessFlameSword : Item
 {
     public override void GetItem()
     {
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
             a.color = Colors.Sage;
     }
     public override void DiscardItem()
     {
-        if (TryGetComponent<Attack>(out var a))
+        if (TryGetComponent<ActorSwordAttack>(out var a))
             a.color = Color.white;
     }
     public override void OnSucceedDamage(Damage damage, Role target)

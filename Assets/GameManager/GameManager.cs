@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -11,36 +12,33 @@ public class GameManager : MonoBehaviour
     /// 特效
     /// </summary>
     public static List<GameObject> Effect;
-    public List<GameObject> Effects = new List<GameObject>();
 
 
     /// <summary>
     /// UI
     /// </summary>
     public static List<GameObject> UI;
-    public List<GameObject> UIs = new List<GameObject>();
 
 
     /// <summary>
     /// 粒子效果
     /// </summary>
     public static List<GameObject> Particle;
-    public List<GameObject> Particles = new List<GameObject>();
 
     /// <summary>
     /// 物品的贴图
     /// </summary>
     public static List<Sprite> ItemImage;
-    public List<Sprite> Images = new List<Sprite>();
 
 
 
 
     public static List<Item> Item = new List<Item>();
-
     public static List<Role> AllRoles = new List<Role>();
     public static List<Effect> AllEffects = new List<Effect>();
     public static List<GameObject> AllFallingItem = new List<GameObject>();
+    public static List<Sprite> SkillImage;
+    public static List<int> NormalItemList = new List<int>();
 
 
 
@@ -48,17 +46,20 @@ public class GameManager : MonoBehaviour
     public static Camera Camera;
     public static Canvas Canvas;
     public static float SpeedDownTime;
+    public static CinemachineConfiner VirtualCamera;
+    public static CinemachineVirtualCamera cm;
     private static GameObject ItemCreater;
 
 
-    public Camera privateCamera;
-    public Canvas privateCanvas;
-    public GameObject itemCreater;
-    public static System.Random Random = new System.Random();
+    //public static Dictionary<string, string> ItemData = new Dictionary<string, string>();
+    //public static Dictionary<string, string> SkillData = new Dictionary<string, string>();
+    public static List<ItemJsonClass> ItemData;
+    public static Dictionary<string, SkillMap> SkillData;
 
-    public static Dictionary<string, string> ItemData = new Dictionary<string, string>();
-    public static Dictionary<string, string> SkillData = new Dictionary<string, string>();
-    public static List<ItemJsonClass> ItemDetails;
+    public static ItemPool ItemPool = new ItemPool();
+
+    public static PolygonCollider2D Pc2d;
+
 
     void Awake()
     { 
@@ -72,8 +73,19 @@ public class GameManager : MonoBehaviour
         Camera = privateCamera;
         Canvas = privateCanvas;
         ItemImage = Images;
-        ItemDetails = JsonReaders.ReadFromFile();
+        SkillImage = skillImg;
+        Pc2d = pc2d;
+        VirtualCamera = PrivateVirtualCamera;
+        cm = VirtualCamera.GetComponent<CinemachineVirtualCamera>();
+        ItemData = JsonReaders.ReadFromFileItem();
+        SkillData = JsonReaders.ReadFromFileSkill();
+
+        //物品池
+        foreach (var a in ItemData)
+            NormalItemList.Add(a.id);
+        ItemPool.Init(NormalItemList);
     }
+    public float NowScreenBiger;
     void Update()
     {
         if (SpeedDownTime > 0)
@@ -86,7 +98,31 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
-
+    private void FixedUpdate()
+    {
+        var a = Input.GetAxis("Mouse ScrollWheel");
+        if (a < -0.01f)
+        {
+            if (NowScreenBiger < 0)
+                NowScreenBiger = 0;
+            NowScreenBiger += 2f * Time.fixedDeltaTime;
+            if (NowScreenBiger >= 0.5f)
+                NowScreenBiger = 0.5f;
+        }
+        if (a > 0.01f)
+        {
+            if (NowScreenBiger > 0)
+                NowScreenBiger = 0;
+            NowScreenBiger -= 2f * Time.fixedDeltaTime;
+            if (NowScreenBiger <= -0.5f)
+                NowScreenBiger = -0.5f;
+        }
+        cm.m_Lens.OrthographicSize += NowScreenBiger;
+        if (a > -0.1f && a < 0.1f)
+        {
+            NowScreenBiger -= NowScreenBiger * 2f * Time.fixedDeltaTime;
+        }
+    }
     void ReadFromJson()
     {
 
@@ -111,16 +147,16 @@ public class GameManager : MonoBehaviour
     {
         Item item;
         Type tp;
-        tp = Type.GetType(ItemDetails[id].ClassName);
+        tp = Type.GetType(ItemData[id].ClassName);
         item = (Item)Creater.gameObject.AddComponent(tp);
         item.Id = id;
-        item.Name = ItemDetails[id].ItemName;
-        item.Rare = (ItemRare)Enum.Parse(typeof(ItemRare), ItemDetails[id].ItemQuality);
-        item.Type = (ItemType)Enum.Parse(typeof(ItemType), ItemDetails[id].ItemType);
-        item.Data = new float[ItemDetails[id].Data.Length];
+        item.Name = ItemData[id].ItemName;
+        item.Rare = (ItemRare)Enum.Parse(typeof(ItemRare), ItemData[id].ItemQuality);
+        item.Type = (ItemType)Enum.Parse(typeof(ItemType), ItemData[id].ItemType);
+        item.Data = new float[ItemData[id].Data.Length];
         for (int i = 0; i < item.Data.Length; i++)
-            item.Data[i] = (float)ItemDetails[id].Data[i];
-
+            item.Data[i] = (float)ItemData[id].Data[i];
+        UiManager.ShowItemDetail(5,item.Message);
         return item;
     }
     /// <summary>
@@ -194,4 +230,14 @@ public class GameManager : MonoBehaviour
         AllRoles.Remove(role);
         Destroy(role.gameObject);
     }
+    public PolygonCollider2D pc2d;
+    public Camera privateCamera;
+    public Canvas privateCanvas;
+    public GameObject itemCreater;
+    public CinemachineConfiner PrivateVirtualCamera;
+    public List<GameObject> Effects = new List<GameObject>();
+    public List<GameObject> UIs = new List<GameObject>();
+    public List<GameObject> Particles = new List<GameObject>();
+    public List<Sprite> Images = new List<Sprite>();
+    public List<Sprite> skillImg = new List<Sprite>();
 }

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class DoctorAttack : Skill
 {
-    GameObject AttackEffect = GameManager.Effect[1];
+    GameObject AttackEffect;
     public bool Moving = false;
     public int Arrow;
     public Vector2 v2d = new Vector2();
     
     public override void Init()
     {
+        AttackEffect = GameManager.Effect[1];
         AddAction(0.9f, Atk);
-        ReleaseTime = 1.1f;
-        CoolDown = 1.5f;
         SkillState = "Attack";
         Arrow = 0;
     }

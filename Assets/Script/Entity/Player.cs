@@ -1,25 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Role
 {
     public Jump jump;
     public Dash dash;
-    public Attack attack;
+    public Skill Skill1;
+    public Skill Skill2;
+    public Skill Attack;
+    public static Player player;
     public override void Init()
     {
+        player = this;
         base.Init();
         UiManager.player = this;
         PlayerGameObject = gameObject;
         jump = GetComponent<Jump>();
         dash = GetComponent<Dash>();
-        attack = GetComponent<Attack>();
-        for (var i = 7; i <= 16;i ++)
-            Item.CreateItem(i, transform.position + new Vector3(5+i*1, 0,0));
+        Skill1 = GetComponent<ActorChangeFace>();
+        Attack = GetComponent<ActorSwordAttack>();
+        //for (var i = 7; i <= 16;i ++)
+        //    Item.CreateItem(i, transform.position + new Vector3(5+i*1, 0,0));
     }
     public override void OnUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -34,7 +44,9 @@ public class Player : Role
         if (Input.GetKeyDown(KeyCode.C))
             jump.NextSkill();
         if (Input.GetKeyDown(KeyCode.X))
-            attack.NextSkill();
+            Attack.NextSkill();
+        if (Input.GetKeyDown(KeyCode.A))
+            Skill1.NextSkill();
     }
     public override void UnderAttack(Damage dam, Role from)
     {

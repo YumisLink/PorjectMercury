@@ -17,7 +17,7 @@ public class ItemFloat : MonoBehaviour
         var child = Instantiate(GameManager.Particle[2],gameObject.transform);
         child.transform.position = transform.position;
         var p = child.GetComponent<ParticleSystem>();
-        p.startColor = GameManager.FindColor((ItemRare)Enum.Parse(typeof(ItemRare),GameManager.ItemDetails[ItemId].ItemQuality));
+        p.startColor = GameManager.FindColor((ItemRare)Enum.Parse(typeof(ItemRare),GameManager.ItemData[ItemId].ItemQuality));
     }
     void Update()
     {
