@@ -36,16 +36,19 @@ public class ActorChangeFace : Skill
         if (state == 1)
         {
             py.Attack = py.GetComponent<ActorSwordAttack>();
+            py.Skill2 = py.GetComponent<ActorAliveOrDeath>();
             SkillImage = img2;
         }
         if (state == 2)
         {
             py.Attack = py.GetComponent<ActorSpearAttack>();
+            py.Skill2 = py.GetComponent<ActorLimitSpike>();
             SkillImage = img3;
         }
         if (state == 3)
         {
             py.Attack = py.GetComponent<ActorRiderAttack>();
+            py.Skill2 = py.GetComponent<ActorJusticeAdjudication>();
             SkillImage = img1;
         }
     }

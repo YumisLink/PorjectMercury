@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum BuffType
@@ -65,18 +66,18 @@ public class Buff : Passive
         LoseBuff();
         role.DeletePossiveQueue.Enqueue(this);
     }
-    private static Buff GiveBuff(BuffType Type,Role to)
+    private static Buff GiveBuff(Type Type,Role to)
     {
-        Buff buff = null;
-        if (Type == BuffType.Bleeding)
-            buff = to.gameObject.AddComponent<BuffBleeding>();
-        if (Type == BuffType.Flame)
-            buff = to.gameObject.AddComponent<BuffFlame>();
-        if (Type == BuffType.VoidCorrosion)
-            buff = to.gameObject.AddComponent<BuffVoidCorrosion>();
+        var buff = (Buff)to.gameObject.AddComponent(Type);
+        //if (Type == BuffType.Bleeding)
+        //    buff = to.gameObject.AddComponent<BuffBleeding>();
+        //if (Type == BuffType.Flame)
+        //    buff = to.gameObject.AddComponent<BuffFlame>();
+        //if (Type == BuffType.VoidCorrosion)
+        //    buff = to.gameObject.AddComponent<BuffVoidCorrosion>();
         return buff;
     }
-    public static void GiveBuff(BuffType Type, int stack, Role from,Role to)
+    public static void GiveBuff(Type Type, int stack, Role from,Role to)
     {
         Buff buff = GiveBuff(Type, to);
         if (buff)
@@ -89,7 +90,7 @@ public class Buff : Passive
         else
             Debug.LogError("Buff为空");
     }
-    public static void GiveBuff(BuffType Type, int stack,float Duration, Role from, Role to)
+    public static void GiveBuff(Type Type, int stack,float Duration, Role from, Role to)
     {
         Buff buff = GiveBuff(Type, to);
         if (buff)
@@ -102,7 +103,7 @@ public class Buff : Passive
         else
             Debug.LogError("Buff为空");
     }
-    public static void GiveBuff(BuffType Type, float Duration, Role from, Role to)
+    public static void GiveBuff(Type Type, float Duration, Role from, Role to)
     {
         Buff buff = GiveBuff(Type, to);
         if (buff)
@@ -118,11 +119,11 @@ public class Buff : Passive
     protected virtual void OnUpdate() { }
     private void Update()
     {
+        OnUpdate();
         RemainingTime -= Time.deltaTime;
         if (RemainingTime <= 0)
             DestroyBuff();
         if (Stack <= 0)
             DestroyBuff();
-        OnUpdate();
     }
 }

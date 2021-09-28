@@ -46,8 +46,9 @@ public class Effect : Entity
         if (collision.gameObject.TryGetComponent<Role>(out var ent))
         {
             list.Add(ent);
-            if (Master.GetComponent<Role>().faction != ent.faction)
-                Damage.DealDamage(damage,Master.GetComponent<Role>(), ent);
+            if (damage != null)
+                if (Master.GetComponent<Role>().faction != ent.faction)
+                    Damage.DealDamage(damage,Master.GetComponent<Role>(), ent);
             Master.GetComponent<Role>().OnSucceedAttack(ent);
         }
         if (collision.gameObject.TryGetComponent<Land>(out var lad))
@@ -77,8 +78,8 @@ public class Effect : Entity
     {
         if (OnlyEffect)
             return;
-        var ent = collision.gameObject.GetComponent<Entity>();
-        list.Remove(ent);
+        //var ent = collision.gameObject.GetComponent<Entity>();
+        //list.Remove(ent);
     }
 
 

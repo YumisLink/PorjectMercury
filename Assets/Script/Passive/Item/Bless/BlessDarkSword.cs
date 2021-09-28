@@ -17,7 +17,7 @@ public class BlessDarkSword : Item
     public override void BeforeDealDamage(Damage damage, Role target)
     {
         if (damage.fromSkill == "Attack")
-            damage.FinalDamage += damage.BaseDamage * 0.5f;
+            damage.BaseDamage += damage.BaseDamage * 0.5f;
     }
     private void Update()
     {

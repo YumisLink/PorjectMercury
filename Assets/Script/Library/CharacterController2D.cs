@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
     public bool CanMove = true;
 
     public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 5;
-    public float HitBackDefense = 250;
+    public float HitBackDefense = 25;
     public float BaseMoveSpeed = 250;
 
 

@@ -54,8 +54,9 @@ public class ActorSpearAttack : Skill
         }
         if (SkillState != role.SkillState)
             return;
-        if (eff.list.Count > 0)
-            tip = true;
+        if (eff != null)
+            if (eff.list.Count > 0)
+                tip = true;
         if (hitplace == 1)
         {
             if (role.Move.IsGround || tip)

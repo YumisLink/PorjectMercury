@@ -44,6 +44,8 @@ public class Role : Entity
     public float Mana;
     float TimeCnt = 0;
 
+
+
     public override void Init()
     {
         SkillState = "noon";
@@ -57,9 +59,8 @@ public class Role : Entity
     }
     public override void OnUpdate()
     {
-        if (Health <= 0 && !die)
+        if (Health <= 0 && !die && false)
         {
-            return;
             die = true;
             Move.CanMove = false;
             SkillState = "???";
@@ -242,4 +243,6 @@ public class Role : Entity
     {
         return Lib.GetPosision(gameObject, PlayerGameObject);
     }
+
+    public static string NormalState = "noon";
 }

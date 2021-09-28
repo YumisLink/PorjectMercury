@@ -46,7 +46,7 @@ public class DoctorAct : Skill
     {
         role.Move.controller.velocity = Vector2.zero;
         Moving = false;
-        role.anim.Play("DoctorIdle");
+        role.anim.Play("Idle");
         role.Move.GravityEffect = true;
     }
     protected override void OnFixedUsing()

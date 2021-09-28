@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 2391610992971243621}
   - component: {fileID: 724796467}
   - component: {fileID: -5146497177287538227}
+  - component: {fileID: 7856788414209243919}
+  - component: {fileID: 5026676631955477269}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -150,6 +152,8 @@ MonoBehaviour:
   role: {fileID: 0}
   InputTime: 0
   SkillState: 
+  Data: []
+  SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
   CoolDown: 1
@@ -231,6 +235,8 @@ MonoBehaviour:
   role: {fileID: 0}
   InputTime: 0
   SkillState: 
+  Data: []
+  SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
   CoolDown: 1
@@ -290,7 +296,9 @@ MonoBehaviour:
   Mana: 0
   jump: {fileID: 0}
   dash: {fileID: 0}
-  attack: {fileID: 0}
+  Skill1: {fileID: 0}
+  Skill2: {fileID: 0}
+  Attack: {fileID: 0}
 --- !u!114 &-5146497177287538227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +314,8 @@ MonoBehaviour:
   role: {fileID: 0}
   InputTime: 0
   SkillState: 
+  Data: []
+  SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
   CoolDown: 1
@@ -315,3 +325,45 @@ MonoBehaviour:
   RushColor: {r: 1, g: 1, b: 1, a: 1}
   BiggerAttack: 1
   BiggerRushAttack: 1
+--- !u!114 &7856788414209243919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cc6941ca9d5064a9bc4528a7e7c621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0
+--- !u!114 &5026676631955477269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25778283c6996a9429b2febbe69d141d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0

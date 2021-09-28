@@ -16,6 +16,6 @@ public class BlessFlameSword : Item
     }
     public override void OnSucceedDamage(Damage damage, Role target)
     {
-        Buff.GiveBuff(BuffType.Flame, 1,3f, role, target);
+        Buff.GiveBuff(typeof(BuffFlame), 3,3f, role, target);
     }
 }

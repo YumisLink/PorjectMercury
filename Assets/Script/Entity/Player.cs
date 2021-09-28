@@ -20,6 +20,7 @@ public class Player : Role
         jump = GetComponent<Jump>();
         dash = GetComponent<Dash>();
         Skill1 = GetComponent<ActorChangeFace>();
+        Skill2 = GetComponent<ActorAliveOrDeath>();
         Attack = GetComponent<ActorSwordAttack>();
         //for (var i = 7; i <= 16;i ++)
         //    Item.CreateItem(i, transform.position + new Vector3(5+i*1, 0,0));
@@ -35,10 +36,6 @@ public class Player : Role
             Application.Quit();
         }
         base.OnUpdate();
-        if (Health <= 0)
-        {
-            return;
-        }
         if (Input.GetKeyDown(KeyCode.Z))
             dash.NextSkill();
         if (Input.GetKeyDown(KeyCode.C))
@@ -47,6 +44,8 @@ public class Player : Role
             Attack.NextSkill();
         if (Input.GetKeyDown(KeyCode.A))
             Skill1.NextSkill();
+        if (Input.GetKeyDown(KeyCode.S))
+            Skill2.NextSkill();
     }
     public override void UnderAttack(Damage dam, Role from)
     {

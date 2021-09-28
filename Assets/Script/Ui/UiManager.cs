@@ -20,8 +20,9 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-        if (!Manager)
-            Manager = this;
+        //if (!Manager)
+        Bosses.Clear();
+        Manager = this;
     }
     private void Update()
     {
@@ -55,7 +56,7 @@ public class UiManager : MonoBehaviour
     {
         Manager.ItemTextShower.GetComponent<ItemTextShower>().Show(tim, str);
     }
-    public static void CreateDamageShow(Damage dam,Vector2 position)
+    public static void CreateDamageShow(Damage dam,Vector2 position,float mut)
     {
         var go = Instantiate(GameManager.UI[0],GameManager.Canvas.transform);
         var text = go.GetComponent<Text>();
@@ -64,6 +65,8 @@ public class UiManager : MonoBehaviour
         text.color = Color.red;
 
         var font = go.GetComponent<Font>();
+
+        Lib.SetMultScale(go.gameObject, mut, mut);
         font.v2d = position + new Vector2(UnityEngine.Random.Range(-0.2f,0.2f),3+UnityEngine.Random.Range(-0.2f,0.2f));
     }
     public static void CreateNumShow(float k, Vector2 position,Color color)

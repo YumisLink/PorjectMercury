@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     { 
-        if (!Manager)
+        //if (!Manager)
             Manager = this;
         Effect = Effects;
         UI = UIs;
@@ -122,10 +122,6 @@ public class GameManager : MonoBehaviour
         {
             NowScreenBiger -= NowScreenBiger * 2f * Time.fixedDeltaTime;
         }
-    }
-    void ReadFromJson()
-    {
-
     }
 
 

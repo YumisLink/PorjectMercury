@@ -26,6 +26,6 @@ public class BlessBloodSword : Item
     {
         if (damage.FinalDamage > 0 && damage.fromSkill == "Attack")
             role.RecoverHealth(damage.FinalDamage * 0.05f);
-        Buff.GiveBuff(BuffType.Bleeding, 1, role, target);
+        Buff.GiveBuff(typeof(BuffBleeding), 3, role, target);
     }
 }

@@ -16,6 +16,6 @@ public class BlessVoidSword : Item
     }
     public override void OnSucceedDamage(Damage damage, Role target)
     {
-        Buff.GiveBuff(BuffType.VoidCorrosion, 1, role, target);
+        Buff.GiveBuff(typeof(BuffVoidCorrosion), 1, role, target);
     }
 }

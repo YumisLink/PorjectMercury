@@ -1,17 +1,17 @@
 {
 "SkillJsonClass":[
-		{"SkillName":"演员普通攻击1","ClassName":"ActorSwordAttack","SkillDetail":"向前挥砍，造成一定的伤害。","ReleaseTime":0.15,"CoolDown":0.6,"SkillState":"ActorSwordAttack","Data":[70
-]},
-		{"SkillName":"演员普通攻击2","ClassName":"ActorSpearAttack","SkillDetail":"向前突刺，造成伤害","ReleaseTime":0.2,"CoolDown":0.6,"SkillState":"ActorSpearAttack","Data":[60
-]},
-		{"SkillName":"演员普通攻击3","ClassName":"ActorRiderAttack","SkillDetail":"挥砍！","ReleaseTime":0.3,"CoolDown":0.8,"SkillState":"ActorRiderAttack","Data":[120
-]},
-		{"SkillName":"医生攻击","ClassName":"DoctorAttack","SkillDetail":"医生的攻击","ReleaseTime":1.1,"CoolDown":1.5,"SkillState":"DoctorAttack","Data":[100
-]},
-		{"SkillName":"医生攻击2","ClassName":"DoctorAct","SkillDetail":"医生的攻击","ReleaseTime":1,"CoolDown":1.5,"SkillState":"DoctorAct","Data":[100
-]},
+		{"SkillName":"演员普通攻击1","ClassName":"ActorSwordAttack","SkillDetail":"向前挥砍，造成一定的伤害。","ReleaseTime":0.15,"CoolDown":0.6,"SkillState":"ActorSwordAttack","Data":[70]},
+		{"SkillName":"演员普通攻击2","ClassName":"ActorSpearAttack","SkillDetail":"向前突刺，造成伤害","ReleaseTime":0.2,"CoolDown":0.6,"SkillState":"ActorSpearAttack","Data":[60]},
+		{"SkillName":"演员普通攻击3","ClassName":"ActorRiderAttack","SkillDetail":"挥砍！","ReleaseTime":0.3,"CoolDown":0.8,"SkillState":"ActorRiderAttack","Data":[120]},
+		{"SkillName":"医生攻击","ClassName":"DoctorAttack","SkillDetail":"医生的攻击","ReleaseTime":1.1,"CoolDown":1.5,"SkillState":"DoctorAttack","Data":[100]},
+		{"SkillName":"医生攻击2","ClassName":"DoctorAct","SkillDetail":"医生的攻击","ReleaseTime":1,"CoolDown":1.5,"SkillState":"DoctorAct","Data":[100]},
 		{"SkillName":"冲刺","ClassName":"Dash","SkillDetail":"冲刺","ReleaseTime":0,"CoolDown":0,"SkillState":"Dash","Data":[]},
 		{"SkillName":"跳跃","ClassName":"Jump","SkillDetail":"跳跃","ReleaseTime":0,"CoolDown":0,"SkillState":"Jump","Data":[]},
-		{"SkillName":"演员换脸","ClassName":"ActorChangeFace","SkillDetail":"换脸","ReleaseTime":0,"CoolDown":15,"SkillState":"ActorChangeFace","Data":[]}
+		{"SkillName":"演员换脸","ClassName":"ActorChangeFace","SkillDetail":"斩击：瞬间移动到敌人背后，进行一次攻击。突刺：向前突刺到第一个敌人所在的位置，并且赋予造成伤害的人一层虚弱。打击：击退面前大范围的敌人。","ReleaseTime":0,"CoolDown":3,"SkillState":"ActorChangeFace","Data":[]},
+		{"SkillName":"生死界线","ClassName":"ActorAliveOrDeath","SkillDetail":"对前方长距离斩击，之后收刀，如果本次伤害大于理论伤害，则造成多倍伤害。","ReleaseTime":1,"CoolDown":40,"SkillState":"ActorAliveOrDeath","Data":[100,20
+]},
+		{"SkillName":"极限突刺","ClassName":"ActorLimitSpike","SkillDetail":"对前方进行突刺，如果本次造成的伤害大于理论伤害，则追加一次有最多次数","ReleaseTime":0.6,"CoolDown":40,"SkillState":"ActorLimitSpike","Data":[120,5
+]},
+		{"SkillName":"正义裁决","ClassName":"ActorJusticeAdjudication","SkillDetail":"进行重击，击退目标极其周围的敌人，并且对目标追加其最大生命值10%的伤害，并且这个伤害也对周围的敌人生效。","ReleaseTime":0.6,"CoolDown":40,"SkillState":"ActorJusticeAdjudication","Data":[180]}
 	]
 }

@@ -71,4 +71,10 @@ public class Lib
         ret.y = b.y - a.y;
         return ret;
     }
+    public static float Fitting(float low,float high,float input)
+    {
+        high -= low;
+        input -= low;
+        return (input / high);
+    }
 }

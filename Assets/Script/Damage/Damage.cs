@@ -45,14 +45,25 @@ public class Damage
         if (damage.Miss)
             return;
         Damage To = new Damage(damage);
-        To.FinalDamage = To.BaseDamage;
+            To.FinalDamage = To.BaseDamage;
         if (from)
             from.BeforeDealDamage(To, to);
         
-        To.FinalDamage += Random.Range(-0.05f, 0.05f) * To.FinalDamage;
+        To.FinalDamage += Random.Range(-0.05f, 0.05f) * To.BaseDamage;
+
         if (from)
-            if (To.Critical) To.FinalDamage *= from.Properties.CriticalRatio;
+            from.BeforeFinalAttack(To, to);
+
+        if (from)
+            if (To.Critical) 
+                To.FinalDamage *= from.Properties.CriticalRatio;
         to.UnderAttack(To, from);
-        UiManager.CreateDamageShow(To, to.transform.position);
+        float bd;
+        if (from != null)
+            bd = from.Properties.Attack;
+        else
+            bd = 9999;
+        if (To.FinalDamage > 0)
+            UiManager.CreateDamageShow(To, to.transform.position,Mathf.Min(5,Mathf.Max(1, To.FinalDamage / bd / 6)));
     }
 }
