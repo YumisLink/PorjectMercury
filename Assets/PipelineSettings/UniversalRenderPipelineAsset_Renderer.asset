@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4136204059292971839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46946aed4bf4dd49821ed31f796570b, type: 3}
+  m_Name: NewAirDistortionFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Setting:
+    Event: 500
+    AirDistortionMaterial: {fileID: 2100000, guid: 9098fdf7ec923534f9d31dc9b17fca3c,
+      type: 2}
+    Center: {x: 0.5, y: 0.5}
+    Distance: 0.5
+    Power: 3
+    Amplitude: 1
+    WaveLength: 0.125
+    Speed: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,8 +35,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: 5931518874686774694}
+  - {fileID: -4136204059292971839}
+  m_RendererFeatureMap: a6dd3a70fdfc5052c14c5097524099c6
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -36,3 +61,22 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &5931518874686774694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980dec177c99a6d46bcff056c38150d0, type: 3}
+  m_Name: NewRenderMaskFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Setting:
+    Event: 500
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    Material: {fileID: 0}

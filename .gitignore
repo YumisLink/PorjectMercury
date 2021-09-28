@@ -48,3 +48,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 .idea/
+Assets/Script/Passive/Buff/Buffs.meta
+Packages/packages-lock.json
+.vsconfig
