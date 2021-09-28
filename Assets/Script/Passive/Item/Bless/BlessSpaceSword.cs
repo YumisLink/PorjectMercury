@@ -11,9 +11,17 @@ public class BlessSpaceSword : Item
             a.color = Colors.Space;
             a.BiggerAttack += 0.3f;
         }
+        if (role.TryGetComponent<ActorRiderAttack>(out var k))
+            k.color = Colors.Space;
+        if (role.TryGetComponent<ActorSpearAttack>(out var k))
+            k.color = Colors.Space;
     }
     public override void DiscardItem()
     {
+        if (role.TryGetComponent<ActorRiderAttack>(out var k))
+            k.color = Color.white;
+        if (role.TryGetComponent<ActorSpearAttack>(out var k))
+            k.color = Color.white;
         if (TryGetComponent<ActorSwordAttack>(out var a))
         {
             a.color = Color.white;

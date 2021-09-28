@@ -12,6 +12,10 @@ public class BlessBloodSword : Item
     {
         if (role.TryGetComponent<ActorSwordAttack>(out var k))
             k.color = Colors.Blood;
+        if (role.TryGetComponent<ActorRiderAttack>(out var k))
+            k.color = Colors.Blood;
+        if (role.TryGetComponent<ActorSpearAttack>(out var k))
+            k.color = Colors.Blood;
         Rare = ItemRare.Rare;
         role.Properties.MaxHealth -= role.BaseProperties.MaxHealth *0.6f;
         role.Health = Mathf.Min(role.Properties.MaxHealth, role.Health);
@@ -19,6 +23,10 @@ public class BlessBloodSword : Item
     public override void DiscardItem()
     {
         if (role.TryGetComponent<ActorSwordAttack>(out var k))
+            k.color = Color.white;
+        if (role.TryGetComponent<ActorRiderAttack>(out var k))
+            k.color = Color.white;
+        if (role.TryGetComponent<ActorSpearAttack>(out var k))
             k.color = Color.white;
         role.Properties.MaxHealth += role.BaseProperties.MaxHealth * 0.6f;
     }

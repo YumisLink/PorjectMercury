@@ -50,7 +50,6 @@ public class ActorLimitSpike : Skill
             UsingTime = 0;
             cnt++;
             DoThis = false;
-            Debug.Log(cnt);
         }
         if (cnt > 0  && CanNext && UsingTime >= 0.2 && !DoThis)
         {
