@@ -11,7 +11,7 @@ public class EffectDistortion : MonoBehaviour
         public float Distance = 0.5f;
         public float Power = 5;
         public float Amplitude = 5;
-        public float WaveLength = 0.1f;
+        public float WaveLength = 0.5f;
         public float Speed = 10;
         public float Near = 0.25f;
         public float Far = 0.4f;
@@ -28,7 +28,7 @@ public class EffectDistortion : MonoBehaviour
 
     public ForwardRendererData RendererData;
     public Settings Setting;
-    public float PlaySpeed = 1;
+    public float PlaySpeed = 5;
 
     private Coroutine _effCo;
     private AirDistortionFeature _distortionFeature;

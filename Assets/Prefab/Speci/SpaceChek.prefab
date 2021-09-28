@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 838506788626413530}
   - component: {fileID: 838506788626413531}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpaceChek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RendererData: {fileID: 11400000, guid: 0e34fd8538d13bb438e99908d946676d, type: 2}
   Setting:
-    Distance: 1
+    Distance: 3
     Power: 5
-    Amplitude: 5
-    WaveLength: 0.1
+    Amplitude: 0.2
+    WaveLength: 1
     Speed: 10
-    Near: 0.1
-    Far: 0.15
-  PlaySpeed: 1
+    Near: 0
+    Far: 1
+  PlaySpeed: 2.5

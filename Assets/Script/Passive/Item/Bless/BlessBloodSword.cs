@@ -10,22 +10,22 @@ public class BlessBloodSword : Item
     }
     public override void GetItem()
     {
-        if (role.TryGetComponent<ActorSwordAttack>(out var k))
-            k.color = Colors.Blood;
-        if (role.TryGetComponent<ActorRiderAttack>(out var k))
-            k.color = Colors.Blood;
-        if (role.TryGetComponent<ActorSpearAttack>(out var k))
-            k.color = Colors.Blood;
+        if (role.TryGetComponent<ActorSwordAttack>(out var a))
+            a.color = Colors.Blood;
+        if (role.TryGetComponent<ActorRiderAttack>(out var b))
+            b.color = Colors.Blood;
+        if (role.TryGetComponent<ActorSpearAttack>(out var c))
+            c.color = Colors.Blood;
         Rare = ItemRare.Rare;
         role.Properties.MaxHealth -= role.BaseProperties.MaxHealth *0.6f;
         role.Health = Mathf.Min(role.Properties.MaxHealth, role.Health);
     }
     public override void DiscardItem()
     {
-        if (role.TryGetComponent<ActorSwordAttack>(out var k))
-            k.color = Color.white;
-        if (role.TryGetComponent<ActorRiderAttack>(out var k))
-            k.color = Color.white;
+        if (role.TryGetComponent<ActorSwordAttack>(out var a))
+            a.color = Color.white;
+        if (role.TryGetComponent<ActorRiderAttack>(out var b))
+            b.color = Color.white;
         if (role.TryGetComponent<ActorSpearAttack>(out var k))
             k.color = Color.white;
         role.Properties.MaxHealth += role.BaseProperties.MaxHealth * 0.6f;

@@ -11,17 +11,17 @@ public class BlessTimeSword : Item
             attack.color = Colors.Time;
             attack.CoolDown -= 0.1f;
         }
-        if (role.TryGetComponent<ActorRiderAttack>(out var k))
-            k.color = Colors.Time;
-        if (role.TryGetComponent<ActorSpearAttack>(out var k))
-            k.color = Colors.Time;
+        if (role.TryGetComponent<ActorRiderAttack>(out var b))
+            b.color = Colors.Time;
+        if (role.TryGetComponent<ActorSpearAttack>(out var c))
+            c.color = Colors.Time;
     }
     public override void DiscardItem()
     {
-        if (role.TryGetComponent<ActorRiderAttack>(out var k))
-            k.color = Color.white;
-        if (role.TryGetComponent<ActorSpearAttack>(out var k))
-            k.color = Color.white;
+        if (role.TryGetComponent<ActorRiderAttack>(out var a))
+            a.color = Color.white;
+        if (role.TryGetComponent<ActorSpearAttack>(out var b))
+            b.color = Color.white;
         if (TryGetComponent<ActorSwordAttack>(out var attack))
         {
             attack.color = Color.white;
