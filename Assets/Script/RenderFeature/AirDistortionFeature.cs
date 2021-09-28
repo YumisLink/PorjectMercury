@@ -10,11 +10,13 @@ public class AirDistortionFeature : ScriptableRendererFeature
         public RenderPassEvent Event = RenderPassEvent.AfterRenderingTransparents;
         public Material AirDistortionMaterial = null;
         public Vector2 Center = new Vector2(0.5f, 0.5f);
-        public float Distance;
-        public float Power;
-        public float Amplitude;
-        public float WaveLength;
-        public float Speed;
+        public float Distance = 1;
+        public float Power = 5;
+        public float Amplitude = 1;
+        public float WaveLength = 1;
+        public float Speed = 1;
+        public float Near = 0.125f;
+        public float Far = 0.5f;
     }
 
     class AirDistortionRenderPass : ScriptableRenderPass
@@ -67,13 +69,14 @@ public class AirDistortionFeature : ScriptableRendererFeature
     AirDistortionRenderPass _airDistortionRenderPass;
 
     public static readonly int CameraTexture = Shader.PropertyToID("_CameraColorTexture");
-
     private static readonly int Center = Shader.PropertyToID("_Center");
     private static readonly int Distance = Shader.PropertyToID("_Distance");
     private static readonly int Power = Shader.PropertyToID("_Power");
     private static readonly int Amplitude = Shader.PropertyToID("_Amplitude");
     private static readonly int WaveLength = Shader.PropertyToID("_WaveLength");
     private static readonly int Speed = Shader.PropertyToID("_Speed");
+    private static readonly int OffsetNear = Shader.PropertyToID("_OffsetNear");
+    private static readonly int OffsetFar = Shader.PropertyToID("_OffsetFar");
 
     public override void Create()
     {
@@ -83,6 +86,8 @@ public class AirDistortionFeature : ScriptableRendererFeature
         Setting.AirDistortionMaterial.SetFloat(Amplitude, Setting.Amplitude);
         Setting.AirDistortionMaterial.SetFloat(WaveLength, Setting.WaveLength);
         Setting.AirDistortionMaterial.SetFloat(Speed, Setting.Speed);
+        Setting.AirDistortionMaterial.SetFloat(OffsetNear, Setting.Near);
+        Setting.AirDistortionMaterial.SetFloat(OffsetFar, Setting.Far);
         _airDistortionRenderPass = new AirDistortionRenderPass(Setting.Event, Setting.AirDistortionMaterial);
     }
 

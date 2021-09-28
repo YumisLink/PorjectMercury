@@ -22,6 +22,8 @@
           uniform float _Amplitude;
           uniform float _WaveLength;
           uniform float _Speed;
+          uniform float _OffsetNear;
+          uniform float _OffsetFar;
 
           struct Attributes
           {
@@ -52,6 +54,8 @@
               float2 offset = uv - _Center;
               float2 direction = normalize(offset);
               float len = length(offset);
+
+              float edge = step(_OffsetNear, len) * step(len, _OffsetFar);
               
               //计算振幅，简单模拟距离中心越远振幅越小
               float2 amp = (direction * _Amplitude) * pow(saturate(1.0 - len / _Distance), _Power);
@@ -59,7 +63,8 @@
               //初始相位 + 根据时间算相位偏移
               float phase = (len / _WaveLength * PI2) + ((_Time.x * _Speed * PI2) / _WaveLength);
               float sinPhase = sin(phase);
-              float2 wave = amp * sinPhase;
+              //float2 wave = amp * sinPhase;
+              float2 wave = amp * sinPhase * edge;
 
               float4 factor = SAMPLE_TEXTURE2D(_MaskSoildColor, sampler_MaskSoildColor, input.uv);
 
