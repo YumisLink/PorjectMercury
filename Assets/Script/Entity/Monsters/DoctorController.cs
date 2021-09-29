@@ -18,7 +18,6 @@ public class DoctorController : Role
     }
     public override void OnUpdate()
     {
-        return;
         if (GetDistance().magnitude <= 20)
             IsWeak = true;
         if (!IsWeak)
