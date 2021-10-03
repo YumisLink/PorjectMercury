@@ -8,7 +8,7 @@ public class ItemPool
     /// 物品池的名字
     /// </summary>
     public string PoolName;
-    private List<int> StartPool = new List<int>();
+    public List<int> StartPool = new List<int>();
     private List<int> UsePool = new List<int>();
     public int GetItem()
     {
@@ -19,6 +19,7 @@ public class ItemPool
     }
     public void Init(List<int> ls)
     {
+        StartPool.Clear();
         foreach(var a in ls)
             StartPool.Add(a);
         UsePool = StartPool;

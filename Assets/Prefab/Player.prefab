@@ -153,6 +153,7 @@ MonoBehaviour:
   InputTime: 0
   SkillState: 
   Data: []
+  Type: 0
   SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
@@ -183,7 +184,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 156698503596611478571c778088055e, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &2391610992971243616
@@ -236,6 +237,7 @@ MonoBehaviour:
   InputTime: 0
   SkillState: 
   Data: []
+  Type: 0
   SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
@@ -315,6 +317,7 @@ MonoBehaviour:
   InputTime: 0
   SkillState: 
   Data: []
+  Type: 0
   SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
@@ -341,6 +344,7 @@ MonoBehaviour:
   InputTime: 0
   SkillState: 
   Data: []
+  Type: 0
   SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1
@@ -362,6 +366,7 @@ MonoBehaviour:
   InputTime: 0
   SkillState: 
   Data: []
+  Type: 0
   SkillImage: {fileID: 0}
   UsingTime: 0
   ReleaseTime: 1

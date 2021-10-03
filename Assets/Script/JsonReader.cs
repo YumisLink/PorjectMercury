@@ -32,6 +32,7 @@ public class JsonReaders
                 SkillState = a.SkillState,
                 SkillDetail = a.SkillDetail,
                 SkillName = a.SkillName,
+                SkillType = a.SkillType
             };
             sm.Data = new float[a.Data.Length];
             for (var i = 0; i < sm.Data.Length; i++)
@@ -66,6 +67,7 @@ public class SkillJsonClass
     public double ReleaseTime;
     public double CoolDown;
     public string SkillState;
+    public string SkillType;
     public double[] Data;
 
 }
@@ -76,6 +78,7 @@ public class SkillMap
     public string SkillDetail;
     public float ReleaseTime;
     public float CoolDown;
+    public string SkillType;
     public string SkillState;
     public float[] Data;
     public override string ToString()

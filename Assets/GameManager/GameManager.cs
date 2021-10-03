@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    public static bool SuccessInit;
     public static List<Item> Item = new List<Item>();
     public static List<Role> AllRoles = new List<Role>();
     public static List<Effect> AllEffects = new List<Effect>();
@@ -62,9 +62,22 @@ public class GameManager : MonoBehaviour
 
 
     void Awake()
-    { 
-        //if (!Manager)
-            Manager = this;
+    {
+        ItemPool.StartPool.Clear();
+        if (!SuccessInit)
+        {
+            LoadOnce();
+        }
+        //物品池
+        NormalItemList.Clear();
+        foreach (var a in ItemData)
+            NormalItemList.Add(a.id);
+        ItemPool.Init(NormalItemList);
+        ItemPools = ItemPool.StartPool;
+
+        SuccessInit = true;
+        Manager = this;
+        Debug.Log(Manager);
         Effect = Effects;
         UI = UIs;
         Particle = Particles;
@@ -77,13 +90,12 @@ public class GameManager : MonoBehaviour
         Pc2d = pc2d;
         VirtualCamera = PrivateVirtualCamera;
         cm = VirtualCamera.GetComponent<CinemachineVirtualCamera>();
+    }
+    public void LoadOnce()
+    {
         ItemData = JsonReaders.ReadFromFileItem();
         SkillData = JsonReaders.ReadFromFileSkill();
 
-        //物品池
-        foreach (var a in ItemData)
-            NormalItemList.Add(a.id);
-        ItemPool.Init(NormalItemList);
     }
     public float NowScreenBiger;
     void Update()
@@ -236,4 +248,5 @@ public class GameManager : MonoBehaviour
     public List<GameObject> Particles = new List<GameObject>();
     public List<Sprite> Images = new List<Sprite>();
     public List<Sprite> skillImg = new List<Sprite>();
+    public List<int> ItemPools;
 }

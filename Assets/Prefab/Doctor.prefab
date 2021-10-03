@@ -149,7 +149,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 156698503596611478571c778088055e, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &3481587450429916090
@@ -169,7 +169,6 @@ MonoBehaviour:
   controller: {fileID: 0}
   GravityMult: 1
   CanMove: 1
-  LimitSpeed: 2
   HitBackDefense: 50
   BaseMoveSpeed: 100
   MoveDirection: 0
@@ -203,26 +202,32 @@ MonoBehaviour:
     MaxMana: 0
     Attack: 0
     RepelResistance: 0
+    Move: 1
     HealthRec: 0
     ManaRec: 0
     SpirtRec: 0
     Critical: 0
     CriticalRatio: 1.5
+    RangeChange: 1
+    AttackSpeeds: 100
   BaseProperties:
     MaxHealth: 3000
     MaxSpirit: 100
     MaxMana: 0
     Attack: 0
     RepelResistance: 0
+    Move: 1
     HealthRec: 0
     ManaRec: 0
     SpirtRec: 0
     Critical: 0
     CriticalRatio: 1.5
+    RangeChange: 1
+    AttackSpeeds: 100
   Health: 0
   Spirit: 0
   Mana: 0
   Attack: {fileID: 0}
   Act: {fileID: 0}
-  TimeCount: 0
   v2dMove: {x: 0, y: 0}
+  IsWeak: 0

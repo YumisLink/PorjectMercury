@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum SkillType
+{
+    Rush,Jump,Attack,State,Skill
+}
 
 public class SkillEffect
 {
@@ -21,6 +25,7 @@ public class Skill : Passive
     public float InputTime;
     public string SkillState;
     public float[] Data;
+    public SkillType Type;
     public Sprite SkillImage;
     protected override void OnStart()
     {
@@ -31,6 +36,7 @@ public class Skill : Passive
         CoolDown = GameManager.SkillData[n].CoolDown;
         SkillState = GameManager.SkillData[n].SkillState;
         Data = GameManager.SkillData[n].Data;
+        Type = (SkillType)Enum.Parse(typeof(SkillType), GameManager.SkillData[n].SkillType) ;
         Init();
 
 
