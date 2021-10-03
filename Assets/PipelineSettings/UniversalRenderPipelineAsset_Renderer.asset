@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46946aed4bf4dd49821ed31f796570b, type: 3}
   m_Name: NewSuperDistortionFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   Setting:
     Event: 500
     SuperDistortionMaterial: {fileID: 2100000, guid: d5e97065bb8150942ae45168671490b2,
