@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class EffectDistortion : MonoBehaviour
+public class EffectDistortion : Effect
 {
     [System.Serializable]
     public class Settings
@@ -30,18 +30,21 @@ public class EffectDistortion : MonoBehaviour
     public Settings Setting;
     public float PlaySpeed = 5;
 
-    private Coroutine _effCo;
-    private AirDistortionFeature _distortionFeature;
-    private Material Mat;
+    private static Coroutine _effCo;
+    private static AirDistortionFeature _distortionFeature;
+    private static Material _mat;
 
-    private void Start()
+    public override void Init()
     {
-        _distortionFeature = RendererData.rendererFeatures.OfType<AirDistortionFeature>().First();
-        Mat = _distortionFeature.Setting.AirDistortionMaterial;
-        _distortionFeature.SetActive(false);
+        if (_mat == null)
+        {
+            _distortionFeature = RendererData.rendererFeatures.OfType<AirDistortionFeature>().First();
+            _mat = _distortionFeature.Setting.AirDistortionMaterial;
+            _distortionFeature.SetActive(false);
+        }
     }
 
-    private void Update()
+    public override void OnUpdate()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -56,7 +59,7 @@ public class EffectDistortion : MonoBehaviour
             StopCoroutine(_effCo);
             _effCo = null;
         }
-        var mat = Mat;
+        var mat = _mat;
         mat.SetVector(Center, Camera.main.WorldToViewportPoint(target.position));
         mat.SetFloat(Distance, Setting.Distance);
         mat.SetFloat(Power, Setting.Power);
@@ -75,7 +78,7 @@ public class EffectDistortion : MonoBehaviour
         while (near <= PlaySpeed)
         {
             var center = Camera.main.WorldToViewportPoint(target.position);
-            var mat = Mat;
+            var mat = _mat;
             mat.SetVector(Center, center);
             mat.SetFloat(OffsetNear, near);
             mat.SetFloat(OffsetFar, far);
