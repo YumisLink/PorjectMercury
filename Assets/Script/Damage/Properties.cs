@@ -84,8 +84,8 @@ public struct Properties
         ret.SpirtRec = 0;
         ret.Critical = 0;
         ret.CriticalRatio = 1.5f;
-        ret.RangeChange = 1;
-        ret.Move = 1;
+        ret.RangeChange = 100;
+        ret.Move = 100;
         ret.AttackSpeeds = 100;
         return ret;
     }

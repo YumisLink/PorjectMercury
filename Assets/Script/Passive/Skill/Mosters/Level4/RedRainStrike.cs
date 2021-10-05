@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedRainStrike : Skill
 {
-    GameObject AttackEffect = GameManager.Effect[3];
+    readonly GameObject AttackEffect = GameManager.Effect[15];
     public bool Moving = false;
     public int Arrow;
     public Vector2 v2d = new Vector2();
@@ -45,10 +45,6 @@ public class RedRainStrike : Skill
         role.Move.controller.velocity = Vector2.zero;
         Moving = false;
         role.anim.Play("RedRainIdle");
-        if (Lib.GetPosision(gameObject, Role.PlayerGameObject).x > 0)
-        {
-
-        }
     }
     protected override void OnFixedUsing()
     {

@@ -23,6 +23,14 @@ public class ItemPool
         foreach(var a in ls)
             StartPool.Add(a);
         UsePool = StartPool;
+        UsePool.RemoveAt(41);
+        UsePool.RemoveAt(40);
+        UsePool.RemoveAt(39);
+        UsePool.RemoveAt(38);
+        UsePool.RemoveAt(35);
+        UsePool.RemoveAt(32);
+        UsePool.RemoveAt(23);
+        UsePool.RemoveAt(15);
         UsePool.RemoveAt(14);
         UsePool.RemoveAt(13);
         UsePool.RemoveAt(12);

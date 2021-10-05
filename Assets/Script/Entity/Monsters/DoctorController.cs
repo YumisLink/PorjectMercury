@@ -12,7 +12,7 @@ public class DoctorController : Role
     public override void Init()
     {
         base.Init();
-        UiManager.Bosses.Add(this);
+        //UiManager.Bosses.Add(this);
         Attack = gameObject.AddComponent<DoctorAttack>();
         Act = gameObject.AddComponent<DoctorAct>();
     }

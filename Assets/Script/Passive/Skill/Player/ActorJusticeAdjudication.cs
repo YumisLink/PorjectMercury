@@ -42,9 +42,7 @@ public class ActorJusticeAdjudication : Skill
     {
         if (damage.fromSkill == "ActorJusticeAdjudication")
         {
-            var V = target.Move.controller.velocity;
-            V.x += role.FaceTo * 30;
-            target.Move.controller.velocity = V;
+            target.HitBack(new Vector2(30*role.FaceTo,0));
         }
     }
 

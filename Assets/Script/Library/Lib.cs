@@ -41,6 +41,12 @@ public class Lib
         angle.z += direction;
         go.transform.localEulerAngles = angle;
     }
+    public static void SetRotate(GameObject go, float direction)
+    {
+        var angle = go.transform.localEulerAngles;
+        angle.z = direction;
+        go.transform.localEulerAngles = angle;
+    }
     public static void SetMultScale(GameObject go, float x,float y)
     {
         var scale = go.transform.localScale;
@@ -71,10 +77,24 @@ public class Lib
         ret.y = b.y - a.y;
         return ret;
     }
+    /// <summary>
+    /// 返回从左到右处于input的值的大小，如果输入的范围在low和high之间的话范围为0~1
+    /// </summary>
+    /// <param name="low"></param>
+    /// <param name="high"></param>
+    /// <param name="input"></param>
+    /// <returns></returns>
     public static float Fitting(float low,float high,float input)
     {
         high -= low;
         input -= low;
         return (input / high);
+    }
+    public static void MoveTo(GameObject go,Vector2 v2)
+    {
+        var t = go.transform.position;
+        t.x = v2.x;
+        t.y = v2.y;
+        go.transform.position = t;
     }
 }

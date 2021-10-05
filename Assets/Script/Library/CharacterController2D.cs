@@ -10,7 +10,7 @@ public class CharacterController2D : MonoBehaviour
     public Rigidbody2D controller;
     public float GravityMult = 1;
     public bool CanMove = true;
-
+    public bool Paqiang = false;
     public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 5;
     public float HitBackDefense = 25;
     public float BaseMoveSpeed = 250;
@@ -22,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
     public int MoveDirection = 0;
     private Collider2D _collider;
     private Vector2 Velocity;
+    public Vector2 Debug;
 
     private bool IsLastFrameTouchWall;
     private void Start()
@@ -38,6 +39,7 @@ public class CharacterController2D : MonoBehaviour
             CanMove = false;
         else
             CanMove = true;
+        Debug = controller.velocity;
     }
     public Vector2 DeletaMove = new Vector2();
     public Vector2 NowMove = new Vector2();
@@ -65,7 +67,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 if (Velocity.y - 25 * Time.fixedDeltaTime < -limit * 2)
                 {
-                    Velocity.y = -LimitSpeed * 2;
+                    Velocity.y = -limit * 2;
                     FallTime = 0;
                 }
                 else
@@ -75,7 +77,7 @@ public class CharacterController2D : MonoBehaviour
                 }
             }
         }
-        if (IsLeftTouch != 0)
+        if (IsLeftTouch != 0 && Paqiang)
             Velocity.y = Mathf.Max(-2.4f, Velocity.y);
         controller.velocity = Velocity;
         //NowMove.y = 0;
@@ -112,6 +114,9 @@ public class CharacterController2D : MonoBehaviour
             return 0;
         }
     }
+    /// <summary>
+    /// 是否在地上
+    /// </summary>
     public bool IsGround
     {
         get

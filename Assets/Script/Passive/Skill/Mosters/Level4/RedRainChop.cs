@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RedRainChop : Skill
 {
-    GameObject AttackEffect = GameManager.Effect[3];
+    GameObject AttackEffect = GameManager.Effect[15];
     public bool Moving = false;
     public int Arrow;
     public Vector2 v2d = new Vector2();
@@ -13,9 +13,6 @@ public class RedRainChop : Skill
     {
         AddAction(0.6f, Atk);
         AddAction(0.8f, Stop);
-        ReleaseTime = 1.3f;
-        CoolDown = 1.5f;
-        SkillState = "Chop";
         Arrow = 0;
     }
     public override void Before()
@@ -60,6 +57,8 @@ public class RedRainChop : Skill
     /// </summary>
     public void Atk()
     {
+
+
         role.anim.Play("RedRainChop");
         role.anim.speed = 1;
         Moving = true;
@@ -72,6 +71,15 @@ public class RedRainChop : Skill
     }
     public void Stop()
     {
+        float m = Player.player.transform.position.x;
+        float sf = transform.position.x;
+        if (role.FaceTo == 1 && m > sf || role.FaceTo == -1 && m < sf)
+        {
+            role.SkillState = "noon";
+            After();
+            role.AfterUseSkill(this);
+            GetComponent<RedRainBlink>().WantSkill();
+        }
         Moving = false;
         role.Move.controller.velocity = Vector2.zero;
     }

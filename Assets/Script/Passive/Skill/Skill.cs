@@ -57,7 +57,7 @@ public class Skill : Passive
     /// 技能正在冷却时间
     /// </summary>
     public float CoolTime = 0;
-    protected void EndSkill()
+    public  void EndSkill()
     {
         UsingTime = 0;
     }
@@ -113,7 +113,7 @@ public class Skill : Passive
                 a.Use = true;
             }
     }
-    private bool Request;
+    public bool Request;
     void Update()
     {
         if (CoolTime >= 0)
@@ -123,6 +123,7 @@ public class Skill : Passive
             Request = false;
             if (CanUse())
             {
+                role.nowSkill = this;
                 foreach (var a in list)
                     a.Use = false;
                 Before();
@@ -144,7 +145,9 @@ public class Skill : Passive
             {
                 role.SkillState = "noon";
                 After();
+                EndSkill();
                 role.AfterUseSkill(this);
+                role.nowSkill = null;
             }
         }
         OnUpdate();

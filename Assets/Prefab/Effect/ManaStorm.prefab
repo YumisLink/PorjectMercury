@@ -103,6 +103,8 @@ MonoBehaviour:
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
+  CList: []
+  ClearFloat: []
   land: []
   Star: {x: 0, y: 0}
   Delt: {x: 0, y: 0}
@@ -4842,7 +4844,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0a442a730120c5648ac6a2db5eab9960, type: 2}
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

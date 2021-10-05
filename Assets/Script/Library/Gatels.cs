@@ -4,17 +4,37 @@ using UnityEngine;
 
 public class Gatels : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collision)
+    public Gatels Link;
+    public Role role = null;
+    public Room room;
+    private void Update()
+    {
+        if (role != null)
+            if (Link!=null)
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    GameManager.VirtualCamera.m_BoundingShape2D = Link.room.Limit;
+                    role.transform.position = Link.transform.position;
+                }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("wocao");
+        if (collision.gameObject.TryGetComponent<Player>(out var a))
+        {
+            role = a;
+        }
+    }
+    public  void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out var a))
         {
-            var v2 = collision.transform.position;
-            v2.x = 5.08f;
-            v2.y = -34.25f;
-            collision.transform.position = v2;
-
-            GameManager.VirtualCamera.m_BoundingShape2D = GameManager.Pc2d;
+            role = null;
         }
     }
-
+    public void LinkTo(Gatels gate)
+    {
+        Link = gate;
+        gate.Link = this;
+    }
 }

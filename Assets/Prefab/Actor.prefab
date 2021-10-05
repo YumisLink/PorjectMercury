@@ -21,6 +21,10 @@ GameObject:
   - component: {fileID: -5146497177287538227}
   - component: {fileID: 7856788414209243919}
   - component: {fileID: 5026676631955477269}
+  - component: {fileID: 5200254402759046389}
+  - component: {fileID: 4526034015172202165}
+  - component: {fileID: 8451184830852793872}
+  - component: {fileID: 3226737529014241943}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -159,6 +163,7 @@ MonoBehaviour:
   ReleaseTime: 1
   CoolDown: 1
   CoolTime: 0
+  Request: 0
   JumpCount: 2
   Jumping: 0
   EnterTheSky: 0
@@ -216,9 +221,11 @@ MonoBehaviour:
   controller: {fileID: 0}
   GravityMult: 1
   CanMove: 1
+  Paqiang: 0
   HitBackDefense: 50
   BaseMoveSpeed: 100
   MoveDirection: 0
+  Debug: {x: 0, y: 0}
   DeletaMove: {x: 0, y: 0}
   NowMove: {x: 0, y: 0}
 --- !u!114 &2391610992971243621
@@ -243,6 +250,7 @@ MonoBehaviour:
   ReleaseTime: 1
   CoolDown: 1
   CoolTime: 0
+  Request: 0
 --- !u!114 &724796467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +271,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   InvisibleTime: 0
   possives: []
+  nowSkill: {fileID: 0}
   die: 0
   AttackedRed: 0
   Properties:
@@ -323,6 +332,7 @@ MonoBehaviour:
   ReleaseTime: 1
   CoolDown: 1
   CoolTime: 0
+  Request: 0
   IgnoreHitBack: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   RushColor: {r: 1, g: 1, b: 1, a: 1}
@@ -350,6 +360,7 @@ MonoBehaviour:
   ReleaseTime: 1
   CoolDown: 1
   CoolTime: 0
+  Request: 0
 --- !u!114 &5026676631955477269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,3 +383,111 @@ MonoBehaviour:
   ReleaseTime: 1
   CoolDown: 1
   CoolTime: 0
+  Request: 0
+--- !u!114 &5200254402759046389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3951c86dbe6a086438fc901ddec48d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  Type: 0
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0
+  Request: 0
+--- !u!114 &4526034015172202165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ef4c71d5e8383499344cea02b71cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  Type: 0
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0
+  Request: 0
+  img1: {fileID: 0}
+  img2: {fileID: 0}
+  img3: {fileID: 0}
+  state: 0
+  py: {fileID: 0}
+--- !u!114 &8451184830852793872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b44868fc25d4874fb1c5a5783843eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  Type: 0
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0
+  Request: 0
+  IgnoreHitBack: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  RushColor: {r: 1, g: 1, b: 1, a: 1}
+  BiggerAttack: 1
+  BiggerRushAttack: 1
+--- !u!114 &3226737529014241943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391610992971243628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1025a06897f9d0741b6772c3d72846d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  role: {fileID: 0}
+  InputTime: 0
+  SkillState: 
+  Data: []
+  Type: 0
+  SkillImage: {fileID: 0}
+  UsingTime: 0
+  ReleaseTime: 1
+  CoolDown: 1
+  CoolTime: 0
+  Request: 0
+  IgnoreHitBack: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  RushColor: {r: 1, g: 1, b: 1, a: 1}
+  BiggerAttack: 1
+  BiggerRushAttack: 1

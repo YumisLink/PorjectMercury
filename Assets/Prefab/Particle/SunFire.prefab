@@ -4767,8 +4767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c752b0222f4438c4b9fed3b024e0a32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XRotate: 10
-  YRotate: 5
+  XRotate: 20
+  YRotate: 10
   ZRotate: 0
 --- !u!1 &6098062919728201721
 GameObject:
@@ -9534,7 +9534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890380398537886086}
   - component: {fileID: 5142699978291623200}
-  - component: {fileID: 1655910854429493304}
+  - component: {fileID: 2338515138793407008}
   m_Layer: 0
   m_Name: SunFire
   m_TagString: Untagged
@@ -9569,13 +9569,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.08226395, y: 0}
   serializedVersion: 2
   m_Radius: 5.1187305
---- !u!114 &1655910854429493304
+--- !u!114 &2338515138793407008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9584,13 +9584,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6489660149253975912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6203a6c2260fb9c43a19b74c97018511, type: 3}
+  m_Script: {fileID: 11500000, guid: 035a0dfd99c3e624a8e51a627b935eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
   Master: {fileID: 0}
   Type: 0
-  Duration: 30
+  Duration: 12
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []

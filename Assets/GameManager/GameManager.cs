@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public static List<GameObject> AllFallingItem = new List<GameObject>();
     public static List<Sprite> SkillImage;
     public static List<int> NormalItemList = new List<int>();
+    public static List<GameObject> Roles;
+    public static List<GameObject> Rooms;
 
 
 
@@ -74,29 +76,33 @@ public class GameManager : MonoBehaviour
             NormalItemList.Add(a.id);
         ItemPool.Init(NormalItemList);
         ItemPools = ItemPool.StartPool;
-
         SuccessInit = true;
         Manager = this;
-        Debug.Log(Manager);
-        Effect = Effects;
-        UI = UIs;
-        Particle = Particles;
+        init();
 
-        ItemCreater = itemCreater;
-        Camera = privateCamera;
-        Canvas = privateCanvas;
-        ItemImage = Images;
-        SkillImage = skillImg;
-        Pc2d = pc2d;
-        VirtualCamera = PrivateVirtualCamera;
-        cm = VirtualCamera.GetComponent<CinemachineVirtualCamera>();
+        LoadRoom();
+        LoadPlayer();
     }
-    public void LoadOnce()
-    {
-        ItemData = JsonReaders.ReadFromFileItem();
-        SkillData = JsonReaders.ReadFromFileSkill();
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public float NowScreenBiger;
     void Update()
     {
@@ -135,6 +141,77 @@ public class GameManager : MonoBehaviour
             NowScreenBiger -= NowScreenBiger * 2f * Time.fixedDeltaTime;
         }
     }
+
+
+
+    void init()
+    {
+
+        Effect = Effects;
+        UI = UIs;
+        Particle = Particles;
+
+        ItemCreater = itemCreater;
+        Camera = privateCamera;
+        Canvas = privateCanvas;
+        ItemImage = Images;
+        SkillImage = skillImg;
+        VirtualCamera = PrivateVirtualCamera;
+        cm = VirtualCamera.GetComponent<CinemachineVirtualCamera>();
+        Roles = Role;
+        Rooms = Room;
+    }
+    public void LoadOnce()
+    {
+        ItemData = JsonReaders.ReadFromFileItem();
+        SkillData = JsonReaders.ReadFromFileSkill();
+    }
+    void LoadPlayer()
+    {
+        var player = GameObject.Instantiate(GameManager.Roles[0]);
+        player.transform.position = transform.position + new Vector3(50, 0, 0);
+        cm.Follow = player.transform;
+    }
+    void LoadRoom()
+    {
+        var rm1 = Instantiate(GameManager.Rooms[0]).GetComponent<Room>();
+        rm1.transform.position = transform.position;
+
+        var rm2 = Instantiate(GameManager.Rooms[0]).GetComponent<Room>();
+        rm2.transform.position = transform.position + new Vector3(50,0,0);
+        rm1.RightGate.LinkTo(rm2.LeftGate);
+
+
+        VirtualCamera.m_BoundingShape2D = rm2.Limit;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -249,4 +326,6 @@ public class GameManager : MonoBehaviour
     public List<Sprite> Images = new List<Sprite>();
     public List<Sprite> skillImg = new List<Sprite>();
     public List<int> ItemPools;
+    public List<GameObject> Role = new List<GameObject>();
+    public  List<GameObject> Room = new List<GameObject>();
 }

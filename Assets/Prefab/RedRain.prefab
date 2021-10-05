@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5341296421128105020}
   - component: {fileID: 6120515908609685126}
   - component: {fileID: 6120515908609685127}
+  - component: {fileID: 2951884516224873903}
   m_Layer: 10
   m_Name: RedRain
   m_TagString: Untagged
@@ -147,6 +148,63 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 156698503596611478571c778088055e, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2951884516224873903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120515908609685129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec826bdc8de22ba4bb1fc1f583a788e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  render: {fileID: 0}
+  SkillState: noon
+  Speed: 1
+  Move: {fileID: 0}
+  anim: {fileID: 0}
+  InvisibleTime: 0
+  possives: []
+  die: 0
+  AttackedRed: 0
+  Properties:
+    MaxHealth: 100
+    MaxSpirit: 100
+    MaxMana: 0
+    Attack: 0
+    RepelResistance: 0
+    Move: 1
+    HealthRec: 0
+    ManaRec: 0
+    SpirtRec: 0
+    Critical: 0
+    CriticalRatio: 1.5
+    RangeChange: 1
+    AttackSpeeds: 100
+  BaseProperties:
+    MaxHealth: 3800
+    MaxSpirit: 100
+    MaxMana: 0
+    Attack: 0
+    RepelResistance: 0
+    Move: 1
+    HealthRec: 0
+    ManaRec: 0
+    SpirtRec: 0
+    Critical: 0
+    CriticalRatio: 1.5
+    RangeChange: 1
+    AttackSpeeds: 100
+  Health: 0
+  Spirit: 0
+  Mana: 0
+  Attack: {fileID: 0}
+  Sun: {fileID: 0}
+  Attack2: {fileID: 0}
+  v2dMove: {x: 0, y: 0}

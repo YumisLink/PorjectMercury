@@ -4,16 +4,37 @@ using UnityEngine;
 
 public enum EffectType
 {
-    Effect, Missile
+    Effect, Missile,Continue
 }
 public class Effect : Entity
 {
+    bool lateTrigger = true;
+    Vector2 LateV2;
     public override void Init()
     {
-
+        if (Late > 0)
+        {
+            LateV2 = gameObject.transform.position;
+            Lib.MoveTo(gameObject,new Vector2(-1000f,-1000f));
+            if (TryGetComponent<Animator>(out var a))
+                a.speed = 0;
+            lateTrigger = false;
+        }
     }
     public override void OnUpdate()
     {
+        if (Late > 0)
+        {
+            Late-=Time.deltaTime;
+            return;
+        }
+        if (!lateTrigger)
+        {
+            transform.position = LateV2;
+            if (TryGetComponent<Animator>(out var a))
+                a.speed = 1;
+            lateTrigger = true;
+        }
         Duration -= Time.deltaTime;
         Moves();
         if (Duration <= 0)
@@ -30,6 +51,7 @@ public class Effect : Entity
             {
                 CList.Add(a);
                 ClearFloat.Add(Time.time + 0.5f);
+                damage.type = DamageType.Continue;
                 Damage.DealDamage(damage, Master.GetComponent<Role>(), a);
             }
         }
@@ -50,6 +72,10 @@ public class Effect : Entity
         {
             transform.position += new Vector3(Star.x, Star.y) * Time.deltaTime;
             Star += Delt * Time.deltaTime;
+            if (FollowDirection)
+            {
+                Lib.SetRotate(gameObject,Lib.GetAngle(Star.x,Star.y));
+            }
             return;
         }
         if (Follow)
@@ -157,6 +183,26 @@ public class Effect : Entity
         Delt = delt;
     }
     /// <summary>
+    /// 设置速度，根据角度和速度
+    /// </summary>
+    /// <param name="Direction"></param>
+    /// <param name="Speed"></param>
+    public void SetMove(float Direction,float Speed)
+    {
+        SetMove(new Vector2(Mathf.Cos(Direction * Mathf.PI / 180) * Speed, Mathf.Sin(Direction * Mathf.PI / 180)) * Speed);
+    }
+    /// <summary>
+    /// 设置速度，根据角度和速度和加速度
+    /// </summary>
+    /// <param name="Direction"></param>
+    /// <param name="Speed"></param>
+    public void SetMove(float Direction, float Speed, float addSpeed)
+    {
+        var cos = Mathf.Cos(Direction * Mathf.PI / 180);
+        var sin = Mathf.Sin(Direction * Mathf.PI / 180);
+        SetMove(new Vector2(cos * Speed, sin * Speed),new Vector2(cos * addSpeed, sin * addSpeed));
+    }
+    /// <summary>
     /// 使得这个东西可以根据一定的XY进行移动。
     /// </summary>
     /// <param name="x"></param>
@@ -192,24 +238,43 @@ public class Effect : Entity
         Follow = true;
         FollowPosition = position;
     }
+    /// <summary>
+    /// 设置伤害
+    /// </summary>
+    /// <param name="dam"></param>
     public void SetDamage(Damage dam)
     {
         damage = dam;
         CanDealDamage = true;
     }
+    /// <summary>
+    /// 设置伤害攻击次数
+    /// </summary>
+    /// <param name="t"></param>
     public void SetTriggerTimes(int t)
     {
         TriggerTimes = t;
     }
-
+    /// <summary>
+    /// 设置为持续伤害
+    /// </summary>
     public void SetContinueAttack()
     {
         ContinueAttack = true;
         CList = new List<Role>();
         ClearFloat = new List<float>();
     }
-
-
+    /// <summary>
+    /// 设置角度会跟随设置的Move而改变需要SetMove();
+    /// </summary>
+    public void SetDirectionFollowMove()
+    {
+        FollowDirection = true;
+    }
+    public void SetLater(float time)
+    {
+        Late = time;
+    }
 
 
 
@@ -256,6 +321,8 @@ public class Effect : Entity
     private bool Follow = false;
     private bool Move = false;
     private bool ContinueAttack = false;
+    private bool FollowDirection;
+    private float Late = -1;
 
 
 
@@ -336,6 +403,7 @@ public class Effect : Entity
     {
         var go = Instantiate(gameObject);
         var ret = go.GetComponent<Effect>();
+        ret.faction = gameObject.GetComponent<Entity>().faction;
         if (ret == null)
         {
             Destroy(go);
@@ -355,6 +423,7 @@ public class Effect : Entity
         var go = Instantiate(gameObject);
         go.transform.position = position;
         var ret = go.GetComponent<Effect>();
+        ret.faction = gameObject.GetComponent<Entity>().faction;
         if (ret == null)
         {
             Destroy(go);

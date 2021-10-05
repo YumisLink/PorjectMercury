@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum DamageType
 {
-    Normal,True
+    Normal,True,Continue
 }
 public enum DamageSound
 {
@@ -49,7 +49,7 @@ public class Damage
         if (from)
             from.BeforeDealDamage(To, to);
         
-        To.FinalDamage += Random.Range(-0.05f, 0.05f) * To.BaseDamage;
+        To.FinalDamage = To.FinalDamage + Random.Range(-0.05f, 0.05f) * To.FinalDamage;
 
         if (from)
             from.BeforeFinalAttack(To, to);
@@ -66,4 +66,5 @@ public class Damage
         if (To.FinalDamage > 0)
             UiManager.CreateDamageShow(To, to.transform.position,Mathf.Min(5,Mathf.Max(1, To.FinalDamage / bd / 6)));
     }
+
 }

@@ -15,6 +15,7 @@ public class Role : Entity
     public float InvisibleTime = 0;
     public List<Passive> possives = new List<Passive>();
     public Queue<Passive> DeletePossiveQueue = new Queue<Passive>();
+    public Skill nowSkill;
 
 
     public bool die;
@@ -59,16 +60,18 @@ public class Role : Entity
     }
     public override void OnUpdate()
     {
-        if (Health <= 0 && !die && false)
+        if (Health <= 0 && !die)
         {
+            Effect.Create(GameManager.Particle[1], gameObject, transform.position);
+            //var k = Instantiate(GameManager.Particle[1]);
             die = true;
-            Move.CanMove = false;
-            SkillState = "???";
-            var k = Instantiate(GameManager.Particle[1]);
-            k.transform.position = transform.position;
-            k.GetComponent<Effect>().Master = gameObject;
-            k.GetComponent<Effect>().SetFollow();
-            Move.controller.velocity = Vector2.zero;
+            return;
+            //Move.CanMove = false;
+            //SkillState = "???";
+            //k.transform.position = transform.position;
+            //k.GetComponent<Effect>().Master = gameObject;
+            //k.GetComponent<Effect>().SetFollow();
+            //Move.controller.velocity = Vector2.zero;
         }
         InvisibleTime -= Time.deltaTime;
         if (SkillQueue.Count > 0)
@@ -190,6 +193,13 @@ public class Role : Entity
         if (Spirit > Properties.MaxSpirit)
             Spirit = Properties.MaxSpirit;
     }
+    public void HitBack(Vector2 v2)
+    {
+        var v = Move.controller.velocity;
+        v.x += v2.x;
+        v.y += v2.y;
+        Move.controller.velocity = v;
+    }
 
 
 
@@ -245,4 +255,11 @@ public class Role : Entity
     }
 
     public static string NormalState = "noon";
+    public void MoveTo(Vector2 v2)
+    {
+        var tr = transform.position;
+        tr.x = v2.x;
+        tr.y = v2.y;
+        transform.position = tr;
+    }
 }

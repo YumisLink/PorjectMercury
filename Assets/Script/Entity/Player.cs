@@ -50,11 +50,15 @@ public class Player : Role
     public override void UnderAttack(Damage dam, Role from)
     {
         base.UnderAttack(dam, from);
+        if (dam.type == DamageType.Continue)
+            return;
         var k = Move.controller.velocity;
         var dis =Lib.GetPosision(from.gameObject, gameObject);
+        if (nowSkill != null)
+            nowSkill.EndSkill();
         dis.Normalize();
-        k.x = dis.x * 10;
-        k.y = dis.y * 10;
+        k.x += dis.x * 10;
+        k.y += dis.y * 10;
         k.y += 5;
         Move.controller.velocity = k;
         Move.CanMoveTime = 0.2f;
