@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public static CinemachineConfiner VirtualCamera;
     public static CinemachineVirtualCamera cm;
     private static GameObject ItemCreater;
+    public static List<Room> AllRooms = new List<Room>();
 
 
     //public static Dictionary<string, string> ItemData = new Dictionary<string, string>();
@@ -146,7 +147,6 @@ public class GameManager : MonoBehaviour
 
     void init()
     {
-
         Effect = Effects;
         UI = UIs;
         Particle = Particles;
@@ -169,22 +169,48 @@ public class GameManager : MonoBehaviour
     void LoadPlayer()
     {
         var player = GameObject.Instantiate(GameManager.Roles[0]);
-        player.transform.position = transform.position + new Vector3(50, 0, 0);
+        player.transform.position = Vector3.zero;
         cm.Follow = player.transform;
     }
     void LoadRoom()
     {
-        var rm1 = Instantiate(GameManager.Rooms[0]).GetComponent<Room>();
-        rm1.transform.position = transform.position;
+        var rm1 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        rm1.transform.position = Vector3.zero;
 
-        var rm2 = Instantiate(GameManager.Rooms[0]).GetComponent<Room>();
-        rm2.transform.position = transform.position + new Vector3(50,0,0);
+        var rm2 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        rm2.transform.position = Vector3.zero + new Vector3(50,0,0);
         rm1.RightGate.LinkTo(rm2.LeftGate);
 
 
-        VirtualCamera.m_BoundingShape2D = rm2.Limit;
-    }
+        var rm3 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        rm3.transform.position = Vector3.zero + new Vector3(100, 0, 0);
+        rm2.RightGate.LinkTo(rm3.LeftGate);
 
+
+        var rm4 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        rm4.transform.position = Vector3.zero + new Vector3(150, 0, 0);
+        rm3.RightGate.LinkTo(rm4.LeftGate);
+
+
+        var rm5 = GameManager.CreateRoom(GameManager.Rooms[1]);
+        rm5.transform.position = Vector3.zero + new Vector3(250, 0, 0);
+        rm4.RightGate.LinkTo(rm5.LeftGate);
+
+        VirtualCamera.m_BoundingShape2D = rm1.Limit;
+        DeleteGate();
+    }
+    public static void DeleteGate()
+    {
+        foreach(var a in AllRooms)
+        {
+            if (a.LeftGate != null)
+                if (a.LeftGate.Link == null)
+                    Destroy(a.LeftGate.gameObject);
+            if (a.RightGate != null)
+                if (a.RightGate.Link == null)
+                    Destroy(a.RightGate.gameObject);
+        }
+    }
 
 
 
@@ -227,6 +253,12 @@ public class GameManager : MonoBehaviour
         if (IR == ItemRare.Rare)
             return Colors.Bule;
         return Color.white;
+    }
+    public static Room CreateRoom(GameObject room)
+    {
+        var rm =  Instantiate(room).GetComponent<Room>();
+        AllRooms.Add(rm);
+        return rm;
     }
     public static Item GetItem(int id,Role Creater)
     {

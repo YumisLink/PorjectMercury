@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2570358997300563357}
   - component: {fileID: 2081486218367339850}
   m_Layer: 8
-  m_Name: oland (6)
+  m_Name: Land
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4328114468511129188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.54, y: -17.63, z: 62.669903}
+  m_LocalPosition: {x: 1.54, y: -17.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

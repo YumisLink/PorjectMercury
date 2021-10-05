@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6120515908609685126}
   - component: {fileID: 6120515908609685127}
   - component: {fileID: 2951884516224873903}
+  - component: {fileID: -3002657825387231138}
   m_Layer: 10
   m_Name: RedRain
   m_TagString: Untagged
@@ -171,6 +172,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   InvisibleTime: 0
   possives: []
+  nowSkill: {fileID: 0}
   die: 0
   AttackedRed: 0
   Properties:
@@ -204,7 +206,39 @@ MonoBehaviour:
   Health: 0
   Spirit: 0
   Mana: 0
+  v2dMove: {x: 0, y: 0}
   Attack: {fileID: 0}
   Sun: {fileID: 0}
   Attack2: {fileID: 0}
-  v2dMove: {x: 0, y: 0}
+  Blink: {fileID: 0}
+  FireBall: {fileID: 0}
+  PhantomSword: {fileID: 0}
+  weak: 0
+  NealTimeCount: 0
+  FarTimeCount: 0
+  VeryFarTimeCount: 0
+  TimeCount: 0
+--- !u!114 &-3002657825387231138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120515908609685129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef2e18cf7c2fc549adbefbe1ed02f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GravityEffect: 1
+  CanMoveTime: 0
+  controller: {fileID: 0}
+  GravityMult: 1
+  CanMove: 1
+  Paqiang: 0
+  HitBackDefense: 25
+  BaseMoveSpeed: 250
+  MoveDirection: 0
+  Debug: {x: 0, y: 0}
+  DeletaMove: {x: 0, y: 0}
+  NowMove: {x: 0, y: 0}

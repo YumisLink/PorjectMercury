@@ -11,6 +11,8 @@ public class PassiveSoraBreath : Item
     }
     public override void OnSustainedTrigger()
     {
-        role.RecoverHealth(role.Properties.MaxHealth*0.01f*Data[1]);
+        time -= 0.5f;
+        if (time > 0)
+            role.RecoverHealth(role.Properties.MaxHealth*0.01f*Data[1]);
     }
 }

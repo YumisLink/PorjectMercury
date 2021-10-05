@@ -19,7 +19,6 @@ public class Gatels : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("wocao");
         if (collision.gameObject.TryGetComponent<Player>(out var a))
         {
             role = a;
