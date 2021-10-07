@@ -168,26 +168,26 @@ public class GameManager : MonoBehaviour
     }
     void LoadPlayer()
     {
-        var player = GameObject.Instantiate(GameManager.Roles[0]);
+        var player = GameObject.Instantiate(GameManager.Roles[4]);
         player.transform.position = Vector3.zero;
         cm.Follow = player.transform;
     }
     void LoadRoom()
     {
-        var rm1 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        var rm1 = GameManager.CreateRoom(GameManager.Rooms[2]);
         rm1.transform.position = Vector3.zero;
 
-        var rm2 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        var rm2 = GameManager.CreateRoom(GameManager.Rooms[2]);
         rm2.transform.position = Vector3.zero + new Vector3(50,0,0);
         rm1.RightGate.LinkTo(rm2.LeftGate);
 
 
-        var rm3 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        var rm3 = GameManager.CreateRoom(GameManager.Rooms[2]);
         rm3.transform.position = Vector3.zero + new Vector3(100, 0, 0);
         rm2.RightGate.LinkTo(rm3.LeftGate);
 
 
-        var rm4 = GameManager.CreateRoom(GameManager.Rooms[0]);
+        var rm4 = GameManager.CreateRoom(GameManager.Rooms[2]);
         rm4.transform.position = Vector3.zero + new Vector3(150, 0, 0);
         rm3.RightGate.LinkTo(rm4.LeftGate);
 

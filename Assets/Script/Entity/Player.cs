@@ -17,11 +17,17 @@ public class Player : Role
         base.Init();
         UiManager.player = this;
         PlayerGameObject = gameObject;
-        jump = GetComponent<Jump>();
-        dash = GetComponent<Dash>();
-        Skill1 = GetComponent<ActorChangeFace>();
-        Skill2 = GetComponent<ActorAliveOrDeath>();
-        Attack = GetComponent<ActorSwordAttack>();
+        jump = gameObject.AddComponent<Jump>();
+        dash = gameObject.AddComponent<Dash>();
+        Skill1 = gameObject.AddComponent<ActorChangeFace>();
+        Skill2 = gameObject.AddComponent<ActorAliveOrDeath>();
+        Attack = gameObject.AddComponent<ActorSwordAttack>();
+        gameObject.AddComponent<PlayerInput>();
+        gameObject.AddComponent<ActorJusticeAdjudication>();
+        gameObject.AddComponent<ActorLimitSpike>();
+        gameObject.AddComponent<ActorRiderAttack>();
+        gameObject.AddComponent<ActorSpearAttack>();
+        Move.Paqiang = true;
         //for (var i = 7; i <= 16;i ++)
         //    Item.CreateItem(i, transform.position + new Vector3(5+i*1, 0,0));
     }

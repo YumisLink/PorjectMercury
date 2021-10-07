@@ -50,7 +50,7 @@ public class Role : Entity
     public override void Init()
     {
         SkillState = "noon";
-        Move = GetComponent<CharacterController2D>();
+        Move = gameObject.AddComponent<CharacterController2D>();
         anim = GetComponent<Animator>();
         render = GetComponent<Renderer>();
         Properties = BaseProperties;
@@ -99,17 +99,18 @@ public class Role : Entity
 
     public virtual void UnderAttackUpdate()
     {
-        if (AttackedRed >= 0)
-        {
-            var col = render.material.color;
-            col.g = 0.5f;
-            col.b = 0.5f;
-            render.material.color = col;
-            //Debug.Log(render.gameObject.name);
-        }
-        else
+        if (render!=null)
+            if (AttackedRed >= 0)
+            {
+                var col = render.material.color;
+                col.g = 0.5f;
+                col.b = 0.5f;
+                render.material.color = col;
+                //Debug.Log(render.gameObject.name);
+            }
+            else
 
-            render.material.color = Color.white;
+                render.material.color = Color.white;
         AttackedRed -= Time.fixedDeltaTime;
     }
 

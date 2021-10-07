@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     public Image Spirit;
     public Image Health;
     public Text ItemTextShower;
+    public Image BossTag;
 
     public static Role player;
     public static List<Role> Bosses = new List<Role>();
@@ -44,9 +45,11 @@ public class UiManager : MonoBehaviour
         {
 
             BossesHp.fillAmount = 0;
+            BossTag.fillAmount = 0;
         }
         else
         {
+            BossTag.fillAmount = 1;
             BossesHp.fillAmount = Bosses[0].Health/Bosses[0].Properties.MaxHealth;
         }
         Spirit.fillAmount = player.Spirit / player.Properties.MaxSpirit;

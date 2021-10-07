@@ -19,7 +19,6 @@ public class RedRainController : Role
     public override void Init()
     {
         base.Init();
-        UiManager.Bosses.Add(this);
         Attack = gameObject.AddComponent<RedRainChop>();
         Attack2 = gameObject.AddComponent<RedRainStrike>();
         Sun = gameObject.AddComponent<RedRainSunFire>();
@@ -27,7 +26,6 @@ public class RedRainController : Role
         FireBall = gameObject.AddComponent<RedRainFireBall>();
         PhantomSword = gameObject.AddComponent<RedRainPhantomSword>();
         Health = 3800;
-        UiManager.Bosses.Add(this);
     }
     public override void OnUpdate()
     {
@@ -37,7 +35,10 @@ public class RedRainController : Role
         {
             var ds = dis.x * dis.x + dis.y * dis.y;
             if (ds <= 400)
+            {
                 weak = true;
+                UiManager.Bosses.Add(this);
+            }
         }
         if (!weak)
             return;
