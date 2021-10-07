@@ -17,6 +17,8 @@ public class RedRainChop : Skill
     }
     public override void Before()
     {
+        if (Random.Range(0,5) <= 1)
+            GetComponent<RedRainGoBack>().WantSkill();
         role.SetFaceToPlayer();
         role.anim.Play("RedRainReadyChop");
         role.anim.speed = 0.01f;

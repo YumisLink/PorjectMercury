@@ -263,4 +263,5 @@ public class Role : Entity
         tr.y = v2.y;
         transform.position = tr;
     }
+    public static string SkillStiff = "Stiff";
 }

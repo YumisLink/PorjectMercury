@@ -62,6 +62,7 @@ public class Player : Role
         var dis =Lib.GetPosision(from.gameObject, gameObject);
         if (nowSkill != null)
             nowSkill.EndSkill();
+        SkillState = SkillStiff;
         dis.Normalize();
         k.x += dis.x * 10;
         k.y += dis.y * 10;

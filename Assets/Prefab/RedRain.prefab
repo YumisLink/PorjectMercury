@@ -193,7 +193,7 @@ MonoBehaviour:
     MaxHealth: 3800
     MaxSpirit: 100
     MaxMana: 0
-    Attack: 0
+    Attack: 100
     RepelResistance: 0
     Move: 1
     HealthRec: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   Blink: {fileID: 0}
   FireBall: {fileID: 0}
   PhantomSword: {fileID: 0}
+  GoBack: {fileID: 0}
   weak: 0
   NealTimeCount: 0
   FarTimeCount: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RedRainController : Role
 {
+    public Room rm;
     public Vector2 v2dMove;
     public Skill Attack;
     public Skill Sun;
@@ -11,14 +12,17 @@ public class RedRainController : Role
     public Skill Blink;
     public Skill FireBall;
     public Skill PhantomSword;
+    public Skill GoBack;
     public bool weak = false;
     public float NealTimeCount;
     public float FarTimeCount;
     public float VeryFarTimeCount;
     public float TimeCount;
+
     public override void Init()
     {
         base.Init();
+        GoBack = gameObject.AddComponent<RedRainGoBack>();
         Attack = gameObject.AddComponent<RedRainChop>();
         Attack2 = gameObject.AddComponent<RedRainStrike>();
         Sun = gameObject.AddComponent<RedRainSunFire>();
@@ -99,5 +103,5 @@ public class RedRainController : Role
             TimeCount = 0;
         }
     }
-    bool Part0 = false;
+    bool Part0 = true;
 }

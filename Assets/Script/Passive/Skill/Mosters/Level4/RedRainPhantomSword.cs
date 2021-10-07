@@ -30,7 +30,7 @@ public class RedRainPhantomSword : Skill
     public void PhantomSword()
     {
         var eff = Effect.Create(GameManager.Effect[10], gameObject,Player.player.transform.position);
-        eff.SetDamage(new Damage(Data[0]));
+        eff.SetDamage(new Damage(Data[1]));
         eff.SetContinueAttack();
         eff.SetLater(0.5f);
     }
