@@ -20,8 +20,7 @@ public class RedRainChop : Skill
         if (Random.Range(0,5) <= 1)
             GetComponent<RedRainGoBack>().WantSkill();
         role.SetFaceToPlayer();
-        role.anim.Play("RedRainReadyChop");
-        role.anim.speed = 0.01f;
+        role.anim.Play("ChopReady");
         Moving = false;
         if (Lib.GetPosision(gameObject, Role.PlayerGameObject).x > 0)
             v2d.x = 80;

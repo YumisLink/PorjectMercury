@@ -24,6 +24,7 @@ public class RedRainFireBall : Skill
     public override void Before()
     {
         role.SetFaceToPlayer();
+        role.anim.Play("Mage");
     }
     public void FireBallSummer()
     {

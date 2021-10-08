@@ -19,6 +19,7 @@ public class RedRainStrike : Skill
     }
     public override void Before()
     {
+        role.anim.Play("Strike");
         role.SetFaceToPlayer();
         role.anim.speed = 0.01f;
         Moving = false;

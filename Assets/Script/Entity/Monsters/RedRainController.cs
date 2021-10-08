@@ -33,6 +33,7 @@ public class RedRainController : Role
     }
     public override void OnUpdate()
     {
+        
         var dis = Lib.GetPosision(gameObject, PlayerGameObject);
         var x = Mathf.Abs(dis.x);
         if (!weak)
@@ -103,5 +104,5 @@ public class RedRainController : Role
             TimeCount = 0;
         }
     }
-    bool Part0 = true;
+    bool Part0 = false;
 }

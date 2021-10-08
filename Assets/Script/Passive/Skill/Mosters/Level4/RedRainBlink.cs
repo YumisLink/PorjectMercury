@@ -10,6 +10,10 @@ public class RedRainBlink : Skill
         sk = GetComponent<RedRainStrike>();
         AddAction(0.2f, Blink);
     }
+    public override void Before()
+    {
+        role.anim.Play("Blink");
+    }
     public void Blink()
     {
         var v3 = Player.player.transform.position;

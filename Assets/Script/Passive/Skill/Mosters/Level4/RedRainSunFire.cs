@@ -7,6 +7,7 @@ public class RedRainSunFire : Skill
     Vector3 v3;
     public override void Before()
     {
+        role.anim.Play("SeikaiNoITami");
         var k = transform.position;
         k.y += 3;
         transform.position = k;
@@ -47,5 +48,9 @@ public class RedRainSunFire : Skill
         {
             target.HitBack(new Vector2(100*role.FaceTo,0));
         }
+    }
+    public override void AfterUseSkill(Skill skill)
+    {
+        role.anim.Play("Idle");
     }
 }

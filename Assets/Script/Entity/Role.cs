@@ -60,6 +60,10 @@ public class Role : Entity
     }
     public override void OnUpdate()
     {
+        if (SkillState == SkillStiff && Move.CanMoveTime <= 0)
+        {
+            SkillState = "noon";
+        }
         if (Health <= 0 && !die)
         {
             Effect.Create(GameManager.Particle[1], gameObject, transform.position);

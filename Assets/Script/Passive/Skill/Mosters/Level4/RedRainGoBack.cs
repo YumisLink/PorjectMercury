@@ -15,6 +15,10 @@ public class RedRainGoBack : Skill
             return false;
         return true;
     }
+    public override void Before()
+    {
+        role.anim.Play("GoBack");
+    }
     protected override void OnFixedUpdate()
     {
         role.anim.speed = 1f;
