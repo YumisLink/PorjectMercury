@@ -93,6 +93,10 @@ public class ActorSwordAttack : Skill
     }
     public override void OnSucceedDamage(Damage damage, Role target)
     {
+        if (damage.fromSkill == "Attack")
+        {
+            target.HitBack(new Vector2(2*attackFace,0));
+        }
         if (IgnoreHitBack > 0)
             return;
         if (damage.fromSkill == "RushAttack")

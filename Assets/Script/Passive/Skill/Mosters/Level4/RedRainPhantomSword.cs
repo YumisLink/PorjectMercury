@@ -26,6 +26,7 @@ public class RedRainPhantomSword : Skill
     public override void Before()
     {
         role.SetFaceToPlayer();
+        role.anim.Play("ShadowSword");
     }
     public void PhantomSword()
     {

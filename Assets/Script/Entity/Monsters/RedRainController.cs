@@ -15,8 +15,10 @@ public class RedRainController : Role
     public Skill GoBack;
     public bool weak = false;
     public float NealTimeCount;
+    public float MilTimeCount;
     public float FarTimeCount;
     public float VeryFarTimeCount;
+    public float HigherTimeCount;
     public float TimeCount;
 
     public override void Init()
@@ -33,9 +35,9 @@ public class RedRainController : Role
     }
     public override void OnUpdate()
     {
-        
         var dis = Lib.GetPosision(gameObject, PlayerGameObject);
         var x = Mathf.Abs(dis.x);
+        var y = dis.y;
         if (!weak)
         {
             var ds = dis.x * dis.x + dis.y * dis.y;
@@ -58,8 +60,16 @@ public class RedRainController : Role
         }
         if (SkillState != "noon")
             return;
-        if (x < 3)
+        if (FaceTo == 1)
+            Move.Go(-1);
+        if (FaceTo == -1)
+            Move.Go(1);
+        if (y > 3)
+            HigherTimeCount += Time.deltaTime;
+        if (x < 6)
             NealTimeCount += Time.deltaTime;
+        if (x > 6 && x < 10)
+            MilTimeCount += Time.deltaTime;
         if (x > 10)
             FarTimeCount += Time.deltaTime;
         if (x > 15)
@@ -74,14 +84,14 @@ public class RedRainController : Role
     }
     void Part_One()
     {
-        if (VeryFarTimeCount >= 0.8f)
+        if (VeryFarTimeCount >= 1.5f)
         {
             Blink.WantSkill();
             VeryFarTimeCount = 0;
         }
         if (FarTimeCount >= 1.4f)
         {
-            var a = Random.Range(0, 3);
+            var a = Random.Range(0, 4);
             if (a == 0) { 
                 FireBall.WantSkill();
                 Blink.WantSkill();
@@ -90,15 +100,38 @@ public class RedRainController : Role
             if (a == 2) PhantomSword.WantSkill();
             FarTimeCount = 0;
         }
+        if (MilTimeCount >= 1.4f)
+        {
+            var a = Random.Range(0, 3);
+            if (a == 0)
+            {
+                FireBall.WantSkill();
+                Blink.WantSkill();
+            }
+            if (a == 2) PhantomSword.WantSkill();
+            MilTimeCount = 0;
+        }
+        if (HigherTimeCount >= 1.4f)
+        {
+            var a = Random.Range(0, 2);
+            if (a == 0)
+            {
+                FireBall.WantSkill();
+                Blink.WantSkill();
+            }
+            if (a == 1) PhantomSword.WantSkill();
+            HigherTimeCount = 0;
+        }
         if (NealTimeCount >= 1.4f)
         {
-            if (Random.Range(0, 2) == 0)
+            int a = Random.Range(0, 3);
+            if (a == 0)
                 PhantomSword.WantSkill();
-            else
+            if (a == 1)
                 Attack.WantSkill();
             NealTimeCount = 0;
         }
-        if (TimeCount >= 3.5f)
+        if (TimeCount >= 2.8f)
         {
             Attack.WantSkill();
             TimeCount = 0;

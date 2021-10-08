@@ -267,5 +267,12 @@ public class Role : Entity
         tr.y = v2.y;
         transform.position = tr;
     }
+    public void Stop()
+    {
+        var v = Move.controller.velocity;
+        v.x = 0;
+        v.y = 0;
+        Move.controller.velocity = v;
+    }
     public static string SkillStiff = "Stiff";
 }

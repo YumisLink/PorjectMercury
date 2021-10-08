@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class RedRainGoBack : Skill
 {
+    float TimeCount = 0;
     public override bool CanUse()
     {
-        GetComponent<RedRainChop>().AddSkillQueue();
+        //GetComponent<RedRainChop>().AddSkillQueue();
         if (CoolTime > 0)
             return false;
         if (role.SkillState == "RedRainChop")
@@ -35,4 +36,32 @@ public class RedRainGoBack : Skill
         l.x = 0;
         role.Move.controller.velocity = l;
     }
+    public override void AfterUseSkill(Skill skill)
+    {
+        TimeCount = 0;
+        role.SetFaceToPlayer();
+    }
+    public override void BeforeUseSkill(Skill skill)
+    {
+        role.Stop();
+        if (skill.SkillState != "RedRainGoBack" && SkillState != "RedRainStrike")
+        {
+            if (Random.Range(0,5) == 0)
+            {
+                this.WantSkill();
+                skill.AddSkillQueue();
+            }
+        }
+    }
+    public override void OnUpdate()
+    {
+        if (SkillState == "noon")
+            TimeCount += Time.deltaTime;
+        if (TimeCount >= 0.6f)
+        {
+            this.WantSkill();
+            TimeCount = 0;
+        }
+    }
+
 }

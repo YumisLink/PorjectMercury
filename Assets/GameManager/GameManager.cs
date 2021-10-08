@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
     }
     void LoadRoom()
     {
-        var rm1 = GameManager.CreateRoom(GameManager.Rooms[2]);
+        var rm1 = GameManager.CreateRoom(GameManager.Rooms[0]);
         rm1.transform.position = Vector3.zero;
 
         var rm2 = GameManager.CreateRoom(GameManager.Rooms[2]);
@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
 
         var rm5 = GameManager.CreateRoom(GameManager.Rooms[1]);
         rm5.transform.position = Vector3.zero + new Vector3(250, 0, 0);
-        rm4.RightGate.LinkTo(rm5.LeftGate);
+        rm2.RightGate.LinkTo(rm5.LeftGate);
 
         VirtualCamera.m_BoundingShape2D = rm1.Limit;
         DeleteGate();
