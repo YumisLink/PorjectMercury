@@ -16,11 +16,26 @@ public class Room : MonoBehaviour
     public Vector2 RoomCenter => roomAt + (Vector2)transform.position;
     void Start()
     {
-
+        GateInit();
     }
 
     void Update()
     {
         
+    }
+    void GateInit()
+    {
+        if (LeftGate)
+            LeftGate.room = this;
+        if (RightGate)
+            RightGate.room = this;
+        if (UpRightGate)
+            UpRightGate.room = this;
+        if (UpLeftGate)
+            UpLeftGate.room = this;
+        if (DownRightGate)
+            DownRightGate.room = this;
+        if (DownLeftGate)
+            DownLeftGate.room = this;
     }
 }
