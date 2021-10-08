@@ -13,7 +13,7 @@ public class RedRainSunFire : Skill
         transform.position = k;
         v3 = transform.position;
         var eff = Effect.Create(GameManager.Effect[14], gameObject, 12, transform.position,270);
-        Debug.Log(transform.position);
+
         eff.SetDamage(new Damage(100,DamageType.True));
         eff.SetContinueAttack();
     }

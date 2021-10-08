@@ -60,11 +60,11 @@ public class Jump : Skill
         }
         if (role.Move.IsGrounded && CoolTime <= 0)
             JumpCount = 2;
-        if (LastTouch == 1 && role.Move.IsLeftTouch == 0)
+        if (LastTouch == 1 && role.Move.IsLeftTouch == 0 && role.Move.Paqiang && !role.Move.IsGrounded)
         {
             JumpCount = 1;
         }
-        if (role.Move.IsLeftTouch != 0 && CoolTime <= 0)
+        if (role.Move.IsLeftTouch != 0 && CoolTime <= 0 && role.Move.Paqiang && !role.Move.IsGrounded)
         {
             JumpCount = 2;
             LastTouch = 1;
@@ -84,14 +84,38 @@ public class Jump : Skill
         {
             if (role.Move.CanMove && role.SkillState == "noon" && !role.Move.IsGround && role.Move.IsLeftTouch == 0)
                 role.anim.Play("Fall");
+            if (role.Move.CanMove && role.SkillState == "noon" && role.Move.IsLeftTouch != 0 && !role.Move.IsGrounded)
+                role.anim.Play("Paqiang");
         }
         if (Jumping > 0)
         {
             if (role.SkillState == "noon")
                 role.anim.Play("Jump");
             Jumping -= Time.fixedDeltaTime;
+            bool endJump = false;
+            if (TouchWall != 0 && Jumping >= 0.25f)
+            {
+                if (TouchWall == 1)
+                    role.SetFaceToLeft();
+                if (TouchWall == -1)
+                    role.SetFaceToRight();
+            }
+            if (Jumping <= 0.3f && Jumping >= 0.25f && TouchWall != 0 && role.Move.Paqiang)
+            {
+                var Velocity = role.Move.controller.velocity;
+                Velocity.x -= Velocity.x * 8 * Time.deltaTime;
+                role.Move.controller.velocity = Velocity;
+            }
+            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.35f && Jumping >= 0.1f && TouchWall == 0)
+                endJump = true;
+            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.25f && Jumping >= 0.1f && TouchWall != 0 && role.Move.Paqiang)
+                endJump = true;
+            if (role.SkillState != "noon")
+                endJump = true;
+            if (Jumping <= 0.25f && role.Move.IsGround && role.Move.Paqiang)
+                endJump = true;
             //如果是你主动松开 则会让速度立即下降到0
-            if ((!Input.GetKey(KeyCode.C) && Jumping <= 0.35f && Jumping >= 0.1f) || role.SkillState != "noon")
+            if (endJump)
             {
                 var Velocity2 = role.Move.controller.velocity;
                 if (Velocity2.y >= 8)
@@ -125,8 +149,11 @@ public class Jump : Skill
                         Velocity.y = 8;
                 }
                 //下面两句话是离开墙的时候
-
-                if (TouchWall != 0 && Jumping > 0.35f)
+                if (TouchWall != 0)
+                {
+                    Velocity.x += TouchWall * -0.3f;
+                }
+                if (TouchWall != 0 && Jumping > 0.35f && role.Move.Paqiang && !role.Move.IsGrounded)
                 {
                     Velocity.x = TouchWall * -15;
                     if (TouchWall == -1)
@@ -134,12 +161,11 @@ public class Jump : Skill
                     else
                         role.SetFaceToRight();
                 }
-                if (TouchWall != 0 && Jumping > 0.3f)
+                if (TouchWall != 0 && Jumping > 0.3f && role.Move.Paqiang && !role.Move.IsGrounded)
                 {
                     if (Jumping <= 0.35f)
                         if (role.Move.MoveDirection == TouchWall)
                             Velocity.x = TouchWall * 8;
-
                     Velocity.y = 8;
                 }
 

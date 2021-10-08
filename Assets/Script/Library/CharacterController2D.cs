@@ -23,7 +23,9 @@ public class CharacterController2D : MonoBehaviour
     private Collider2D _collider;
     private Vector2 Velocity;
     public Vector2 Debug;
-
+    /// <summary>
+    /// 上一帧有没有碰到墙，意思就是true的时候是刚刚离开墙
+    /// </summary>
     private bool IsLastFrameTouchWall;
     private void Start()
     {
@@ -53,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
     {
         Velocity = controller.velocity;
         MoveUpdate();
-        if (GravityEffect && !IsGrounded)
+        if (GravityEffect && !IsGrounded && Paqiang)
             if (IsLastFrameTouchWall && IsLeftTouch == 0)
                 Velocity.y = -4f;
         IsLastFrameTouchWall = (IsLeftTouch != 0);
@@ -125,14 +127,17 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="mut">输入参数</param>
     public void Go(int mut)
     {
         MoveDirection = mut;
 
-        if (role.Move.IsGround && role.SkillState == "noon" && mut != 0)
+        if (role.Move.IsGrounded && role.SkillState == "noon" && mut != 0)
             role.anim.Play("Move");
-        if (role.Move.IsGround && role.SkillState == "noon" && mut == 0)
+        if (role.Move.IsGrounded && role.SkillState == "noon" && mut == 0)
             role.anim.Play("Idle");
     }
     private void MoveUpdate()
@@ -140,7 +145,7 @@ public class CharacterController2D : MonoBehaviour
         if (!CanMove)
             return;
         //如果摸到墙，那么让他向上的速度降低到0
-        if (IsLeftTouch != 0)
+        if (IsLeftTouch != 0 && Paqiang)
         {
             if (Velocity.y > 2)
                 Velocity.y = 2;
