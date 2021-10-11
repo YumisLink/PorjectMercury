@@ -89,13 +89,23 @@ public class Effect : Entity
         Destroy(gameObject);
         Destroy(this);
     }
-
-    void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         if (OnlyEffect)
             return;
         if (collision.gameObject == Master)
             return;
+        if (collision.gameObject.TryGetComponent<Effect>(out var effs))
+        {
+            Debug.Log("766");
+            if (effs.damage != null)
+                if (effs.damage.damageEffect == DamageEffect.katana && damage.damageEffect == DamageEffect.katana)
+                {
+                    GameManager.SpeedDownTime = 0.5f;
+                    CreateUnderAttackEffect(damage,Master);
+                }
+        }
         if (collision.gameObject.TryGetComponent<Role>(out var ent))
         {
             if (ContinueAttack)
@@ -432,5 +442,14 @@ public class Effect : Entity
         ret.Master = master;
         return ret;
     }
-
+    public static Effect CreateUnderAttackEffect(Damage dm,GameObject master)
+    {
+        if (dm.damageEffect == DamageEffect.katana)
+        {
+            var eff = Effect.Create(GameManager.Effect[2], master,0.4f,master.transform.position,Random.Range(0f,360f));
+            eff.SetFollow(new Vector2(Random.Range(-0.3f,0.3f), Random.Range(-0.3f, 0.3f)));
+            return eff;
+        }
+        return null;
+    }
 }

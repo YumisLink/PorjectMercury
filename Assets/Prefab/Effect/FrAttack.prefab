@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7990816686210332289}
   - component: {fileID: 4821343497277499470}
   - component: {fileID: 500019831995329259}
+  - component: {fileID: -2523331266984734348}
   m_Layer: 9
   m_Name: FrAttack
   m_TagString: Untagged
@@ -118,12 +119,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: 0
   Master: {fileID: 0}
+  Type: 0
   Duration: 0.17
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
+  CList: []
+  ClearFloat: []
   land: []
-  Follow: 0
+  Star: {x: 0, y: 0}
+  Delt: {x: 0, y: 0}
 --- !u!61 &500019831995329259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +155,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0393023, y: 1.9316998}
   m_EdgeRadius: 0
+--- !u!50 &-2523331266984734348
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415878166905972910}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

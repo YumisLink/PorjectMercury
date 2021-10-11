@@ -122,23 +122,26 @@ public class ActorSwordAttack : Skill
     {
         if (RushAttack)
         {
-            var go = Effect.Create(GameManager.Effect[1], gameObject, transform.position);
+            var go = Effect.Create(GameManager.Effect[1], gameObject, transform.position+new Vector3(role.FaceTo*0.5f,0));
             go.GetComponent<SpriteRenderer>().color = RushColor;
             go.SetDamage(new Damage(AttackDamage * role.Properties.Attack, DamageType.Normal));
             go.damage.fromSkill = "RushAttack";
+            go.damage.SetEffect(DamageEffect.katana);
             Lib.SetMultScale(go.gameObject, BiggerRushAttack, BiggerRushAttack);
             Lib.SetMultScale(go.gameObject, role.Properties.Range, role.Properties.Range);
-            Lib.SetMultScale(go.gameObject, 1.5f, 0.75f);
+            Lib.SetMultScale(go.gameObject, 1.7f, 0.85f);
             if (attackFace == -1) 
                 Lib.SetFlipX(go.gameObject);
         }
         else
         {
-            var go = Effect.Create(GameManager.Effect[1],gameObject, transform.position);
+            var go = Effect.Create(GameManager.Effect[1],gameObject, transform.position + new Vector3(role.FaceTo * 0.5f, 0));
             go.SetDamage(new Damage(AttackDamage * role.Properties.Attack, DamageType.Normal));
             go.damage.fromSkill = "Attack";
+            go.damage.SetEffect(DamageEffect.katana);
             Lib.SetMultScale(go.gameObject, BiggerAttack, BiggerAttack);
             Lib.SetMultScale(go.gameObject, role.Properties.Range, role.Properties.Range);
+            Lib.SetMultScale(go.gameObject, 1.3f, 1.2f);
 
             go.GetComponent<SpriteRenderer>().color = color;
             hitplace = 0;

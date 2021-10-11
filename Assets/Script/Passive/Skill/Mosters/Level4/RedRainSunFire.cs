@@ -14,7 +14,7 @@ public class RedRainSunFire : Skill
         v3 = transform.position;
         var eff = Effect.Create(GameManager.Effect[14], gameObject, 12, transform.position,270);
 
-        eff.SetDamage(new Damage(100,DamageType.True));
+        eff.SetDamage(new Damage(30,DamageType.True));
         eff.SetContinueAttack();
     }
     public override bool CanUse()
@@ -46,7 +46,7 @@ public class RedRainSunFire : Skill
     { 
         if (damage.fromSkill == "Sun")
         {
-            target.HitBack(new Vector2(100*role.FaceTo,0));
+            target.HitBack(new Vector2(60*role.FaceTo,0));
         }
     }
     public override void AfterUseSkill(Skill skill)

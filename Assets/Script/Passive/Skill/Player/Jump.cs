@@ -100,19 +100,19 @@ public class Jump : Skill
                 if (TouchWall == -1)
                     role.SetFaceToRight();
             }
-            if (Jumping <= 0.3f && Jumping >= 0.25f && TouchWall != 0 && role.Move.Paqiang)
+            if (Jumping <= 0.3f && Jumping >= 0.25f && TouchWall != 0 && role.Move.Paqiang)//弹墙之后在这段时间内速度会递减。
             {
                 var Velocity = role.Move.controller.velocity;
                 Velocity.x -= Velocity.x * 8 * Time.deltaTime;
                 role.Move.controller.velocity = Velocity;
             }
-            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.35f && Jumping >= 0.1f && TouchWall == 0)
+            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.35f && Jumping >= 0.1f && TouchWall == 0)//如果没有弹墙在这段时间内，松开C会停止跳跃
                 endJump = true;
-            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.25f && Jumping >= 0.1f && TouchWall != 0 && role.Move.Paqiang)
+            if (!Input.GetKey(KeyCode.C) && Jumping <= 0.25f && Jumping >= 0.1f && TouchWall != 0 && role.Move.Paqiang)//如果弹墙在这段时间内，松开C会停止跳跃
                 endJump = true;
-            if (role.SkillState != "noon")
+            if (role.SkillState != "noon")//如果状态不是空白则会停止跳跃
                 endJump = true;
-            if (Jumping <= 0.25f && role.Move.IsGround && role.Move.Paqiang)
+            if (Jumping <= 0.25f && role.Move.IsGround && role.Move.Paqiang)//如果在跳跃后0.15秒之后接触到墙 会停止跳跃。
                 endJump = true;
             //如果是你主动松开 则会让速度立即下降到0
             if (endJump)
@@ -144,7 +144,7 @@ public class Jump : Skill
                     Velocity.y -= 9.8f * Time.fixedDeltaTime;
                 if (Velocity.y < 8)
                 {
-                    Velocity.y += 100 * Time.fixedDeltaTime;
+                    Velocity.y += 60 * Time.fixedDeltaTime;
                     if (Velocity.y > 8)
                         Velocity.y = 8;
                 }

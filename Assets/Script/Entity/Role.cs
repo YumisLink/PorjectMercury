@@ -130,6 +130,7 @@ public class Role : Entity
         AfterTakeDamage(dam);
         if (from)
             from.OnSucceedDamage(dam,this);
+        Effect.CreateUnderAttackEffect(dam,gameObject);
 
     }
     /// <summary>

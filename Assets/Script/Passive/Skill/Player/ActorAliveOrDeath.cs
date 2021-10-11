@@ -83,6 +83,7 @@ public class ActorAliveOrDeath : Skill
         {
             var d = new Damage(damage * role.Properties.Attack,DamageType.Normal);
             d.fromSkill = "AliveOrDeath";
+            d.SetEffect(DamageEffect.katana);
             Damage.DealDamage(d,role,a.GetComponent<Role>());
         }
     }

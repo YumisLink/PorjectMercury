@@ -13,8 +13,10 @@ public class Gatels : MonoBehaviour
             if (Link!=null)
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
+                    room.LeaveEnviroment();
                     GameManager.VirtualCamera.m_BoundingShape2D = Link.room.Limit;
                     role.transform.position = Link.transform.position;
+                    Link.room.ReSetEnvironment();
                 }
     }
     public void OnTriggerEnter2D(Collider2D collision)

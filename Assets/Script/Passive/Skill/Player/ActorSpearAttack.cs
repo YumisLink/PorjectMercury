@@ -165,6 +165,7 @@ public class ActorSpearAttack : Skill
             go.GetComponent<SpriteRenderer>().color = RushColor;
             go.SetDamage(new Damage(AttackDamage * role.Properties.Attack, DamageType.Normal));
             go.damage.fromSkill = "RushAttack";
+            go.damage.SetEffect(DamageEffect.katana);
             Lib.SetMultScale(go.gameObject, BiggerRushAttack, BiggerRushAttack);
             Lib.SetMultScale(go.gameObject, role.Properties.Range, role.Properties.Range);
             Lib.SetMultScale(go.gameObject, 1.0f, 0.75f);
@@ -179,6 +180,7 @@ public class ActorSpearAttack : Skill
             go.SetFollow();
             go.SetDamage(new Damage(AttackDamage * role.Properties.Attack, DamageType.Normal));
             go.damage.fromSkill = "Attack";
+            go.damage.SetEffect(DamageEffect.katana);
             Lib.SetMultScale(go.gameObject, BiggerAttack, BiggerAttack);
             Lib.SetMultScale(go.gameObject, role.Properties.Range, role.Properties.Range);
             Lib.SetMultScale(go.gameObject, 0.75f, 1);

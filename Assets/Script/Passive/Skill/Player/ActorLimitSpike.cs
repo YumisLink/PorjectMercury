@@ -81,6 +81,7 @@ public class ActorLimitSpike : Skill
             Lib.SetFlipX(eff.gameObject);
         eff.damage = new Damage(Att,DamageType.Normal);
         eff.damage.fromSkill = "ActorLimitSpike";
+        eff.damage.SetEffect(DamageEffect.katana);
     }
     public override void BeforeFinalAttack(Damage damage, Role target)
     {

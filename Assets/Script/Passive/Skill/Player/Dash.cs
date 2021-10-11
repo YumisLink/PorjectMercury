@@ -26,6 +26,13 @@ public class Dash : Skill
             return false;
         return true;
     }
+    protected override void OnFixedUpdate()
+    {
+        if (SkillState == role.SkillState)
+        {
+            role.InvisibleTime = Mathf.Max(role.InvisibleTime, 0.05f);
+        }
+    }
     public override void After()
     {
         role.Move.CanMove = true;

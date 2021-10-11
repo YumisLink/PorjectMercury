@@ -18,7 +18,29 @@ public class Room : MonoBehaviour
     {
         GateInit();
     }
-
+    public void ReSetEnvironment()
+    {
+        foreach (var a in GetComponentInChildren<Transform>())
+        {
+            var j = (Transform)a;
+            if (j.TryGetComponent<Environment>(out var k))
+            {
+                k.ReInit();
+                j.gameObject.SetActive(true);
+            }
+        }
+    }
+    public void LeaveEnviroment()
+    {
+        foreach (var a in GetComponentInChildren<Transform>())
+        {
+            var j = (Transform)a;
+            if (j.TryGetComponent<Environment>(out var k))
+            {
+                j.gameObject.SetActive(false);
+            }
+        }
+    }
     void Update()
     {
         

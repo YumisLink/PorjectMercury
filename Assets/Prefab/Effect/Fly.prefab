@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 5623149809884586350, guid: 4a85d6d05b50b5a42b0772e5abe6a046,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -144,9 +144,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faction: 0
   Master: {fileID: 0}
+  Type: 0
   Duration: 1
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
+  CList: []
+  ClearFloat: []
   land: []
-  Follow: 0
+  Star: {x: 0, y: 0}
+  Delt: {x: 0, y: 0}

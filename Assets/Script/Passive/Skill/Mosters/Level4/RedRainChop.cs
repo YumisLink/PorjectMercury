@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class RedRainChop : Skill
 {
-    GameObject AttackEffect = GameManager.Effect[15];
+    GameObject AttackEffect = GameManager.Effect[1];
     public bool Moving = false;
     public int Arrow;
     public Vector2 v2d = new Vector2();
 
     public override void Init()
     {
-        AddAction(0.6f, Atk);
-        AddAction(0.8f, Stop);
+        AddAction(0.7f, Atk);
+        AddAction(0.9f, Stop);
         Arrow = 0;
     }
     public override void Before()
@@ -64,8 +64,9 @@ public class RedRainChop : Skill
         role.anim.speed = 1;
         Moving = true;
         var go = Effect.Create(AttackEffect, gameObject);
-        Lib.SetMultScale(go.gameObject, 2,2);
+        Lib.SetMultScale(go.gameObject, 1.3f,1.3f);
         go.SetDamage(new Damage(100, DamageType.Normal));
+        go.damage.damageEffect = DamageEffect.katana;
         if (v2d.x < 0)
             Lib.SetFlipX(go.gameObject);
         go.SetFollow();

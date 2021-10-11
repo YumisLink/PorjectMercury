@@ -9,10 +9,15 @@ public enum DamageSound
 {
     def,katana
 }
+public enum DamageEffect
+{
+    def,katana
+}
 public class Damage
 {
     public DamageType type;
     public DamageSound sound;
+    public DamageEffect damageEffect;
     public float FinalDamage;
     public float BaseDamage;
     public string fromSkill;
@@ -37,6 +42,7 @@ public class Damage
         BaseDamage = dam.BaseDamage;
         FinalDamage = dam.FinalDamage;
         fromSkill = dam.fromSkill;
+        damageEffect = dam.damageEffect;
     }
     public static void DealDamage(Damage damage,Role from,Role to) 
     {
@@ -57,7 +63,9 @@ public class Damage
         if (from)
             if (To.Critical) 
                 To.FinalDamage *= from.Properties.CriticalRatio;
+        //造成伤害在这里哦
         to.UnderAttack(To, from);
+        //造成伤害在这里哦
         float bd;
         if (from != null)
             bd = from.Properties.Attack;
@@ -66,5 +74,12 @@ public class Damage
         if (To.FinalDamage > 0)
             UiManager.CreateDamageShow(To, to.transform.position,Mathf.Min(5,Mathf.Max(1, To.FinalDamage / bd / 6)));
     }
-
+    public void SetSound(DamageSound ds)
+    {
+        sound = ds;
+    }
+    public void SetEffect(DamageEffect de)
+    {
+        damageEffect = de;
+    }
 }
