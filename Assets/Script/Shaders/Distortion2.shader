@@ -12,6 +12,7 @@
 
           TEXTURE2D(_CameraColorTexture);
           SAMPLER(sampler_CameraColorTexture);
+          uniform float2 _Center;
 
           struct Attributes
           {
@@ -36,17 +37,26 @@
               return output;
           }
 
+          float Fitting(float low, float high, float input)
+          {
+            high -= low;
+            input -= low;
+            return (input / high);
+          }
+
           float4 frag(Varyings input) : SV_Target
           {
               float2 uv = input.uv;
-              float2 offset = uv - float2(0.5, 0.5);
+              float2 offset = uv - _Center;
               float2 direction = normalize(offset);
               float len = length(offset);
-              float t = _Time.x;
+              float t = _Time.x * 25;
               float x = len;
 
-              float edge = step(0 + (t * t * 0.3 + t), x) * step(x, (t * t * 0.3 + t) + PI / 5 * (t + 0.5));
-              float wave = 3 / (pow(t + 3, 5) * 0.05) * sin(5 / (t + 0.5) * (x - (t * t * 0.3 + t)));
+              
+              //hack
+              float edge = step(0 + (t * 0.2), x) * step(x, (t * 0.2) + PI / 40 * (t * t * 10 + 0.1));
+              float wave = 3 * (1 - (t * 80) / (1 + t * 80)) * sin(40 / (t * t * 10 + 0.1) * (x - (t * 0.2)));
               float mixin = edge * wave;
 
               float2 resultUv = mixin + uv;

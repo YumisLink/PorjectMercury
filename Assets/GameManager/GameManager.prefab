@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 6489660149253975912, guid: fadaf5153c9bf8d459ef461c07bac1f6, type: 3}
   - {fileID: 7661026544280925007, guid: 1adb2bd56e040754ca6bb016a9eddeba, type: 3}
   - {fileID: 6051812075873667134, guid: 07f80a2323f37fd459a0735bc5d6d056, type: 3}
+  - {fileID: 2975314987685544867, guid: 561f3f72d86a2814da456a67d0aaaa94, type: 3}
   UIs:
   - {fileID: 4006192217666875491, guid: 0d4c49489fa316c4990e8ed73702f982, type: 3}
   Particles:

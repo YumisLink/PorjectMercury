@@ -30,9 +30,8 @@ MonoBehaviour:
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: 4764866753498899995}
   - {fileID: -8998140770438967191}
-  m_RendererFeatureMap: 1be65e2411352042699006bba42e2083
+  m_RendererFeatureMap: 699006bba42e2083
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -55,28 +54,3 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
---- !u!114 &4764866753498899995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f113fde838177a41b4cca7a86631ae0, type: 3}
-  m_Name: NewAirDistortionFeature
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  Setting:
-    Event: 500
-    AirDistortionMaterial: {fileID: 2100000, guid: 9098fdf7ec923534f9d31dc9b17fca3c,
-      type: 2}
-    Center: {x: 0.5, y: 0.5}
-    Distance: 1
-    Power: 5
-    Amplitude: 1
-    WaveLength: 1
-    Speed: 1
-    Near: 0.125
-    Far: 0.5
