@@ -91,18 +91,17 @@ public class Effect : Entity
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (OnlyEffect)
             return;
         if (collision.gameObject == Master)
             return;
         if (collision.gameObject.TryGetComponent<Effect>(out var effs))
         {
-            Debug.Log("766");
-            if (effs.damage != null)
+            if (effs.damage != null && damage != null)
                 if (effs.damage.damageEffect == DamageEffect.katana && damage.damageEffect == DamageEffect.katana)
                 {
                     GameManager.SpeedDownTime = 0.5f;
+                    
                     CreateUnderAttackEffect(damage,Master);
                 }
         }

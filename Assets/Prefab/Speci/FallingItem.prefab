@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1725874741959010417}
   - component: {fileID: 309954578608927129}
   - component: {fileID: 5047302718662400662}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: FallingItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15681362, y: -0.8960762}
+  m_Offset: {x: 0.18544877, y: -0.704456}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9838276, y: 0.65402985}
+  m_Size: {x: 2.1190217, y: 0.6362057}
   m_EdgeRadius: 0
 --- !u!50 &309954578608927129
 Rigidbody2D:

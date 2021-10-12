@@ -30,6 +30,7 @@ public class Damage
         type = DamageType.Normal;
         sound = DamageSound.def;
         fromSkill = "";
+        damageEffect = DamageEffect.def;
     }
     public Damage(float damage, DamageType type) : this(damage)
     {

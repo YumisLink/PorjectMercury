@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Role : Entity
 {
+
     public static GameObject PlayerGameObject;
     public Renderer render;
     public string SkillState = "noon";
@@ -16,8 +17,6 @@ public class Role : Entity
     public List<Passive> possives = new List<Passive>();
     public Queue<Passive> DeletePossiveQueue = new Queue<Passive>();
     public Skill nowSkill;
-
-
     public bool die;
     /// <summary>
     /// 被攻击到了，变红的持续时间
@@ -44,6 +43,7 @@ public class Role : Entity
     /// </summary>
     public float Mana;
     float TimeCnt = 0;
+    List<SpriteRenderer> sprlist = new List<SpriteRenderer>();
 
 
 
@@ -57,6 +57,10 @@ public class Role : Entity
         Health = Properties.MaxHealth;
         Spirit = Properties.MaxSpirit;
 
+        foreach(var a in GetComponentInChildren<Transform>())
+            foreach (var b in ((Transform)a).GetComponentInChildren<Transform>())
+                if (((Transform)b).TryGetComponent<SpriteRenderer>(out var k))
+                sprlist.Add(k);
     }
     public override void OnUpdate()
     {
@@ -67,11 +71,10 @@ public class Role : Entity
         if (Health <= 0 && !die)
         {
             Effect.Create(GameManager.Particle[1], gameObject, transform.position);
-            //var k = Instantiate(GameManager.Particle[1]);
             die = true;
             return;
             //Move.CanMove = false;
-            //SkillState = "???";
+            //SkillState = "Die";
             //k.transform.position = transform.position;
             //k.GetComponent<Effect>().Master = gameObject;
             //k.GetComponent<Effect>().SetFollow();
@@ -101,20 +104,29 @@ public class Role : Entity
     }
 
 
+    bool IsRed = false;
     public virtual void UnderAttackUpdate()
     {
-        if (render!=null)
-            if (AttackedRed >= 0)
+        if (AttackedRed > 0 && !IsRed)
+        {
+            foreach(var arender in sprlist)
             {
-                var col = render.material.color;
+                var col = arender.material.color;
                 col.g = 0.5f;
                 col.b = 0.5f;
-                render.material.color = col;
-                //Debug.Log(render.gameObject.name);
+                arender.material.color = col;
             }
-            else
-
-                render.material.color = Color.white;
+            IsRed = true;
+        }
+        if (IsRed && AttackedRed < 0)
+        {
+            foreach (var arender in sprlist)
+            {
+                arender.material.color = Color.white;
+            }
+            IsRed = false;
+        }
+                
         AttackedRed -= Time.fixedDeltaTime;
     }
 

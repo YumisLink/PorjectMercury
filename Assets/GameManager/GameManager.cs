@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
     }
     void LoadRoom()
     {
-        var rm1 = GameManager.CreateRoom(GameManager.Rooms[5]);
+        var rm1 = GameManager.CreateRoom(GameManager.Rooms[4]);
         rm1.transform.position = Vector3.zero;
 
         var rm2 = GameManager.CreateRoom(GameManager.Rooms[3]);
@@ -182,9 +182,9 @@ public class GameManager : MonoBehaviour
         rm1.RightGate.LinkTo(rm2.LeftGate);
 
 
-        //var rm3 = GameManager.CreateRoom(GameManager.Rooms[2]);
-        //rm3.transform.position = Vector3.zero + new Vector3(100, 0, 0);
-        //rm2.RightGate.LinkTo(rm3.LeftGate);
+        var rm3 = GameManager.CreateRoom(GameManager.Rooms[5]);
+        rm3.transform.position = Vector3.zero + new Vector3(300, 0, 0);
+        rm2.RightGate.LinkTo(rm3.LeftGate);
 
 
         //var rm4 = GameManager.CreateRoom(GameManager.Rooms[2]);
