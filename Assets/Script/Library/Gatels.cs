@@ -17,6 +17,7 @@ public class Gatels : MonoBehaviour
                     GameManager.VirtualCamera.m_BoundingShape2D = Link.room.Limit;
                     role.transform.position = Link.transform.position;
                     Link.room.ReSetEnvironment();
+                    Sound.Play(GameManager.Audio[3]);
                 }
     }
     public void OnTriggerEnter2D(Collider2D collision)

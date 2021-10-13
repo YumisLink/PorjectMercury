@@ -37,10 +37,12 @@ public class GameManager : MonoBehaviour
     public static List<Role> AllRoles = new List<Role>();
     public static List<Effect> AllEffects = new List<Effect>();
     public static List<GameObject> AllFallingItem = new List<GameObject>();
+    public static List<Sound> AllSound = new List<Sound>();
     public static List<Sprite> SkillImage;
     public static List<int> NormalItemList = new List<int>();
     public static List<GameObject> Roles;
     public static List<GameObject> Rooms;
+    public static List<AudioClip> Audio;
 
 
 
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
     public static CinemachineConfiner VirtualCamera;
     public static CinemachineVirtualCamera cm;
     private static GameObject ItemCreater;
+
+
     public static List<Room> AllRooms = new List<Room>();
 
 
@@ -154,6 +158,7 @@ public class GameManager : MonoBehaviour
         ItemCreater = itemCreater;
         Camera = privateCamera;
         Canvas = privateCanvas;
+        Audio = Audios;
         ItemImage = Images;
         SkillImage = skillImg;
         VirtualCamera = PrivateVirtualCamera;
@@ -347,6 +352,18 @@ public class GameManager : MonoBehaviour
         AllRoles.Remove(role);
         Destroy(role.gameObject);
     }
+    public static void DestoryAudio(Sound sd)
+    {
+        AllSound.Remove(sd);
+        Destroy(sd.gameObject);
+    }
+    public static Sound CreateAudio()
+    {
+        Sound ret = Instantiate(UI[1]).GetComponent<Sound>();
+        AllSound.Remove(ret);
+        return ret;
+    }
+
     public PolygonCollider2D pc2d;
     public Camera privateCamera;
     public Canvas privateCanvas;
@@ -359,5 +376,6 @@ public class GameManager : MonoBehaviour
     public List<Sprite> skillImg = new List<Sprite>();
     public List<int> ItemPools;
     public List<GameObject> Role = new List<GameObject>();
-    public  List<GameObject> Room = new List<GameObject>();
+    public List<GameObject> Room = new List<GameObject>();
+    public List<AudioClip> Audios = new List<AudioClip>();
 }

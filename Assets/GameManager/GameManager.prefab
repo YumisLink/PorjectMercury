@@ -72,6 +72,7 @@ MonoBehaviour:
   - {fileID: 2975314987685544867, guid: 561f3f72d86a2814da456a67d0aaaa94, type: 3}
   UIs:
   - {fileID: 4006192217666875491, guid: 0d4c49489fa316c4990e8ed73702f982, type: 3}
+  - {fileID: 5365094488629441768, guid: dea029746381fa340b6e1a3f5d96e64c, type: 3}
   Particles:
   - {fileID: 5094518254837195715, guid: 9d94b38b1f44d8d4a9ac422bfdeed1ef, type: 3}
   - {fileID: 5997770457491892451, guid: f5f1743443da310439a44f81f2661b2c, type: 3}
@@ -138,6 +139,11 @@ MonoBehaviour:
   - {fileID: 19759341686390578, guid: be6227bfa3eb81b449212906b7ce74cb, type: 3}
   - {fileID: 1540328939599700053, guid: bbe66d34e8435cd459bcd0ead452a2f1, type: 3}
   - {fileID: 1198708821016318392, guid: c67de6503017502478f82ba13c7a241b, type: 3}
+  Audios:
+  - {fileID: 8300000, guid: cde3beed8694e8d47999bc9d20cfc0a1, type: 3}
+  - {fileID: 8300000, guid: 1fd138d699680ad448d2fd7d8368cc78, type: 3}
+  - {fileID: 8300000, guid: 0ddd7946aa593ce4e9f2cec47cdb9fda, type: 3}
+  - {fileID: 8300000, guid: ae3191d358a9fcf48895090e90018be6, type: 3}
 --- !u!114 &2595712026980275643
 MonoBehaviour:
   m_ObjectHideFlags: 0

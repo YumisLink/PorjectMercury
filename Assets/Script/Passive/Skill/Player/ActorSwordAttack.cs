@@ -120,6 +120,7 @@ public class ActorSwordAttack : Skill
     }
     public void Atk()
     {
+        Sound.Play(GameManager.Audio[0]);
         if (RushAttack)
         {
             var go = Effect.Create(GameManager.Effect[1], gameObject, transform.position+new Vector3(role.FaceTo*0.5f,0));

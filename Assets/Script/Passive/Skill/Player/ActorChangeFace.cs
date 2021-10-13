@@ -27,6 +27,7 @@ public class ActorChangeFace : Skill
     }
     public override void Before()
     {
+        Sound.Play(GameManager.Audio[2]);
         Effect.Create(GameManager.Effect[5],role.gameObject,transform.position);
         var go = Effect.Create(GameManager.Effect[5], role.gameObject, transform.position);
         Lib.Rotate(go.gameObject, 45);
