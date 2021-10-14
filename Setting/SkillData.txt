@@ -1,11 +1,18 @@
-演员普通攻击1	ActorSwordAttack	向前挥砍，造成一定的伤害。	0.15	0.6	ActorSwordAttack	70	
-演员普通攻击2	ActorSpearAttack	向前突刺，造成伤害	0.2	0.6	ActorSpearAttack	60	
-演员普通攻击3	ActorRiderAttack	挥砍！	0.3	0.8	ActorRiderAttack	120	
-医生攻击	DoctorAttack	医生的攻击	1.1	1.5	DoctorAttack	100	
-医生攻击2	DoctorAct	医生的攻击	1	1.5	DoctorAct	100	
-冲刺	Dash	冲刺	0	0	Dash		
-跳跃	Jump	跳跃	0	0	Jump		
-演员换脸	ActorChangeFace	斩击：瞬间移动到敌人背后，进行一次攻击。突刺：向前突刺到第一个敌人所在的位置，并且赋予造成伤害的人一层虚弱。打击：击退面前大范围的敌人。	0	3	ActorChangeFace		
-生死界线	ActorAliveOrDeath	对前方长距离斩击，之后收刀，如果本次伤害大于理论伤害，则造成多倍伤害。	1	40	ActorAliveOrDeath	100	20
-极限突刺	ActorLimitSpike	对前方进行突刺，如果本次造成的伤害大于理论伤害，则追加一次有最多次数	0.6	40	ActorLimitSpike	120	5
-正义裁决	ActorJusticeAdjudication	进行重击，击退目标极其周围的敌人，并且对目标追加其最大生命值10%的伤害，并且这个伤害也对周围的敌人生效。	0.6	40	ActorJusticeAdjudication	180	
+演员普通攻击1	ActorSwordAttack	向前挥砍，造成一定的伤害。	0.15	0.6	ActorSwordAttack	Attack	70	
+演员普通攻击2	ActorSpearAttack	向前突刺，造成伤害	0.2	0.6	ActorSpearAttack	Attack	60	
+演员普通攻击3	ActorRiderAttack	挥砍！	0.3	0.8	ActorRiderAttack	Attack	120	
+医生攻击	DoctorAttack	医生的攻击	1.1	1.5	DoctorAttack	Attack	100	
+医生攻击2	DoctorAct	医生的攻击	1	1.5	DoctorAct	Attack	100	
+冲刺	Dash	冲刺	0	0	Dash	Rush		
+跳跃	Jump	跳跃	0	0	Jump	Jump		
+演员换脸	ActorChangeFace	斩击：瞬间移动到敌人背后，进行一次攻击。突刺：向前突刺到第一个敌人所在的位置，并且赋予造成伤害的人一层虚弱。打击：击退面前大范围的敌人。	0	3	ActorChangeFace	State		
+生死界线	ActorAliveOrDeath	对前方长距离斩击，之后收刀，如果本次伤害大于理论伤害，则造成多倍伤害。	1	40	ActorAliveOrDeath	Skill	100	5
+极限突刺	ActorLimitSpike	对前方进行突刺，如果本次造成的伤害大于理论伤害，则追加一次有最多次数	0.4	40	ActorLimitSpike	Skill	60	5
+正义裁决	ActorJusticeAdjudication	进行重击，击退目标极其周围的敌人，并且对目标追加其最大生命值10%的伤害，并且这个伤害也对周围的敌人生效。	0.6	40	ActorJusticeAdjudication	Skill	180	
+第七灵灾	RedRainSunFire	召唤一个巨大的火球，出现在场地中心，落地时，击退所有的人，并且持续造成高额魔法伤害。最后火球爆炸，红雨出现在火球中心。	13	999	RedRainSunFire	Skill		
+红雨冲斩	RedRainChop		1	0	RedRainChop	Attack		
+红雨追击	RedRainStrike		0.6	0	RedRainStrike	Attack		
+红雨闪现	RedRainBlink	移动到目标背后，如果超出范围只会在范围内出现。	0.6	0	RedRainBlink	Skill		
+红雨幻影剑	RedRainPhantomSword	连续三次出现剑影在玩家的位置。	1.2	5	RedRainPhantomSword	Skill	3	30
+红雨火球	RedRainFireBall	连续三颗火球	1.2	5	RedRainFireBall	Skill	3	120
+红雨后退	RedRainGoBack	后退	0.2	4	RedRainGoBack	Skill		
