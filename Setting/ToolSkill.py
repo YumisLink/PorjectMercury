@@ -34,17 +34,20 @@ if __name__ == "__main__":
         sw.write(st[4])
         sw.write(',"SkillState":')
         sw.write('"' + st[5] + '"')
+        sw.write(',"SkillType":')
+        sw.write('"' + st[6] + '"')
         sw.write(',"Data":[')
-        leng = 5
-        for i in range(6, len(st)):
+
+        leng = 6
+        for i in range(7, len(st)):
             if st[i] == "":
                 continue
             if st[i] == "\n":
                 continue
             leng += 1
-        for i in range(6, leng):
+        for i in range(7, leng):
             sw.write(st[i] + ",")
-        if leng != 5:
+        if leng != 6:
             sw.write(st[leng])
         sw.write("]}")
         if line:

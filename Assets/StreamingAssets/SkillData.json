@@ -1,208 +1,23 @@
 {
-  "SkillJsonClass": [
-    {
-      "SkillName": "演员普通攻击1",
-      "ClassName": "ActorSwordAttack",
-      "SkillDetail": "向前挥砍，造成一定的伤害。",
-      "ReleaseTime": 0.15,
-      "CoolDown": 0.6,
-      "SkillState": "ActorSwordAttack",
-      "SkillType": "Attack",
-      "Data": [
-        70
-      ]
-    },
-    {
-      "SkillName": "演员普通攻击2",
-      "ClassName": "ActorSpearAttack",
-      "SkillDetail": "向前突刺，造成伤害",
-      "ReleaseTime": 0.2,
-      "CoolDown": 0.6,
-      "SkillState": "ActorSpearAttack",
-      "SkillType": "Attack",
-      "Data": [
-        60
-      ]
-    },
-    {
-      "SkillName": "演员普通攻击3",
-      "ClassName": "ActorRiderAttack",
-      "SkillDetail": "挥砍！",
-      "ReleaseTime": 0.3,
-      "CoolDown": 0.8,
-      "SkillState": "ActorRiderAttack",
-      "SkillType": "Attack",
-      "Data": [
-        120
-      ]
-    },
-    {
-      "SkillName": "医生攻击",
-      "ClassName": "DoctorAttack",
-      "SkillDetail": "医生的攻击",
-      "ReleaseTime": 1.1,
-      "CoolDown": 1.5,
-      "SkillState": "DoctorAttack",
-      "SkillType": "Attack",
-      "Data": [
-        100
-      ]
-    },
-    {
-      "SkillName": "医生攻击2",
-      "ClassName": "DoctorAct",
-      "SkillDetail": "医生的攻击",
-      "ReleaseTime": 1,
-      "CoolDown": 1.5,
-      "SkillState": "DoctorAct",
-      "SkillType": "Attack",
-      "Data": [
-        100
-      ]
-    },
-    {
-      "SkillName": "冲刺",
-      "ClassName": "Dash",
-      "SkillDetail": "冲刺",
-      "ReleaseTime": 0,
-      "CoolDown": 0,
-      "SkillState": "Dash",
-      "SkillType": "Rush",
-      "Data": []
-    },
-    {
-      "SkillName": "跳跃",
-      "ClassName": "Jump",
-      "SkillDetail": "跳跃",
-      "ReleaseTime": 0,
-      "CoolDown": 0,
-      "SkillState": "Jump",
-      "SkillType": "Jump",
-      "Data": []
-    },
-    {
-      "SkillName": "演员换脸",
-      "ClassName": "ActorChangeFace",
-      "SkillDetail": "斩击：瞬间移动到敌人背后，进行一次攻击。突刺：向前突刺到第一个敌人所在的位置，并且赋予造成伤害的人一层虚弱。打击：击退面前大范围的敌人。",
-      "ReleaseTime": 0,
-      "CoolDown": 3,
-      "SkillState": "ActorChangeFace",
-      "SkillType": "State",
-      "Data": []
-    },
-    {
-      "SkillName": "生死界线",
-      "ClassName": "ActorAliveOrDeath",
-      "SkillDetail": "对前方长距离斩击，之后收刀，如果本次伤害大于理论伤害，则造成多倍伤害。",
-      "ReleaseTime": 1,
-      "CoolDown": 40,
-      "SkillState": "ActorAliveOrDeath",
-      "SkillType": "Skill",
-      "Data": [
-        100,
-        5
-      ]
-    },
-    {
-      "SkillName": "极限突刺",
-      "ClassName": "ActorLimitSpike",
-      "SkillDetail": "对前方进行突刺，如果本次造成的伤害大于理论伤害，则追加一次有最多次数",
-      "ReleaseTime": 0.4,
-      "CoolDown": 40,
-      "SkillState": "ActorLimitSpike",
-      "SkillType": "Skill",
-      "Data": [
-        60,
-        5
-      ]
-    },
-    {
-      "SkillName": "正义裁决",
-      "ClassName": "ActorJusticeAdjudication",
-      "SkillDetail": "进行重击，击退目标极其周围的敌人，并且对目标追加其最大生命值10%的伤害，并且这个伤害也对周围的敌人生效。",
-      "ReleaseTime": 0.6,
-      "CoolDown": 40,
-      "SkillState": "ActorJusticeAdjudication",
-      "SkillType": "Skill",
-      "Data": [
-        180
-      ]
-    },
-    {
-      "SkillName": "第七灵灾",
-      "ClassName": "RedRainSunFire",
-      "SkillDetail": "召唤一个巨大的火球，出现在场地中心，落地时，击退所有的人，并且持续造成高额魔法伤害。最后火球爆炸，红雨出现在火球中心。",
-      "ReleaseTime": 13,
-      "CoolDown": 999,
-      "SkillState": "RedRainSunFire",
-      "SkillType": "Skill",
-      "Data": []
-    },
-    {
-      "SkillName": "红雨冲斩",
-      "ClassName": "RedRainChop",
-      "SkillDetail": "",
-      "ReleaseTime": 1,
-      "CoolDown": 0,
-      "SkillState": "RedRainChop",
-      "SkillType": "Attack",
-      "Data": []
-    },
-    {
-      "SkillName": "红雨追击",
-      "ClassName": "RedRainStrike",
-      "SkillDetail": "",
-      "ReleaseTime": 0.6,
-      "CoolDown": 0,
-      "SkillState": "RedRainStrike",
-      "SkillType": "Attack",
-      "Data": []
-    },
-    {
-      "SkillName": "红雨闪现",
-      "ClassName": "RedRainBlink",
-      "SkillDetail": "移动到目标背后，如果超出范围只会在范围内出现。",
-      "ReleaseTime": 0.6,
-      "CoolDown": 0,
-      "SkillState": "RedRainBlink",
-      "SkillType": "Skill",
-      "Data": []
-    },
-    {
-      "SkillName": "红雨幻影剑",
-      "ClassName": "RedRainPhantomSword",
-      "SkillDetail": "连续三次出现剑影在玩家的位置。",
-      "ReleaseTime": 1.2,
-      "CoolDown": 0,
-      "SkillState": "RedRainPhantomSword",
-      "SkillType": "Skill",
-      "Data": [
-        3,
-        30
-      ]
-    },
-    {
-      "SkillName": "红雨火球",
-      "ClassName": "RedRainFireBall",
-      "SkillDetail": "连续三颗火球",
-      "ReleaseTime": 1.2,
-      "CoolDown": 0,
-      "SkillState": "RedRainFireBall",
-      "SkillType": "Skill",
-      "Data": [
-        3,
-        120
-      ]
-    },
-    {
-      "SkillName": "红雨后退",
-      "ClassName": "RedRainGoBack",
-      "SkillDetail": "后退",
-      "ReleaseTime": 0.2,
-      "CoolDown": 4,
-      "SkillState": "RedRainGoBack",
-      "SkillType": "Skill",
-      "Data": []
-    }
-  ]
+"SkillJsonClass":[
+		{"SkillName":"演员普通攻击1","ClassName":"ActorSwordAttack","SkillDetail":"向前挥砍，造成一定的伤害。","ReleaseTime":0.15,"CoolDown":0.6,"SkillState":"ActorSwordAttack","SkillType":"Attack","Data":[70]},
+		{"SkillName":"演员普通攻击2","ClassName":"ActorSpearAttack","SkillDetail":"向前突刺，造成伤害","ReleaseTime":0.2,"CoolDown":0.6,"SkillState":"ActorSpearAttack","SkillType":"Attack","Data":[60]},
+		{"SkillName":"演员普通攻击3","ClassName":"ActorRiderAttack","SkillDetail":"挥砍！","ReleaseTime":0.3,"CoolDown":0.8,"SkillState":"ActorRiderAttack","SkillType":"Attack","Data":[120]},
+		{"SkillName":"医生攻击","ClassName":"DoctorAttack","SkillDetail":"医生的攻击","ReleaseTime":1.1,"CoolDown":1.5,"SkillState":"DoctorAttack","SkillType":"Attack","Data":[100]},
+		{"SkillName":"医生攻击2","ClassName":"DoctorAct","SkillDetail":"医生的攻击","ReleaseTime":1,"CoolDown":1.5,"SkillState":"DoctorAct","SkillType":"Attack","Data":[100]},
+		{"SkillName":"冲刺","ClassName":"Dash","SkillDetail":"冲刺","ReleaseTime":0,"CoolDown":0,"SkillState":"Dash","SkillType":"Rush","Data":[]},
+		{"SkillName":"跳跃","ClassName":"Jump","SkillDetail":"跳跃","ReleaseTime":0,"CoolDown":0,"SkillState":"Jump","SkillType":"Jump","Data":[]},
+		{"SkillName":"演员换脸","ClassName":"ActorChangeFace","SkillDetail":"斩击：瞬间移动到敌人背后，进行一次攻击。突刺：向前突刺到第一个敌人所在的位置，并且赋予造成伤害的人一层虚弱。打击：击退面前大范围的敌人。","ReleaseTime":0,"CoolDown":3,"SkillState":"ActorChangeFace","SkillType":"State","Data":[]},
+		{"SkillName":"生死界线","ClassName":"ActorAliveOrDeath","SkillDetail":"对前方长距离斩击，之后收刀，如果本次伤害大于理论伤害，则造成多倍伤害。","ReleaseTime":1,"CoolDown":40,"SkillState":"ActorAliveOrDeath","SkillType":"Skill","Data":[100,5]},
+		{"SkillName":"极限突刺","ClassName":"ActorLimitSpike","SkillDetail":"对前方进行突刺，如果本次造成的伤害大于理论伤害，则追加一次有最多次数","ReleaseTime":0.4,"CoolDown":40,"SkillState":"ActorLimitSpike","SkillType":"Skill","Data":[60,5]},
+		{"SkillName":"正义裁决","ClassName":"ActorJusticeAdjudication","SkillDetail":"进行重击，击退目标极其周围的敌人，并且对目标追加其最大生命值10%的伤害，并且这个伤害也对周围的敌人生效。","ReleaseTime":0.6,"CoolDown":40,"SkillState":"ActorJusticeAdjudication","SkillType":"Skill","Data":[180]},
+		{"SkillName":"第七灵灾","ClassName":"RedRainSunFire","SkillDetail":"召唤一个巨大的火球，出现在场地中心，落地时，击退所有的人，并且持续造成高额魔法伤害。最后火球爆炸，红雨出现在火球中心。","ReleaseTime":13,"CoolDown":999,"SkillState":"RedRainSunFire","SkillType":"Skill","Data":[]},
+		{"SkillName":"红雨冲斩","ClassName":"RedRainChop","SkillDetail":"","ReleaseTime":1,"CoolDown":0,"SkillState":"RedRainChop","SkillType":"Attack","Data":[]},
+		{"SkillName":"红雨追击","ClassName":"RedRainStrike","SkillDetail":"","ReleaseTime":0.6,"CoolDown":0,"SkillState":"RedRainStrike","SkillType":"Attack","Data":[]},
+		{"SkillName":"红雨闪现","ClassName":"RedRainBlink","SkillDetail":"移动到目标背后，如果超出范围只会在范围内出现。","ReleaseTime":0.6,"CoolDown":0,"SkillState":"RedRainBlink","SkillType":"Skill","Data":[]},
+		{"SkillName":"红雨幻影剑","ClassName":"RedRainPhantomSword","SkillDetail":"连续三次出现剑影在玩家的位置。","ReleaseTime":1.2,"CoolDown":0,"SkillState":"RedRainPhantomSword","SkillType":"Skill","Data":[3,30]},
+		{"SkillName":"红雨火球","ClassName":"RedRainFireBall","SkillDetail":"连续三颗火球","ReleaseTime":1.2,"CoolDown":0,"SkillState":"RedRainFireBall","SkillType":"Skill","Data":[3,120]},
+		{"SkillName":"红雨后退","ClassName":"RedRainGoBack","SkillDetail":"后退","ReleaseTime":0.2,"CoolDown":4,"SkillState":"RedRainGoBack","SkillType":"Skill","Data":[]},
+		{"SkillName":"摸鱼攻击","ClassName":"EasyAttack","SkillDetail":"走到你面前发动一次摸鱼的攻击","ReleaseTime":2,"CoolDown":2,"SkillState":"EasyAttack","SkillType":"Skill","Data":[-1]}
+	]
 }
