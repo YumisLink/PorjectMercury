@@ -36,12 +36,14 @@ public class CharacterController2D : MonoBehaviour
     }
     private void Update()
     {
+        Debug = controller.velocity;
+        if (GameManager.IsStop)
+            return;
         CanMoveTime -= Time.deltaTime;
         if (role.SkillState != "noon" || CanMoveTime > 0)
             CanMove = false;
         else
             CanMove = true;
-        Debug = controller.velocity;
     }
     public Vector2 DeletaMove = new Vector2();
     public Vector2 NowMove = new Vector2();
@@ -53,6 +55,10 @@ public class CharacterController2D : MonoBehaviour
     private float limit = 0;
     private void FixedUpdate()
     {
+        if (GameManager.IsStop)
+        {
+            return;
+        }
         Velocity = controller.velocity;
         MoveUpdate();
         if (GravityEffect && !IsGrounded && Paqiang)

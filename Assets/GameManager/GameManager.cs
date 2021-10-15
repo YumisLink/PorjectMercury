@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour
 
     public static PolygonCollider2D Pc2d;
 
+    public static bool IsStop = false;
+    public static List<Animator> anis;
+    public static List<Vector2> SaveV2 = new List<Vector2>();
+
 
     void Awake()
     {
@@ -88,7 +92,45 @@ public class GameManager : MonoBehaviour
         LoadRoom();
         LoadPlayer();
     }
-
+    public static void StopGame()
+    {
+        IsStop = true;
+        foreach(var a in AllEffects)
+        {
+            if (a.anim)
+                a.anim.speed = 0;
+        }
+        foreach (var a in AllRoles)
+        {
+            if (a.anim)
+                a.anim.speed = 0;
+            SaveV2.Add(a.Move.controller.velocity);
+            a.Move.controller.velocity = Vector2.zero;
+        }
+    }
+    public static void ContinueGame()
+    {
+        IsStop = false;
+        foreach (var a in AllEffects)
+        {
+            if (a.anim)
+                a.anim.speed = 1;
+        }
+        foreach (var a in AllRoles)
+        {
+            if (a.anim)
+                a.anim.speed = 1;
+            if (SaveV2.Count > 0)
+            {
+                a.Move.controller.velocity = SaveV2[0];
+                SaveV2.RemoveAt(0);
+            }
+        }
+    }
+    public static void StopAnim(Animator anim)
+    {
+        anis.Add(anim);
+    }
 
 
 
@@ -294,7 +336,7 @@ public class GameManager : MonoBehaviour
             AllRoles.Add(role);
             return role;
         }
-        else;
+        else
         {
             Debug.LogError("创建单位不包含Role");
             return null;
@@ -313,7 +355,7 @@ public class GameManager : MonoBehaviour
             AllEffects.Add(Effects);
             return Effects;
         }
-        else;
+        else
         {
             Debug.LogError("创建单位不包含Effect");
             return null;

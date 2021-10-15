@@ -16,6 +16,10 @@ public class UiManager : MonoBehaviour
     public Text ItemTextShower;
     public Image BossTag;
 
+    public Image hero;
+    public Text txt;
+    public Text heroName;
+
     public static Role player;
     public static List<Role> Bosses = new List<Role>();
 

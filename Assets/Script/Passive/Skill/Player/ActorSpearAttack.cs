@@ -89,7 +89,7 @@ public class ActorSpearAttack : Skill
         hitplace = 0;
         if (role.SkillState == "Dash")
         {
-            role.anim.Play("DashAttack");
+            role.anim.Play("Attack");
             RushAttack = true;
             role.Move.CanMove = true;
             role.Move.GravityEffect = true;

@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   Move: {fileID: 0}
   anim: {fileID: 0}
   InvisibleTime: 0
-  possives: []
+  passives: []
   nowSkill: {fileID: 0}
   die: 0
   AttackedRed: 0

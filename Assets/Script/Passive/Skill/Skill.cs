@@ -116,6 +116,10 @@ public class Skill : Passive
     public bool Request;
     void Update()
     {
+        if (GameManager.IsStop)
+        {
+            return;
+        }
         if (CoolTime >= 0)
             CoolTime -= Time.deltaTime;
         if (Request)

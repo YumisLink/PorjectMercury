@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RedRainPhantomSword : Skill
 {
-    int cnt = 0;
     public override bool CanUse()
     {
         if (!role.Move.IsGround)
@@ -18,10 +17,6 @@ public class RedRainPhantomSword : Skill
         AddAction(0.3f, PhantomSword);
         AddAction(0.6f, PhantomSword);
         AddAction(0.9f, PhantomSword);
-    }
-    public override void After()
-    {
-        cnt = 0;
     }
     public override void Before()
     {

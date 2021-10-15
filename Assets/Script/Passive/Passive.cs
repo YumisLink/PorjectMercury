@@ -11,7 +11,7 @@ public class Passive : MonoBehaviour
     {
         role = GetComponent<Role>();
         OnStart();
-        role.possives.Add(this);
+        role.passives.Add(this);
     }
     /// <summary>
     /// 这只在Skill类以及Item类中引用！
@@ -108,5 +108,11 @@ public class Passive : MonoBehaviour
     /// 在获得物品之后会获得。
     /// </summary>
     public virtual void AfterGetItem(Item item) { }
+    /// <summary>
+    /// 在拼刀的时候调用，两个参数为攻击方的特效和防守方的特效
+    /// </summary>
+    /// <param name="From">攻击方特效</param>
+    /// <param name="To">防守方特效</param>
+    public virtual void AfterFencing(Effect From,Effect To) { }
 
 }

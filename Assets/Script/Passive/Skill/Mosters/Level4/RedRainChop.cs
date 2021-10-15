@@ -60,7 +60,7 @@ public class RedRainChop : Skill
     {
 
 
-        role.anim.Play("RedRainChop");
+        role.anim.Play("Chop");
         role.anim.speed = 1;
         Moving = true;
         var go = Effect.Create(AttackEffect, gameObject);

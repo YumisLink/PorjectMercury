@@ -19,6 +19,8 @@ public class Entity : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsStop)
+            return;
         OnUpdate();   
     }
 }

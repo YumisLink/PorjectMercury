@@ -10,14 +10,16 @@ public class Effect : Entity
 {
     bool lateTrigger = true;
     Vector2 LateV2;
+    public Animator anim;
     public override void Init()
     {
+        anim = GetComponent<Animator>();
         if (Late > 0)
         {
             LateV2 = gameObject.transform.position;
-            Lib.MoveTo(gameObject,new Vector2(-1000f,-1000f));
-            if (TryGetComponent<Animator>(out var a))
-                a.speed = 0;
+            Lib.MoveTo(gameObject, new Vector2(-1000f, -1000f));
+            if (anim != null)
+                anim.speed = 0;
             lateTrigger = false;
         }
     }

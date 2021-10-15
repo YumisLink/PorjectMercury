@@ -14,7 +14,7 @@ public class Role : Entity
     public Queue<Skill> SkillQueue = new Queue<Skill>();
     public Animator anim;
     public float InvisibleTime = 0;
-    public List<Passive> possives = new List<Passive>();
+    public List<Passive> passives = new List<Passive>();
     public Queue<Passive> DeletePossiveQueue = new Queue<Passive>();
     public Skill nowSkill;
     public bool die;
@@ -61,6 +61,7 @@ public class Role : Entity
             foreach (var b in ((Transform)a).GetComponentInChildren<Transform>())
                 if (((Transform)b).TryGetComponent<SpriteRenderer>(out var k))
                 sprlist.Add(k);
+        GameManager.AllRoles.Add(this);
     }
     public override void OnUpdate()
     {
@@ -227,39 +228,35 @@ public class Role : Entity
 
 
 
-    public virtual void BeforeTakeDamage(Damage damage, Role target) { foreach (var i in possives) i.BeforeTakeDamage(damage, target); }
-    public virtual void BeforeTakeDamage(Damage damage) { foreach (var i in possives) i.BeforeTakeDamage(damage); }
-    public virtual void AfterTakeDamage(Damage damage, Role target) { foreach (var i in possives) i.AfterTakeDamage(damage, target); }
-    public virtual void AfterTakeDamage(Damage damage) { foreach (var i in possives) i.AfterTakeDamage(damage); }
-    public virtual void OnSucceedDamage(Damage damage, Role target) { foreach (var i in possives) i.OnSucceedDamage(damage, target); }
-    public virtual void BeforeDealDamage(Damage damage, Role target) { foreach (var i in possives) i.BeforeDealDamage(damage, target); }
-    public virtual void OnSucceedAttack(Entity entity) { foreach (var i in possives) i.OnSucceedAttack(entity); }
-    public virtual void BeforeFinalAttack(Damage damage, Role target) { foreach (var i in possives) i.BeforeFinalAttack(damage, target); }
-    public virtual void OnGetItem(Item item) { foreach (var i in possives) i.OnGetItem(item); }
-    public virtual void OnConflictItem(Item item) { foreach (var i in possives) i.OnConflictItem(item); }
-    public virtual void OnConflictBuff(Buff buff) { foreach (var i in possives) i.OnConflictBuff(buff); }
-    public virtual void BeforeGetBuff(Buff buff) { foreach (var i in possives) i.BeforeGetBuff(buff); }
-    public virtual void AfterGetBuff(Buff buff) { foreach (var i in possives) i.AfterGetBuff(buff); }
-    public virtual void OnGiveBuff(Buff buff) { foreach (var i in possives) i.OnGiveBuff(buff); }
-    public virtual void BeforeUseSkill(Skill skill) { foreach (var i in possives) i.BeforeUseSkill(skill); }
-    public virtual void AfterUseSkill(Skill skill) { foreach (var i in possives) i.AfterUseSkill(skill); }
-    public virtual void OnSustainedTrigger() { foreach (var i in possives) i.OnSustainedTrigger(); }
-    public virtual void AfterGetItem(Item item) { foreach (var i in possives) i.AfterGetItem(item); }
-
-
-
-
-
+    public virtual void BeforeTakeDamage(Damage damage, Role target) { foreach (var i in passives) i.BeforeTakeDamage(damage, target); }
+    public virtual void BeforeTakeDamage(Damage damage) { foreach (var i in passives) i.BeforeTakeDamage(damage); }
+    public virtual void AfterTakeDamage(Damage damage, Role target) { foreach (var i in passives) i.AfterTakeDamage(damage, target); }
+    public virtual void AfterTakeDamage(Damage damage) { foreach (var i in passives) i.AfterTakeDamage(damage); }
+    public virtual void OnSucceedDamage(Damage damage, Role target) { foreach (var i in passives) i.OnSucceedDamage(damage, target); }
+    public virtual void BeforeDealDamage(Damage damage, Role target) { foreach (var i in passives) i.BeforeDealDamage(damage, target); }
+    public virtual void OnSucceedAttack(Entity entity) { foreach (var i in passives) i.OnSucceedAttack(entity); }
+    public virtual void BeforeFinalAttack(Damage damage, Role target) { foreach (var i in passives) i.BeforeFinalAttack(damage, target); }
+    public virtual void OnGetItem(Item item) { foreach (var i in passives) i.OnGetItem(item); }
+    public virtual void OnConflictItem(Item item) { foreach (var i in passives) i.OnConflictItem(item); }
+    public virtual void OnConflictBuff(Buff buff) { foreach (var i in passives) i.OnConflictBuff(buff); }
+    public virtual void BeforeGetBuff(Buff buff) { foreach (var i in passives) i.BeforeGetBuff(buff); }
+    public virtual void AfterGetBuff(Buff buff) { foreach (var i in passives) i.AfterGetBuff(buff); }
+    public virtual void OnGiveBuff(Buff buff) { foreach (var i in passives) i.OnGiveBuff(buff); }
+    public virtual void BeforeUseSkill(Skill skill) { foreach (var i in passives) i.BeforeUseSkill(skill); }
+    public virtual void AfterUseSkill(Skill skill) { foreach (var i in passives) i.AfterUseSkill(skill); }
+    public virtual void OnSustainedTrigger() { foreach (var i in passives) i.OnSustainedTrigger(); }
+    public virtual void AfterGetItem(Item item) { foreach (var i in passives) i.AfterGetItem(item); }
+    public virtual void AfterFencing(Effect From,Effect To) { foreach (var i in passives) i.AfterFencing(From, To); }
 
 
     private void DeleteQueue()
     {
         while(DeletePossiveQueue.Count != 0)
         {
-            foreach (var i in possives)
+            foreach (var i in passives)
                 if (i == DeletePossiveQueue.Peek())
                 {
-                    possives.Remove(i);
+                    passives.Remove(i);
                     Destroy(i);
                     break;
                 }

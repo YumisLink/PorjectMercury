@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash : Skill
 {
     private int MoveDirection;
+    public float InvTime = 0.05f;
     public override void Init()
     {
         ReleaseTime = 0.2f;
@@ -30,7 +32,7 @@ public class Dash : Skill
     {
         if (SkillState == role.SkillState)
         {
-            role.InvisibleTime = Mathf.Max(role.InvisibleTime, 0.05f);
+            role.InvisibleTime = Mathf.Max(role.InvisibleTime, InvTime);
         }
     }
     public override void After()

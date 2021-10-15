@@ -45,7 +45,7 @@ public class RedRainStrike : Skill
     {
         role.Move.controller.velocity = Vector2.zero;
         Moving = false;
-        role.anim.Play("RedRainIdle");
+        role.anim.Play("Idle");
     }
     protected override void OnFixedUsing()
     {
@@ -59,7 +59,7 @@ public class RedRainStrike : Skill
     /// </summary>
     public void Atk()
     {
-        role.anim.Play("RedRainStrike");
+        role.anim.Play("Strike");
         role.anim.speed = 1;
         Moving = true;
         var go = Effect.Create(AttackEffect, gameObject);
