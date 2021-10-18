@@ -45,7 +45,7 @@ public class UiManager : MonoBehaviour
             UnderAttackBlack.color = k;
         }
 
-        if (Bosses.Count == 0)
+        if (Bosses.Count >= 0)
         {
 
             BossesHp.fillAmount = 0;

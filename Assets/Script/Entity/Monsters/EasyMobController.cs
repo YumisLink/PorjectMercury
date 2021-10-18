@@ -18,6 +18,10 @@ public class EasyMobController : Role
 
     void FixedUpdate()
     {
+        if (Health<= 0)
+        {
+            Destroy(gameObject);
+        }
         _jumpInterval -= Time.fixedDeltaTime;
         var dis = GetDistance();
         if (SkillState == NormalState)
@@ -32,10 +36,9 @@ public class EasyMobController : Role
                 }
             }
         }
-        if (dis.magnitude < 1.0f)
+        if (dis.magnitude < 3.0f)
         {
             _easyAtk.WantSkill();
-            Move.Go(0);
         }
         else
         {

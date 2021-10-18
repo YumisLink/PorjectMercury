@@ -7,6 +7,7 @@ public class Environment : MonoBehaviour
     public Vector2 StartTransform;
     private Transform cameras;
     private Vector2 StartCam = new Vector2();
+    public Room room;
     /// <summary>
     /// 是否锁定Y轴
     /// </summary>
@@ -16,16 +17,23 @@ public class Environment : MonoBehaviour
     private bool Trigger = true;
     private void Reinit()
     {
-        StartCam.x = cameras.position.x;
-        StartCam.y = cameras.position.y;
+        if (room)
+        {
+            StartCam.x = room.RoomCenter.x;
+            StartCam.y = room.RoomCenter.y;
+        }
         transform.position = StartTransform;
+    }
+    public void SetPosition()
+    {
+        StartCam.x = room.RoomCenter.x;
+        StartCam.y = room.RoomCenter.y;
     }
     private void Start()
     {
         StartTransform = new Vector2(transform.position.x,transform.position.y);
         cameras = GameManager.Camera.transform;
-        StartCam.x = cameras.position.x;
-        StartCam.y = cameras.position.y;
+        gameObject.SetActive(false);
     }
     public void ReInit()
     {

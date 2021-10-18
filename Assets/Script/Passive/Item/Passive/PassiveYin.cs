@@ -7,6 +7,5 @@ public class PassiveYin : Item
     public override void BeforeDealDamage(Damage damage, Role target)
     {
         damage.type = DamageType.True;
-        //damage.type = DamageType.Normal 
     }
 }

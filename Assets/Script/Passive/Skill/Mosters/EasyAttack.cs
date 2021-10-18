@@ -37,8 +37,10 @@ public class EasyAttack : Skill
     public void OnAttack()
     {
         var eff = Effect.Create(GameManager.Effect[1], gameObject);
-        eff.SetDamage(new Damage(Data[0], DamageType.Normal));
+        eff.SetDamage(new Damage(role.Properties.Attack, DamageType.Normal));
+        eff.damage.damageEffect = DamageEffect.katana;
         eff.SetFollow();
+        Lib.SetMultScale(eff.gameObject, 1.5f, 1.5f);
         if(role.FaceTo == -1)
         {
             Lib.SetFlipX(eff.gameObject);

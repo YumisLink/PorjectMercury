@@ -7,6 +7,21 @@ using System;
 
 public class JsonReaders
 {
+    public static Saved ReadSaved()
+    {
+        string paths = Path.Combine(Application.persistentDataPath, "Saved.json");
+        StreamReader sr = new StreamReader(paths);
+        string str = sr.ReadToEnd();
+        Saved cl = JsonMapper.ToObject<Saved>(str);
+        return cl;
+    }
+    public static void Save()
+    {
+        string paths = Path.Combine(Application.persistentDataPath, "Saved.json");
+        string str = JsonMapper.ToJson(GameManager.Save);
+        StreamWriter sw = new StreamWriter(paths);
+        sw.Write(str);
+    }
     public static List<ItemJsonClass> ReadFromFileItem()
     {
         string paths = Path.Combine(Application.streamingAssetsPath, "ItemData.json");

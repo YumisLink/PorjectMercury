@@ -17,7 +17,7 @@ public class Role : Entity
     public List<Passive> passives = new List<Passive>();
     public Queue<Passive> DeletePossiveQueue = new Queue<Passive>();
     public Skill nowSkill;
-    public bool die;
+    private bool die;
     /// <summary>
     /// 被攻击到了，变红的持续时间
     /// </summary>
@@ -46,11 +46,13 @@ public class Role : Entity
     List<SpriteRenderer> sprlist = new List<SpriteRenderer>();
 
 
-
+    private void Awake()
+    {
+        Move = gameObject.AddComponent<CharacterController2D>();
+    }
     public override void Init()
     {
         SkillState = "noon";
-        Move = gameObject.AddComponent<CharacterController2D>();
         anim = GetComponent<Animator>();
         render = GetComponent<Renderer>();
         Properties = BaseProperties;
@@ -63,6 +65,7 @@ public class Role : Entity
                 sprlist.Add(k);
         GameManager.AllRoles.Add(this);
     }
+    protected virtual void Dead() { }
     public override void OnUpdate()
     {
         if (SkillState == SkillStiff && Move.CanMoveTime <= 0)
@@ -72,6 +75,7 @@ public class Role : Entity
         if (Health <= 0 && !die)
         {
             Effect.Create(GameManager.Particle[1], gameObject, transform.position);
+            Dead();
             die = true;
             return;
             //Move.CanMove = false;
@@ -192,6 +196,9 @@ public class Role : Entity
     /// <param name="Healing">恢复的量，如果为负数则为失去生命值</param>
     public void RecoverHealth(float Point)
     {
+        float cnt = Point;
+        foreach(var a in passives)
+            Point += a.BeforeHealing(cnt);
         Health += Point;
         if (Health > Properties.MaxHealth)
         {
@@ -247,6 +254,7 @@ public class Role : Entity
     public virtual void OnSustainedTrigger() { foreach (var i in passives) i.OnSustainedTrigger(); }
     public virtual void AfterGetItem(Item item) { foreach (var i in passives) i.AfterGetItem(item); }
     public virtual void AfterFencing(Effect From,Effect To) { foreach (var i in passives) i.AfterFencing(From, To); }
+    //public virtual float BeforeHealing(float ft)
 
 
     private void DeleteQueue()

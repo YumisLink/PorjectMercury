@@ -68,8 +68,12 @@ public class GameManager : MonoBehaviour
     public static PolygonCollider2D Pc2d;
 
     public static bool IsStop = false;
-    public static List<Animator> anis;
     public static List<Vector2> SaveV2 = new List<Vector2>();
+
+    /// <summary>
+    /// 存档
+    /// </summary>
+    public static Saved Save;
 
 
     void Awake()
@@ -126,10 +130,6 @@ public class GameManager : MonoBehaviour
                 SaveV2.RemoveAt(0);
             }
         }
-    }
-    public static void StopAnim(Animator anim)
-    {
-        anis.Add(anim);
     }
 
 
@@ -216,27 +216,30 @@ public class GameManager : MonoBehaviour
     void LoadPlayer()
     {
         var player = GameObject.Instantiate(GameManager.Roles[4]);
-        player.transform.position = Vector3.zero;
+        player.transform.position = inittr;
         cm.Follow = player.transform;
     }
+    Vector2 inittr;
     void LoadRoom()
     {
-        var rm1 = GameManager.CreateRoom(GameManager.Rooms[4]);
+        var rm1 = GameManager.CreateRoom(GameManager.Rooms[3]);
         rm1.transform.position = Vector3.zero;
+        rm1.awake = true;
+        inittr = rm1.LeftGate.transform.position;
 
-        var rm2 = GameManager.CreateRoom(GameManager.Rooms[3]);
+        var rm2 = GameManager.CreateRoom(GameManager.Rooms[6]);
         rm2.transform.position = Vector3.zero + new Vector3(150, 0, 0);
         rm1.RightGate.LinkTo(rm2.LeftGate);
 
 
-        var rm3 = GameManager.CreateRoom(GameManager.Rooms[5]);
+        var rm3 = GameManager.CreateRoom(GameManager.Rooms[7]);
         rm3.transform.position = Vector3.zero + new Vector3(300, 0, 0);
         rm2.RightGate.LinkTo(rm3.LeftGate);
 
 
-        //var rm4 = GameManager.CreateRoom(GameManager.Rooms[2]);
-        //rm4.transform.position = Vector3.zero + new Vector3(150, 0, 0);
-        //rm3.RightGate.LinkTo(rm4.LeftGate);
+        var rm4 = GameManager.CreateRoom(GameManager.Rooms[5]);
+        rm4.transform.position = Vector3.zero + new Vector3(450, 0, 0);
+        rm3.RightGate.LinkTo(rm4.LeftGate);
 
 
         //var rm5 = GameManager.CreateRoom(GameManager.Rooms[1]);
@@ -327,13 +330,14 @@ public class GameManager : MonoBehaviour
     /// 创建角色都用这个创建
     /// </summary>
     /// <param name="gameObject"></param>
+    /// 
     /// <returns></returns>
     public static Role CreateEntity(GameObject gameObject)
     {
         var go = Instantiate(gameObject);
         if (go.TryGetComponent<Role>(out var role))
         {
-            AllRoles.Add(role);
+            //AllRoles.Add(role);
             return role;
         }
         else

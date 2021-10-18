@@ -129,7 +129,10 @@ public class CharacterController2D : MonoBehaviour
     {
         get
         {
-            return _collider.IsTouchingLayers(1 << LayerMask.NameToLayer("Land"));
+            if (_collider)
+                return _collider.IsTouchingLayers(1 << LayerMask.NameToLayer("Land"));
+            else
+                return false;
         }
     }
 
@@ -204,6 +207,7 @@ public class CharacterController2D : MonoBehaviour
                 Velocity.x += BaseMoveSpeed * 0.1f * Time.deltaTime;
             }
         }
+        MoveDirection = 0;
     }
 }
 

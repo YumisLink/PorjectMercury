@@ -24,7 +24,10 @@ public class DoctorController : Role
             return;
         base.OnUpdate();
         if (Health <= 0)
+        { 
+
             return;
+        }
         TimeDc += Time.deltaTime;
         var dis = GetDistance();
         if (Mathf.Abs(dis.x) >= 2 && SkillState == "noon")
@@ -63,7 +66,17 @@ public class DoctorController : Role
 
 
 
-
+        
+    }
+    protected override void Dead()
+    {
+        base.Dead();
+        var id = GameManager.ItemPool.GetItem();
+        Item.CreateItem(id, transform.position);
+        var r = GetComponent<SpriteRenderer>();
+        var c = r.color;
+        c.a = 0;
+        r.color = c;
     }
 
 

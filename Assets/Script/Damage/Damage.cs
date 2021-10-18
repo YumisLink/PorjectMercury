@@ -74,7 +74,7 @@ public class Damage
             bd = 9999;
         if (To.FinalDamage > 0)
             UiManager.CreateDamageShow(To, to.transform.position,Mathf.Min(5,Mathf.Max(1, To.FinalDamage / bd / 6)));
-        if (damage.damageEffect == DamageEffect.katana)
+        //if (damage.damageEffect == DamageEffect.katana)
             Sound.Play(GameManager.Audio[1]);
     }
     public void SetSound(DamageSound ds)

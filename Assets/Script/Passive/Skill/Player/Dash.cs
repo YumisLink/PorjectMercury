@@ -7,6 +7,7 @@ public class Dash : Skill
 {
     private int MoveDirection;
     public float InvTime = 0.05f;
+    public float LimitSpeed = 20;
     public override void Init()
     {
         ReleaseTime = 0.2f;
@@ -51,7 +52,6 @@ public class Dash : Skill
     protected override void OnFixedUsing()
     {
         var Velocity = role.Move.controller.velocity;
-        float LimitSpeed = 20;
         role.Move.CanMove = false;
         role.Move.GravityEffect = false;
         Velocity.x = MoveDirection * LimitSpeed;

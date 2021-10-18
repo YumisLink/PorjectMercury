@@ -5,15 +5,9 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     Player py;
-    
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !GameManager.IsStop)
             if (py!= null)
                 OnTouch();
     }

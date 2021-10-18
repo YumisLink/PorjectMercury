@@ -114,5 +114,10 @@ public class Passive : MonoBehaviour
     /// <param name="From">攻击方特效</param>
     /// <param name="To">防守方特效</param>
     public virtual void AfterFencing(Effect From,Effect To) { }
+    /// <summary>
+    /// 恢复之前。
+    /// </summary>
+    /// <param name="heal"></param>
+    public virtual float BeforeHealing(float heal) { return 0; }
 
 }

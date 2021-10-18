@@ -6,10 +6,10 @@ public class PassiveStrongWonton : Item
 {
     public override void GetItem()
     {
-        role.Properties.Attack += role.BaseProperties.Attack * Data[0];
+        role.Properties.Attack += role.BaseProperties.Attack * Data[0] * 0.01f;
     }
     public override void DiscardItem()
     {
-        role.Properties.Attack -= role.BaseProperties.Attack * Data[0];
+        role.Properties.Attack -= role.BaseProperties.Attack * Data[0] * 0.01f;
     }
 }

@@ -35,6 +35,7 @@ public class Jump : Skill
         JumpCount--;
         Jumping = 0.45f;
         TouchWall = role.Move.IsLeftTouch;
+
     }
     public override bool CanUse()
     {

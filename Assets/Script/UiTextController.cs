@@ -24,6 +24,9 @@ public class UiTextController : MonoBehaviour
         NowExecute = null;
 
 
+    }
+    public static void Init()
+    {
         Add("单机左键继续");
         Add("您好！这里是字幕测试！^^^^^^^^^^^接下来我将会给你介绍操作方式！");
         Add("方向键左右键移动");
@@ -42,7 +45,7 @@ public class UiTextController : MonoBehaviour
         }
         if (NowExecute == null)
             return;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.F))
         {
             NextDia();
         }

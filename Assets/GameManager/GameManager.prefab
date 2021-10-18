@@ -86,41 +86,47 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 12d6de876bda33543b3804fb5d485ffa, type: 3}
   - {fileID: 21300000, guid: ee35e389eea0c8449a108b29da54db61, type: 3}
   - {fileID: 21300000, guid: 3c3bbe127a8ddd54489a36a9feb07f53, type: 3}
-  - {fileID: 21300000, guid: c0a698f991c69474a9e6d3ea17b76dfa, type: 3}
-  - {fileID: 21300000, guid: e7448ac5323a2744c864982b8a549c84, type: 3}
+  - {fileID: 21300000, guid: e5ea6577dda114d479479f3f7139910d, type: 3}
+  - {fileID: 21300000, guid: 6515128a4d9ebaa489652c1c04b1dd21, type: 3}
   - {fileID: 21300000, guid: 18f140f4af015854080ec30258b088f5, type: 3}
-  - {fileID: 21300000, guid: 4657fd044ebebdf4e9f1a73183d5270e, type: 3}
+  - {fileID: 21300000, guid: 7a841ac2c215c594982a98e875870b38, type: 3}
   - {fileID: 21300000, guid: 91db58fd64e796f43805ec728948cc19, type: 3}
   - {fileID: 21300000, guid: 01fd6dd8702d8c343878faeae8b9a3a6, type: 3}
-  - {fileID: 21300000, guid: 1076ba3d9519cda4d98d774a233716c1, type: 3}
+  - {fileID: 21300000, guid: 3f9dd984c73f9ac4fbeca2963ec1102d, type: 3}
   - {fileID: 21300000, guid: 6bf9948c484698046a4b339680da5441, type: 3}
-  - {fileID: 21300000, guid: 042c80569bb0dc34da0fceb7d3864271, type: 3}
-  - {fileID: 21300000, guid: 0b2dc18576b07654ebb39f660bbe5554, type: 3}
-  - {fileID: 21300000, guid: 8dbac08ccefbd3f458ed70e63398c9fa, type: 3}
-  - {fileID: 21300000, guid: d795f3f4d949f1449a46650f8b2fd850, type: 3}
-  - {fileID: 21300000, guid: fdb52673a1ec6af47b956d6f98d32486, type: 3}
-  - {fileID: 21300000, guid: 37741bd369c347a4983634a2209c70fb, type: 3}
-  - {fileID: 21300000, guid: 984c48d8478b4e24188cd13d5bc1868c, type: 3}
-  - {fileID: 21300000, guid: 327bca827064252428f28a347e36826a, type: 3}
-  - {fileID: 21300000, guid: ba75375a2d76b4f4f9da15dff3295bea, type: 3}
-  - {fileID: 21300000, guid: 57be75cc946f55d48b019cf87c7003c4, type: 3}
-  - {fileID: 21300000, guid: 6f19fb40056f6094cb5452ed7d215d76, type: 3}
-  - {fileID: 21300000, guid: f7bc79537fc1d494e9d7892f6561dc61, type: 3}
-  - {fileID: 21300000, guid: f983f8afd54a72048bbfaef83b971a5b, type: 3}
-  - {fileID: 21300000, guid: e1b4b78964f555249bc6d68da0fe2ba6, type: 3}
-  - {fileID: 21300000, guid: ba75375a2d76b4f4f9da15dff3295bea, type: 3}
-  - {fileID: 21300000, guid: 73a8dd38743174b45889400bb564b02d, type: 3}
-  - {fileID: 21300000, guid: e6261ec39875c5f4f924dd300428e045, type: 3}
-  - {fileID: 21300000, guid: 62b5d52e8da45714681e6290216099c9, type: 3}
-  - {fileID: 21300000, guid: cc52cea1a8422b645aacb52915e4e4f0, type: 3}
+  - {fileID: 21300000, guid: 11cd76fc08d7b1c47ab68fb345168b68, type: 3}
+  - {fileID: 21300000, guid: b4ccb191d36e84d4c8c82167f707099a, type: 3}
+  - {fileID: 21300000, guid: 79c4028d5a4c64044b6a94aa19feb269, type: 3}
+  - {fileID: 21300000, guid: 665cb6bb9a9ee6c469108bf887353289, type: 3}
+  - {fileID: 21300000, guid: 59088a0d66a084141a85eb954b610d9e, type: 3}
+  - {fileID: 21300000, guid: 091b7c388dec87a46aaeb0bc9a3a7d6d, type: 3}
+  - {fileID: 21300000, guid: b92ce369f5fa9194a865748af4ee8174, type: 3}
+  - {fileID: 21300000, guid: f05cc40328487c646a874cbd566b7aa4, type: 3}
+  - {fileID: 21300000, guid: 259e00cff0594c648b672c217c21da9a, type: 3}
+  - {fileID: 21300000, guid: 324451e70aac28443a2ffa8fb3854ee1, type: 3}
+  - {fileID: 21300000, guid: dfa89b8762f405547a421b209d916b36, type: 3}
+  - {fileID: 21300000, guid: d82b1c1a921e7994daec2f853296d89f, type: 3}
+  - {fileID: 21300000, guid: ffe26b3a754bb6443b8d073e5f78aadc, type: 3}
+  - {fileID: 21300000, guid: ab6cb54205de81a4e9298635bac7603f, type: 3}
+  - {fileID: 21300000, guid: cef0dc4f0343ae341b750c31aef68b27, type: 3}
+  - {fileID: 21300000, guid: 1b8441aa9b8ca5b4c997c479a8c8d310, type: 3}
+  - {fileID: 21300000, guid: 2bb427e8fdcde7f4a828781ea23469cb, type: 3}
+  - {fileID: 21300000, guid: 5c08a2667f88a03488ca8eef4cb97e5e, type: 3}
+  - {fileID: 21300000, guid: 60ca4bbe4aac7524f86818f376a7f244, type: 3}
   - {fileID: 21300000, guid: e6c8ce9a14a19974a9c9bd985f1bb6bf, type: 3}
-  - {fileID: 21300000, guid: 278760203608522418c455ac1507c6f3, type: 3}
-  - {fileID: 21300000, guid: 30b393a297df3b24d812e23cfadcb53d, type: 3}
+  - {fileID: 21300000, guid: 2cc4ad4a32e5839448ef9eb68b111c79, type: 3}
+  - {fileID: 21300000, guid: 5d2c28065d67e754ca04e33cb3ca0cc2, type: 3}
   - {fileID: 21300000, guid: d8e2f8fb867146e4686bfad2e2e68212, type: 3}
-  - {fileID: 21300000, guid: c374ab9276733714a85027a5b73820f3, type: 3}
-  - {fileID: 21300000, guid: 2c8ce3e24e4ba044c9c406a03531ea58, type: 3}
+  - {fileID: 21300000, guid: f24070b0b549215458d8a71171a2ca27, type: 3}
+  - {fileID: 21300000, guid: bc03235bae912814b950af25cfe4eaa6, type: 3}
   - {fileID: 21300000, guid: 9928d25d01346554f92e811533bf0b5f, type: 3}
   - {fileID: 21300000, guid: 2bdf5d816e102a94a81b87fa8fc73ec3, type: 3}
+  - {fileID: 21300000, guid: 922971a48593b724e9660dca35308558, type: 3}
+  - {fileID: 21300000, guid: 922971a48593b724e9660dca35308558, type: 3}
+  - {fileID: 21300000, guid: 922971a48593b724e9660dca35308558, type: 3}
+  - {fileID: 21300000, guid: 01644da88944c6645a45cfa8e31d20cf, type: 3}
+  - {fileID: 21300000, guid: 01644da88944c6645a45cfa8e31d20cf, type: 3}
+  - {fileID: 21300000, guid: 01644da88944c6645a45cfa8e31d20cf, type: 3}
   skillImg:
   - {fileID: 21300000, guid: ca6618680d3354240a706ad46bcdc616, type: 3}
   - {fileID: 21300000, guid: ac985c6d47fb91849987d966db80faef, type: 3}
@@ -139,6 +145,8 @@ MonoBehaviour:
   - {fileID: 19759341686390578, guid: be6227bfa3eb81b449212906b7ce74cb, type: 3}
   - {fileID: 1540328939599700053, guid: bbe66d34e8435cd459bcd0ead452a2f1, type: 3}
   - {fileID: 1198708821016318392, guid: c67de6503017502478f82ba13c7a241b, type: 3}
+  - {fileID: 5529372260016564349, guid: 789c1c9ed65b1db4aa2b79f237ab08e2, type: 3}
+  - {fileID: 4056365299100165997, guid: bb526f567bb076640846091f05ea1edc, type: 3}
   Audios:
   - {fileID: 8300000, guid: cde3beed8694e8d47999bc9d20cfc0a1, type: 3}
   - {fileID: 8300000, guid: 1fd138d699680ad448d2fd7d8368cc78, type: 3}
@@ -162,3 +170,6 @@ MonoBehaviour:
   Health: {fileID: 0}
   ItemTextShower: {fileID: 0}
   BossTag: {fileID: 0}
+  hero: {fileID: 0}
+  txt: {fileID: 0}
+  heroName: {fileID: 0}

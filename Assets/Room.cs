@@ -12,11 +12,35 @@ public class Room : MonoBehaviour
     public Gatels DownRightGate;
     public Gatels DownLeftGate;
     public PolygonCollider2D Limit;
-    public Vector2 roomAt;
+    private Vector2 roomAt;
+    public List<Role> AllMonsters = new List<Role>();
+    public bool awake = false;
+    private List<Gatels> AllGates = new List<Gatels>();
     public Vector2 RoomCenter => roomAt + (Vector2)transform.position;
+    bool GateIsOpen = true;
     void Start()
     {
+        GateIsOpen = true;
         GateInit();
+        foreach (var a in GetComponentInChildren<Transform>())
+        {
+            var j = (Transform)a;
+            if (j.TryGetComponent<Environment>(out var k))
+            {
+                k.room = this; 
+                k.SetPosition();
+            }
+        }
+        if (LeftGate!=null) AllGates.Add(LeftGate);
+        if (RightGate != null) AllGates.Add(RightGate);
+        if (UpRightGate != null) AllGates.Add(UpRightGate);
+        if (UpLeftGate != null) AllGates.Add(UpLeftGate);
+        if (DownRightGate != null) AllGates.Add(DownRightGate);
+        if (DownLeftGate != null) AllGates.Add(DownLeftGate);
+        if (AllMonsters.Count > 0)
+        {
+            CloseTheGate();
+        }
     }
     public void ReSetEnvironment()
     {
@@ -43,7 +67,24 @@ public class Room : MonoBehaviour
     }
     void Update()
     {
-        
+        if (awake) ReSetEnvironment();
+        awake = false;
+    }
+    private void FixedUpdate()
+    {
+        while(AllMonsters.Count > 0)
+        {
+            if (AllMonsters[0] == null)
+                AllMonsters.RemoveAt(0);
+            else if (AllMonsters[0].Health <= 0)
+                AllMonsters.RemoveAt(0);
+            else
+                break;
+        }
+        if (AllMonsters.Count == 0 && !GateIsOpen)
+        {
+            OpenTheGate();
+        }
     }
     void GateInit()
     {
@@ -60,4 +101,19 @@ public class Room : MonoBehaviour
         if (DownLeftGate)
             DownLeftGate.room = this;
     }
+    public void CloseTheGate()
+    {
+        foreach(var a in AllGates)
+            a.gameObject.SetActive(false); 
+        GateIsOpen = false;
+    }
+    public void OpenTheGate()
+    {
+        foreach (var a in AllGates)
+            a.gameObject.SetActive(true);
+        GateIsOpen = true;
+        EndTheBattle();
+    }
+    public virtual void EndTheBattle() { }
+
 }

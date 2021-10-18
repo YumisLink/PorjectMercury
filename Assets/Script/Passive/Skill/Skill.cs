@@ -160,6 +160,10 @@ public class Skill : Passive
     protected virtual void OnFixedUsing() { }
     private void FixedUpdate()
     {
+        if (GameManager.IsStop)
+        {
+            return;
+        }
         OnFixedUpdate();
         if (role.SkillState == SkillState)
             OnFixedUsing();

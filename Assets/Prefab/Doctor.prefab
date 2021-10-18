@@ -169,9 +169,11 @@ MonoBehaviour:
   controller: {fileID: 0}
   GravityMult: 1
   CanMove: 1
+  Paqiang: 0
   HitBackDefense: 50
   BaseMoveSpeed: 100
   MoveDirection: 0
+  Debug: {x: 0, y: 0}
   DeletaMove: {x: 0, y: 0}
   NowMove: {x: 0, y: 0}
 --- !u!114 &3680404997689815998
@@ -193,8 +195,8 @@ MonoBehaviour:
   Move: {fileID: 0}
   anim: {fileID: 0}
   InvisibleTime: 0
-  possives: []
-  die: 0
+  passives: []
+  nowSkill: {fileID: 0}
   AttackedRed: 0
   Properties:
     MaxHealth: 100
@@ -211,7 +213,7 @@ MonoBehaviour:
     RangeChange: 1
     AttackSpeeds: 100
   BaseProperties:
-    MaxHealth: 3000
+    MaxHealth: 1000
     MaxSpirit: 100
     MaxMana: 0
     Attack: 0

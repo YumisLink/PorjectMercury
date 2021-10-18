@@ -25,6 +25,11 @@ public class Effect : Entity
     }
     public override void OnUpdate()
     {
+        if (!Master)
+        {
+            Destroy(gameObject);
+            return;
+        }
         if (Late > 0)
         {
             Late-=Time.deltaTime;
@@ -99,6 +104,7 @@ public class Effect : Entity
             return;
         if (collision.gameObject.TryGetComponent<Effect>(out var effs))
         {
+            if (effs.faction != faction)
             if (effs.damage != null && damage != null)
                 if (effs.damage.damageEffect == DamageEffect.katana && damage.damageEffect == DamageEffect.katana)
                 {
