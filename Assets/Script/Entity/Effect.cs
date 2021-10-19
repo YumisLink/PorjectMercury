@@ -13,6 +13,7 @@ public class Effect : Entity
     public Animator anim;
     public override void Init()
     {
+        //GetComponent<SpriteRenderer>().renderingLayerMask += 100;
         anim = GetComponent<Animator>();
         if (Late > 0)
         {

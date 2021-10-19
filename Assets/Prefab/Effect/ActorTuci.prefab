@@ -116,13 +116,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
-  Master: {fileID: 0}
-  Duration: 0.25
+  anim: {fileID: 0}
+  Master: {fileID: 4880308877263529293}
+  Type: 0
+  Duration: 0.3
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
+  CList: []
+  ClearFloat: []
   land: []
-  Follow: 0
+  Star: {x: 0, y: 0}
+  Delt: {x: 0, y: 0}
 --- !u!61 &2036749914152396552
 BoxCollider2D:
   m_ObjectHideFlags: 0

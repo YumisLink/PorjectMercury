@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gatels : MonoBehaviour
 {
     public Gatels Link;
     public Role role = null;
     public Room room;
+    public int TPs = -1;
     private void Update()
     {
         if (role != null)
@@ -19,6 +21,13 @@ public class Gatels : MonoBehaviour
                     Link.room.ReSetEnvironment();
                     Sound.Play(GameManager.Audio[3]);
                 }
+        if (role != null)
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (TPs != -1)
+                {
+                    SceneManager.LoadScene(TPs);
+                    return;
+                }   
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

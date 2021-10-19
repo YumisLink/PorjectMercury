@@ -65,6 +65,7 @@ public class ActorLimitSpike : Skill
             v.y = 0;
             role.Move.controller.velocity = v;
         }
+        role.SetInvisible(0.05f);
     }
     public void Atk()
     {
