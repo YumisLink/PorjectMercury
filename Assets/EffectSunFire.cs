@@ -31,35 +31,35 @@ public class EffectSunFire : Effect
         {
             Trigger = true;
             var a = Effect.Create(GameManager.Effect[11],Master,transform.position);
-            a.SetDamage(new Damage(100, DamageType.True));
+            a.SetDamage(new Damage(30, DamageType.True));
             a.damage.fromSkill = "Sun";
         }
         if (TimeCount >= 6 && !Trigger1)
         {
             Trigger1 = true;
             var a = Effect.Create(GameManager.Effect[12], Master, transform.position);
-            a.SetDamage(new Damage(100, DamageType.True));
+            a.SetDamage(new Damage(30, DamageType.True));
             a.damage.fromSkill = "Sun";
         }
         if (TimeCount >= 8 && !Trigger2)
         {
             Trigger2 = true;
             var a = Effect.Create(GameManager.Effect[12], Master, transform.position);
-            a.SetDamage(new Damage(100, DamageType.True));
+            a.SetDamage(new Damage(30, DamageType.True));
             a.damage.fromSkill = "Sun";
         }
         if (TimeCount >= 10 && !Trigger3)
         {
             Trigger3 = true;
             var a = Effect.Create(GameManager.Effect[12], Master, transform.position);
-            a.SetDamage(new Damage(100, DamageType.True));
+            a.SetDamage(new Damage(30, DamageType.True));
             a.damage.fromSkill = "Sun";
         }
         if (TimeCount >= 12 && !Trigger4)
         {
             Trigger4 = true;
             var a = Effect.Create(GameManager.Effect[12], Master, transform.position);
-            a.SetDamage(new Damage(100, DamageType.True));
+            a.SetDamage(new Damage(30, DamageType.True));
             a.damage.fromSkill = "Sun";
             a = Effect.Create(GameManager.Effect[13], Master, transform.position);
         }

@@ -15,12 +15,11 @@ public class Room : MonoBehaviour
     private Vector2 roomAt;
     public List<Role> AllMonsters = new List<Role>();
     public bool awake = false;
-    private List<Gatels> AllGates = new List<Gatels>();
+    public  List<Gatels> AllGates = new List<Gatels>();
     public Vector2 RoomCenter => roomAt + (Vector2)transform.position;
     bool GateIsOpen = true;
     void Start()
     {
-        GateIsOpen = true;
         GateInit();
         foreach (var a in GetComponentInChildren<Transform>())
         {
@@ -31,19 +30,21 @@ public class Room : MonoBehaviour
                 k.SetPosition();
             }
         }
-        if (LeftGate!=null) AllGates.Add(LeftGate);
-        if (RightGate != null) AllGates.Add(RightGate);
-        if (UpRightGate != null) AllGates.Add(UpRightGate);
-        if (UpLeftGate != null) AllGates.Add(UpLeftGate);
-        if (DownRightGate != null) AllGates.Add(DownRightGate);
-        if (DownLeftGate != null) AllGates.Add(DownLeftGate);
         if (AllMonsters.Count > 0)
         {
             CloseTheGate();
         }
+        if (AllMonsters.Count == 0 && !GateIsOpen)
+        {
+            OpenTheGate();
+        }
+        foreach (var a in AllMonsters)
+            a.gameObject.SetActive(false);
     }
     public void ReSetEnvironment()
     {
+        foreach (var a in AllMonsters)
+            a.gameObject.SetActive(true);
         foreach (var a in GetComponentInChildren<Transform>())
         {
             var j = (Transform)a;
@@ -76,8 +77,12 @@ public class Room : MonoBehaviour
         {
             if (AllMonsters[0] == null)
                 AllMonsters.RemoveAt(0);
-            else if (AllMonsters[0].Health <= 0)
+            else if (AllMonsters[0].Health <= -0.1f)
+            {
+                GameManager.AllMoney += 2;
+                Destroy(AllMonsters[0].gameObject);
                 AllMonsters.RemoveAt(0);
+            }
             else
                 break;
         }
@@ -100,6 +105,13 @@ public class Room : MonoBehaviour
             DownRightGate.room = this;
         if (DownLeftGate)
             DownLeftGate.room = this;
+
+        if (LeftGate != null) AllGates.Add(LeftGate);
+        if (RightGate != null) AllGates.Add(RightGate);
+        if (UpRightGate != null) AllGates.Add(UpRightGate);
+        if (UpLeftGate != null) AllGates.Add(UpLeftGate);
+        if (DownRightGate != null) AllGates.Add(DownRightGate);
+        if (DownLeftGate != null) AllGates.Add(DownLeftGate);
     }
     public void CloseTheGate()
     {

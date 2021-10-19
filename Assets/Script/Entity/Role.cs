@@ -292,5 +292,9 @@ public class Role : Entity
         v.y = 0;
         Move.controller.velocity = v;
     }
+    public void SetInvisible(float time)
+    {
+        InvisibleTime = Mathf.Max(InvisibleTime, time);
+    }
     public static string SkillStiff = "Stiff";
 }

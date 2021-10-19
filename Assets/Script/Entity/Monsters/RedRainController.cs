@@ -33,8 +33,16 @@ public class RedRainController : Role
         PhantomSword = gameObject.AddComponent<RedRainPhantomSword>();
         Health = 3800;
     }
+    bool p2 = false;
     public override void OnUpdate()
     {
+        if (Health<= 0.5f && !p2)
+        {
+            p2 = true;
+            var eff = Effect.Create(GameManager.Effect[17],gameObject,transform.position);
+            eff.SetDamage(new Damage(0, DamageType.True));
+            eff.damage.fromSkill = "Sun";
+        }
         var dis = Lib.GetPosision(gameObject, PlayerGameObject);
         var x = Mathf.Abs(dis.x);
         var y = dis.y;

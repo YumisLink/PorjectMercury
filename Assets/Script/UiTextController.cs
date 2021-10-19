@@ -27,7 +27,7 @@ public class UiTextController : MonoBehaviour
     }
     public static void Init()
     {
-        Add("单机左键继续");
+        Add("单机左键或者回车继续");
         Add("您好！这里是字幕测试！^^^^^^^^^^^接下来我将会给你介绍操作方式！");
         Add("方向键左右键移动");
         Add("X攻击，C跳跃，Z冲刺，S是技能");
@@ -37,15 +37,13 @@ public class UiTextController : MonoBehaviour
     }
     private void Update()
     {
+        if (Dialogues.Count > 0 && !GameManager.IsStop)
+            GameManager.StopGame();
         if (Dialogues.Count > 0 && NowExecute == null)
             Execute();
-        if (Dialogues.Count > 0 && !GameManager.IsStop)
-        {
-            GameManager.StopGame();
-        }
         if (NowExecute == null)
-            return;
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.F))
+            return; 
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
         {
             NextDia();
         }
@@ -98,12 +96,12 @@ public class UiTextController : MonoBehaviour
         GameManager.ContinueGame();
         NowExecute = null;
     }
-    public static void Add(Sprite sprite,string txt)
+    public static void Add(string txt,string name)
     {
         Dialogues.Enqueue(new Dialogue(){
             Det = txt,
-            From = sprite,
-            Name = "???"
+            From = null,
+            Name = name
         });
     }
     public static void Add(string txt)

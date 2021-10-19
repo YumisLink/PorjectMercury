@@ -24,8 +24,7 @@ public class DoctorController : Role
             return;
         base.OnUpdate();
         if (Health <= 0)
-        { 
-
+        {
             return;
         }
         TimeDc += Time.deltaTime;

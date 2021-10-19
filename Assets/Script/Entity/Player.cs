@@ -33,6 +33,10 @@ public class Player : Role
     }
     public override void OnUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Properties.Attack += 10000;
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(1);

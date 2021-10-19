@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public static List<GameObject> Roles;
     public static List<GameObject> Rooms;
     public static List<AudioClip> Audio;
-
+    public static int AllMoney;
 
 
     public static GameManager Manager;
@@ -108,8 +108,9 @@ public class GameManager : MonoBehaviour
         {
             if (a.anim)
                 a.anim.speed = 0;
-            SaveV2.Add(a.Move.controller.velocity);
-            a.Move.controller.velocity = Vector2.zero;
+            //SaveV2.Add(a.Move.controller.velocity);
+            if (a.Move.controller)
+                a.Move.controller.velocity = Vector2.zero;
         }
     }
     public static void ContinueGame()
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour
                 a.anim.speed = 1;
             if (SaveV2.Count > 0)
             {
-                a.Move.controller.velocity = SaveV2[0];
+                //a.Move.controller.velocity = SaveV2[0];
                 SaveV2.RemoveAt(0);
             }
         }
@@ -219,35 +220,44 @@ public class GameManager : MonoBehaviour
         player.transform.position = inittr;
         cm.Follow = player.transform;
     }
-    Vector2 inittr;
+    public static Vector2 inittr;
     void LoadRoom()
     {
-        var rm1 = GameManager.CreateRoom(GameManager.Rooms[3]);
-        rm1.transform.position = Vector3.zero;
-        rm1.awake = true;
-        inittr = rm1.LeftGate.transform.position;
+        //var rm1 = GameManager.CreateRoom(GameManager.Rooms[2]);
+        //rm1.transform.position = Vector3.zero;
+        //rm1.awake = true;
+        //inittr = rm1.LeftGate.transform.position;
 
-        var rm2 = GameManager.CreateRoom(GameManager.Rooms[6]);
-        rm2.transform.position = Vector3.zero + new Vector3(150, 0, 0);
-        rm1.RightGate.LinkTo(rm2.LeftGate);
-
-
-        var rm3 = GameManager.CreateRoom(GameManager.Rooms[7]);
-        rm3.transform.position = Vector3.zero + new Vector3(300, 0, 0);
-        rm2.RightGate.LinkTo(rm3.LeftGate);
+        //var rm2 = GameManager.CreateRoom(GameManager.Rooms[3]);
+        //rm2.transform.position = Vector3.zero + new Vector3(150, 0, 0);
+        //rm1.RightGate.LinkTo(rm2.LeftGate);
 
 
-        var rm4 = GameManager.CreateRoom(GameManager.Rooms[5]);
-        rm4.transform.position = Vector3.zero + new Vector3(450, 0, 0);
-        rm3.RightGate.LinkTo(rm4.LeftGate);
+        //var rm3 = GameManager.CreateRoom(GameManager.Rooms[1]);
+        //rm3.transform.position = Vector3.zero + new Vector3(300, 0, 0);
+        //rm2.RightGate.LinkTo(rm3.LeftGate);
 
 
-        //var rm5 = GameManager.CreateRoom(GameManager.Rooms[1]);
-        //rm5.transform.position = Vector3.zero + new Vector3(250, 0, 0);
-        //rm2.RightGate.LinkTo(rm5.LeftGate);
+        //var rm4 = GameManager.CreateRoom(GameManager.Rooms[4]);
+        //rm4.transform.position = Vector3.zero + new Vector3(450, 0, 0);
+        //rm3.RightGate.LinkTo(rm4.LeftGate);
 
-        VirtualCamera.m_BoundingShape2D = rm1.Limit;
-        DeleteGate();
+        //// 6 7 5
+        //var rm5 = GameManager.CreateRoom(GameManager.Rooms[7]);
+        //rm5.transform.position = Vector3.zero + new Vector3(600, 0, 0);
+        //rm4.RightGate.LinkTo(rm5.LeftGate);
+
+        //var rm6 = GameManager.CreateRoom(GameManager.Rooms[6]);
+        //rm6.transform.position = Vector3.zero + new Vector3(750, 0, 0);
+        //rm5.RightGate.LinkTo(rm6.LeftGate);
+
+        //var rm7 = GameManager.CreateRoom(GameManager.Rooms[5]);
+        //rm7.transform.position = Vector3.zero + new Vector3(900, 0, 0);
+        //rm6.RightGate.LinkTo(rm7.LeftGate);
+
+
+        //VirtualCamera.m_BoundingShape2D = rm1.Limit;
+        //DeleteGate();
     }
     public static void DeleteGate()
     {
@@ -255,10 +265,16 @@ public class GameManager : MonoBehaviour
         {
             if (a.LeftGate != null)
                 if (a.LeftGate.Link == null)
-                    Destroy(a.LeftGate.gameObject);
+                {
+                    a.AllGates.Remove(a.LeftGate);
+                    a.LeftGate.gameObject.SetActive(false);
+                }
             if (a.RightGate != null)
                 if (a.RightGate.Link == null)
-                    Destroy(a.RightGate.gameObject);
+                {
+                    a.AllGates.Remove(a.RightGate);
+                    a.RightGate.gameObject.SetActive(false);
+                }
         }
     }
 

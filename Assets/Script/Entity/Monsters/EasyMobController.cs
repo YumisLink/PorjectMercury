@@ -18,6 +18,8 @@ public class EasyMobController : Role
 
     void FixedUpdate()
     {
+        if (GameManager.IsStop)
+            return;
         if (Health<= 0)
         {
             Destroy(gameObject);
