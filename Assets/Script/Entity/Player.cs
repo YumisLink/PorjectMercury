@@ -36,6 +36,7 @@ public class Player : Role
         if (Input.GetKeyDown(KeyCode.P))
         {
             Properties.Attack += 10000;
+            GameManager.AllMoney+=100;
         }
         if (Input.GetKeyDown(KeyCode.R))
         {

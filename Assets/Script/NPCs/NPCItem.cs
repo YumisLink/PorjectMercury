@@ -5,9 +5,12 @@ using UnityEngine;
 public class NPCItem : NPC
 {
     private int id;
+    private SpriteRenderer sprite;
     private void Start()
     {
         id = GameManager.ItemPool.GetItem();
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = GameManager.ItemImage[id];
     }
     public override void OnTouch()
     {
@@ -15,6 +18,7 @@ public class NPCItem : NPC
         {
             GameManager.AllMoney -= 5;
             Item.CreateItem(id, transform.position);
+            Destroy(gameObject);
         }
         else
         {
