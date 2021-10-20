@@ -23,6 +23,7 @@ public class UiSelect : MonoBehaviour
         if (text.Length <= 0) throw new ArgumentException("至少输入一个text");
         _selectCallback = callback ?? throw new ArgumentNullException("callback不能为null");
         gameObject.SetActive(true);
+        GameManager.StopGame();
         for (int i = 0; i < text.Length; i++)
         {
             string t = text[i];
@@ -31,6 +32,7 @@ public class UiSelect : MonoBehaviour
             e.Txt.text = t;
             e.Btn.onClick.AddListener(() =>
             {
+                GameManager.ContinueGame();
                 _selectCallback(temp);
                 foreach (var select in _elements)
                 {

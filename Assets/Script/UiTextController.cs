@@ -12,6 +12,7 @@ public class Dialogue
 }
 public class UiTextController : MonoBehaviour
 {
+    public static bool Dead = false;
     private static Queue<Dialogue> Dialogues = new Queue<Dialogue>();
     Text Text;
     Image Portrait;
@@ -22,8 +23,6 @@ public class UiTextController : MonoBehaviour
         Text = UiManager.Manager.txt;
         Portrait = UiManager.Manager.hero;
         NowExecute = null;
-
-
     }
     public static void Init()
     {
@@ -93,6 +92,16 @@ public class UiTextController : MonoBehaviour
     }
     void EndDialogues()
     {
+        if (Dead)
+        {
+            UiManager.UISelect.ShowOptions(s=> {
+                if(s == 0)
+                {
+                    Item.CreateItem(27,NPCApo.apo.transform.position);
+                }
+            },"是","否");
+        }
+
         GameManager.ContinueGame();
         NowExecute = null;
     }
