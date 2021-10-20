@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
@@ -23,11 +24,16 @@ public class UiManager : MonoBehaviour
     public static Role player;
     public static List<Role> Bosses = new List<Role>();
 
+    public EventSystem ES;
+    public Canvas Canvas;
+    public UiSelect Select;
+
     void Awake()
     {
         //if (!Manager)
         Bosses.Clear();
         Manager = this;
+        Select.gameObject.SetActive(false);
     }
     private void Update()
     {

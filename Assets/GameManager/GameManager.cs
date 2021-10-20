@@ -96,6 +96,12 @@ public class GameManager : MonoBehaviour
         LoadRoom();
         LoadPlayer();
     }
+
+    private void Start()
+    {
+        UiManager.Manager.Select.ShowOptions(s => Debug.Log($"选了:{s}"), "1", "2");
+    }
+
     public static void StopGame()
     {
         IsStop = true;
