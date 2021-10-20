@@ -147,6 +147,7 @@ MonoBehaviour:
   - {fileID: 1198708821016318392, guid: c67de6503017502478f82ba13c7a241b, type: 3}
   - {fileID: 5529372260016564349, guid: 789c1c9ed65b1db4aa2b79f237ab08e2, type: 3}
   - {fileID: 4056365299100165997, guid: bb526f567bb076640846091f05ea1edc, type: 3}
+  - {fileID: 7975302764264575519, guid: 59b485429c9a53f4cb20d35414815e17, type: 3}
   Audios:
   - {fileID: 8300000, guid: cde3beed8694e8d47999bc9d20cfc0a1, type: 3}
   - {fileID: 8300000, guid: 1fd138d699680ad448d2fd7d8368cc78, type: 3}
@@ -173,3 +174,6 @@ MonoBehaviour:
   hero: {fileID: 0}
   txt: {fileID: 0}
   heroName: {fileID: 0}
+  ES: {fileID: 0}
+  Canvas: {fileID: 0}
+  Select: {fileID: 0}

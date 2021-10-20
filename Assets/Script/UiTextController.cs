@@ -13,6 +13,7 @@ public class Dialogue
 public class UiTextController : MonoBehaviour
 {
     public static bool Dead = false;
+    public Image duihuakuang;
     private static Queue<Dialogue> Dialogues = new Queue<Dialogue>();
     Text Text;
     Image Portrait;
@@ -37,7 +38,10 @@ public class UiTextController : MonoBehaviour
     private void Update()
     {
         if (Dialogues.Count > 0 && !GameManager.IsStop)
+        {
             GameManager.StopGame();
+            duihuakuang.gameObject.SetActive(true);
+        }
         if (Dialogues.Count > 0 && NowExecute == null)
             Execute();
         if (NowExecute == null)
@@ -98,11 +102,13 @@ public class UiTextController : MonoBehaviour
                 if(s == 0)
                 {
                     Item.CreateItem(27,NPCApo.apo.transform.position);
+                    NPCApo.apo.rm.RightGate.LinkTo(NPCApo.ToLink.LeftGate);
                 }
             },"是","否");
         }
 
         GameManager.ContinueGame();
+        duihuakuang.gameObject.SetActive(false);
         NowExecute = null;
     }
     public static void Add(string txt,string name)

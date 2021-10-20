@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
         {
             if (a.anim)
                 a.anim.speed = 0;
-            //SaveV2.Add(a.Move.controller.velocity);
             if (a.Move.controller)
                 a.Move.controller.velocity = Vector2.zero;
         }

@@ -28,6 +28,13 @@ public class Initer_2 : MonoBehaviour
         rm7.transform.position = Vector3.zero + new Vector3(900, 0, 0);
         rm6.RightGate.LinkTo(rm7.LeftGate);
 
+
+        var rm9 = GameManager.CreateRoom(GameManager.Rooms[8]);
+        rm9.transform.position = new Vector3(9999, 9999);
+        rm9.LeftGate.LinkTo(rm4.RightGate);
+
+        NPCApo.ToLink = rm5;
+
         GameManager.VirtualCamera.m_BoundingShape2D = rm3.Limit;
         GameManager.DeleteGate();
     }
