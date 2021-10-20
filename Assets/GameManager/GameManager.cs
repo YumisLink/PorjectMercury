@@ -97,10 +97,6 @@ public class GameManager : MonoBehaviour
         LoadPlayer();
     }
 
-    private void Start()
-    {
-        UiManager.UISelect.ShowOptions(s => Debug.Log($"选了:{s}"), "1", "2");
-    }
 
     public static void StopGame()
     {

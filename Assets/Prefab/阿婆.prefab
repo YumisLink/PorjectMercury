@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f237aee4bfa664f80acc86e2805fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 0}
+  sr: {fileID: 5119886488481210257}
 --- !u!1001 &3866827294440765132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,6 +218,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8260946751386790237, guid: a6bbe0f2bdbb54142837845c880a7e0b,
         type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260946751386790237, guid: a6bbe0f2bdbb54142837845c880a7e0b,
+        type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -226,6 +231,12 @@ PrefabInstance:
 --- !u!4 &997088043774154426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4071223984918601846, guid: a6bbe0f2bdbb54142837845c880a7e0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3866827294440765132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5119886488481210257 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8260946751386790237, guid: a6bbe0f2bdbb54142837845c880a7e0b,
     type: 3}
   m_PrefabInstance: {fileID: 3866827294440765132}
   m_PrefabAsset: {fileID: 0}
