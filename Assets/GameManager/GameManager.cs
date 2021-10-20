@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UiManager.Manager.Select.ShowOptions(s => Debug.Log($"选了:{s}"), "1", "2");
+        UiManager.UISelect.ShowOptions(s => Debug.Log($"选了:{s}"), "1", "2");
     }
 
     public static void StopGame()

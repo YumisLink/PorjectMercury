@@ -28,6 +28,8 @@ public class UiManager : MonoBehaviour
     public Canvas Canvas;
     public UiSelect Select;
 
+    public static UiSelect UISelect => Manager.Select;
+
     void Awake()
     {
         //if (!Manager)
