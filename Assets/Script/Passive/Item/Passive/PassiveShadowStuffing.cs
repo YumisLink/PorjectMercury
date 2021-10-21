@@ -6,6 +6,7 @@ public class PassiveShadowStuffing : Item
 {
     public override void GetItem()
     {
+        role.RecoverHealth(role.Properties.MaxHealth);
         if (TryGetComponent<Dash>(out var a))
         {
             a.InvTime += 0.1f;

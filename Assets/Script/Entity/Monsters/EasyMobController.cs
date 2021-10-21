@@ -28,7 +28,10 @@ public class EasyMobController : Role
         var dis = GetDistance();
         if (SkillState == NormalState)
         {
-            SetFaceToPlayer();
+            if (dis.x > 0)
+                SetFaceToLeft();
+            else
+                SetFaceToRight();
             if (Mathf.Abs(dis.y) > 2.0f)
             {
                 if (_jumpInterval < 0.0f)

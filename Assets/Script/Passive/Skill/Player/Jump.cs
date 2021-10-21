@@ -12,6 +12,7 @@ public class Jump : Skill
     public Effect particle;
     public Effect go;
     public Color color = Color.white;
+    private float Limt;
     public override void Init()
     {
         ReleaseTime = 0.0f;
@@ -31,6 +32,11 @@ public class Jump : Skill
             particle.SetFollow();
             if (role.FaceTo == 1)
                 Lib.SetFlipX(go.gameObject);
+            Limt = 8;
+        }
+        else
+        {
+            Limt = 12;
         }
         JumpCount--;
         Jumping = 0.45f;
@@ -119,8 +125,8 @@ public class Jump : Skill
             if (endJump)
             {
                 var Velocity2 = role.Move.controller.velocity;
-                if (Velocity2.y >= 8)
-                    Velocity2.y -= 8;
+                if (Velocity2.y >= Limt)
+                    Velocity2.y -= Limt;
                 else
                     Velocity2.y = 0;
                 role.Move.controller.velocity = Velocity2;
@@ -141,13 +147,13 @@ public class Jump : Skill
             {
                 //跳跃过程
                 var Velocity = role.Move.controller.velocity;
-                if (Velocity.y > 8)
+                if (Velocity.y > Limt)
                     Velocity.y -= 9.8f * Time.fixedDeltaTime;
-                if (Velocity.y < 8)
+                if (Velocity.y < Limt)
                 {
                     Velocity.y += 60 * Time.fixedDeltaTime;
-                    if (Velocity.y > 8)
-                        Velocity.y = 8;
+                    if (Velocity.y > Limt)
+                        Velocity.y = Limt;
                 }
                 //下面两句话是离开墙的时候
                 if (TouchWall != 0)
@@ -167,7 +173,7 @@ public class Jump : Skill
                     if (Jumping <= 0.35f)
                         if (role.Move.MoveDirection == TouchWall)
                             Velocity.x = TouchWall * 8;
-                    Velocity.y = 8;
+                    Velocity.y = Limt;
                 }
 
                 role.Move.controller.velocity = Velocity;

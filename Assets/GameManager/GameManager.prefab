@@ -137,7 +137,8 @@ MonoBehaviour:
   - {fileID: 7722750236399133693, guid: c32b43fb19413eb48904645515ed2934, type: 3}
   - {fileID: 3481587450429916089, guid: 4543d74441cb31e4ca17b04a9eff9fd3, type: 3}
   - {fileID: 67192825592838996, guid: 92737529661d3d642a51d3ef2c42faa8, type: 3}
-  - {fileID: 1791093526408581000, guid: 5340a947336093b4eb80e0228b929025, type: 3}
+  - {fileID: 3737188319342621945, guid: 97847a157da982440affb0e111a9ce15, type: 3}
+  - {fileID: 1632573384100658549, guid: ab51e0c8ce6cfce49b065f15ddd2a2ec, type: 3}
   Room:
   - {fileID: 8371428143753781125, guid: b8ce14c4c82ef2e49a275e8471257bce, type: 3}
   - {fileID: 4728256394480092877, guid: d386e7838a71b1c4bbc22b045ab8ede1, type: 3}
@@ -153,6 +154,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1fd138d699680ad448d2fd7d8368cc78, type: 3}
   - {fileID: 8300000, guid: 0ddd7946aa593ce4e9f2cec47cdb9fda, type: 3}
   - {fileID: 8300000, guid: ae3191d358a9fcf48895090e90018be6, type: 3}
+  - {fileID: 8300000, guid: cc1442b290faf6148800059d915371e1, type: 3}
 --- !u!114 &2595712026980275643
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,13 +27,13 @@ public class UiTextController : MonoBehaviour
     }
     public static void Init()
     {
-        Add("单机左键或者回车继续");
-        Add("您好！这里是字幕测试！^^^^^^^^^^^接下来我将会给你介绍操作方式！");
-        Add("方向键左右键移动");
-        Add("X攻击，C跳跃，Z冲刺，S是技能");
-        Add("A可以换脸，换脸之后S技能和攻击冲刺将会被替换成对应的效果");
-        Add("R重开 ESC结束游戏！");
-        Add("向右走，可以遇到一个传送门，进去就完事了。");
+        //Add("单机左键或者回车继续");
+        //Add("您好！这里是字幕测试！^^^^^^^^^^^接下来我将会给你介绍操作方式！");
+        //Add("方向键左右键移动");
+        //Add("X攻击，C跳跃，Z冲刺，S是技能");
+        //Add("A可以换脸，换脸之后S技能和攻击冲刺将会被替换成对应的效果");
+        //Add("R重开 ESC结束游戏！");
+        //Add("向右走，可以遇到一个传送门，进去就完事了。");
     }
     private void Update()
     {
@@ -98,6 +98,7 @@ public class UiTextController : MonoBehaviour
     {
         if (Dead)
         {
+            Dead = false;
             UiManager.UISelect.ShowOptions(s=> {
                 if(s == 0)
                 {

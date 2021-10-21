@@ -7,7 +7,7 @@ public class Dash : Skill
 {
     private int MoveDirection;
     public float InvTime = 0.05f;
-    public float LimitSpeed = 20;
+    public float LimitSpeed = 25;
     public override void Init()
     {
         ReleaseTime = 0.2f;

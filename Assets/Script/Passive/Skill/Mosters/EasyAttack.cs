@@ -26,6 +26,7 @@ public class EasyAttack : Skill
         {
             role.Stop();
         }
+        role.anim.Play("Attack");
     }
 
     public override void Init()
@@ -33,15 +34,18 @@ public class EasyAttack : Skill
         base.Init();
         AddAction(0.5f, OnAttack);
     }
-
+    public override void After()
+    {
+        role.anim.Play("Idle");
+    }
     public void OnAttack()
     {
         var eff = Effect.Create(GameManager.Effect[1], gameObject);
         eff.SetDamage(new Damage(role.Properties.Attack, DamageType.Normal));
         eff.damage.damageEffect = DamageEffect.katana;
-        eff.SetFollow();
+        eff.SetFollow(new UnityEngine.Vector2(0,0.3f));
         Lib.SetMultScale(eff.gameObject, 1.5f, 1.5f);
-        if(role.FaceTo == -1)
+        if(role.FaceTo == 1)
         {
             Lib.SetFlipX(eff.gameObject);
         }

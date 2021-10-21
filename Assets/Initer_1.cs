@@ -16,7 +16,7 @@ public class Initer_1 : MonoBehaviour
         rm1.RightGate.LinkTo(rm2.LeftGate);
         GameManager.DeleteGate();
 
-        rm2.RightGate.TPs = 0;
+        rm2.RightGate.TPs = 2;
         GameManager.VirtualCamera.m_BoundingShape2D = rm1.Limit;
     }
 }
