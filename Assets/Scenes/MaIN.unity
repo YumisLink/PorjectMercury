@@ -297,6 +297,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBase
       objectReference: {fileID: 0}
+    - target: {fileID: 8214571854403959760, guid: 0733d72527da12748a66e567ff1f8651,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -544.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214571854403959760, guid: 0733d72527da12748a66e567ff1f8651,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 435
+      objectReference: {fileID: 0}
     - target: {fileID: 8214571854772718184, guid: 0733d72527da12748a66e567ff1f8651,
         type: 3}
       propertyPath: ES

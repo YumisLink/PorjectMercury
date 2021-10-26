@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PassiveShuriken : Item
 {
-    public override void AfterUseSkill(Skill skill)
+    public override void BeforeUseSkill(Skill skill)
     {
         if (skill.Type == SkillType.Attack)
         {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -230,7 +230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: -635}
+  m_AnchoredPosition: {x: 0.0039063, y: 1014}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221648591
@@ -322,8 +322,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -329.2, y: 931.31}
-  m_SizeDelta: {x: 498.46667, y: 1666.6826}
+  m_AnchoredPosition: {x: 0.0039063, y: 532.16}
+  m_SizeDelta: {x: 737.2178, y: 2464.9756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271818129
 MonoBehaviour:
@@ -357,9 +357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5236\u4F5C\u56E2\u961F\uFF1A\n\n\u603B\u7B56\u5212\uFF1A   \n\n \u4E3B\u7F8E\u672F\uFF1A  
-    \n\n\u4E3B\u7A0B\u5E8F\uFF1A   \n\n\u8D28\u91CF\u4FDD\u8BC1\uFF1A\n\n\u7B56\u5212\uFF1A      
-    \n\nUI\uFF1A   \n\n\u7F8E\u672F\u5E03\u5C40\uFF1A\n\n\u89D2\u8272\uFF1A\n\n\u89D2\u8272\u52A8\u753B\uFF1A\n\n\u7279\u6548\uFF1A\n\nShader\uFF1A\n"
+  m_Text: "ACMer\u4E5F\u8981\u505A\u6E38\u620F\n\n\u9E23\u8C22"
 --- !u!222 &271818130
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -480,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440.02, y: -136}
+  m_AnchoredPosition: {x: 519.98, y: -461}
   m_SizeDelta: {x: 1039.9689, y: 3788.3604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600688723
@@ -507,6 +505,84 @@ MonoBehaviour:
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 80
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "JMU_LZ\n\u5BB6\u91CC\u7684\u83DC\u5200        \u5BB6\u4E2D\u5E38\u5907\u7684\u68CD\u5B50"
+--- !u!222 &600688724
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600688721}
+  m_CullTransparentMesh: 0
+--- !u!1 &670114686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670114687}
+  - component: {fileID: 670114689}
+  - component: {fileID: 670114688}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &670114687
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670114686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1221152604}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -19, y: -461}
+  m_SizeDelta: {x: 1039.9689, y: 3788.3604}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &670114688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670114686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 80
+    m_FontStyle: 0
+    m_BestFit: 0
     m_MinSize: 8
     m_MaxSize: 80
     m_Alignment: 0
@@ -515,15 +591,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "ACMer\u4E5F\u8981\u505A\u6E38\u620F\n\nYumis\n\nCc\n\nYumis\n\n\n\n\u819C\u54E5\n\nCc  
-    Yumis   KSGFK\n\nCc   Yumis\n\n"
---- !u!222 &600688724
+  m_Text: "\u6E38\u620F\u6D4B\u8BD5\uFF1A\n\u97F3\u6548\uFF1A\n\n\n"
+--- !u!222 &670114689
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600688721}
+  m_GameObject: {fileID: 670114686}
   m_CullTransparentMesh: 0
 --- !u!1 &1221152603
 GameObject:
@@ -560,6 +635,7 @@ RectTransform:
   - {fileID: 271818128}
   - {fileID: 221648590}
   - {fileID: 1395288811}
+  - {fileID: 670114687}
   m_Father: {fileID: 1786122137}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
