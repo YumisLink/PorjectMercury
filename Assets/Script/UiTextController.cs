@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
+
 [Serializable]
 public class Dialogue
 {
@@ -12,7 +14,10 @@ public class Dialogue
 }
 public class UiTextController : MonoBehaviour
 {
+    public static bool end = false;
+    static bool end1 = false;
     public static bool Dead = false;
+    public Image CloseTheDoor;
     public Image duihuakuang;
     private static Queue<Dialogue> Dialogues = new Queue<Dialogue>();
     Text Text;
@@ -35,8 +40,22 @@ public class UiTextController : MonoBehaviour
         //Add("R重开 ESC结束游戏！");
         //Add("向右走，可以遇到一个传送门，进去就完事了。");
     }
+    float t = 0;
     private void Update()
     {
+        if (end1)
+        {
+            t += Time.deltaTime;
+            var c = CloseTheDoor.color;
+            c.a += Time.deltaTime;
+            CloseTheDoor.color = c;
+            if (t > 3)
+            {
+                end1 = false;
+                end = false;
+                SceneManager.LoadScene(4);
+            }
+        }
         if (Dialogues.Count > 0 && !GameManager.IsStop)
         {
             GameManager.StopGame();
@@ -46,7 +65,7 @@ public class UiTextController : MonoBehaviour
             Execute();
         if (NowExecute == null)
             return; 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             NextDia();
         }
@@ -104,10 +123,19 @@ public class UiTextController : MonoBehaviour
                 {
                     Item.CreateItem(27,NPCApo.apo.transform.position);
                     NPCApo.apo.rm.RightGate.LinkTo(NPCApo.ToLink.LeftGate);
+                    UiTextController.Add("那你，快去快回，我在此处等你......");
                 }
+                else
+                {
+                    UiTextController.Add("现在的,年轻人啊......");
+                }
+                Dead = false;
             },"是","否");
         }
-
+        if (end)
+        {
+            end1 = true;
+        }
         GameManager.ContinueGame();
         duihuakuang.gameObject.SetActive(false);
         NowExecute = null;

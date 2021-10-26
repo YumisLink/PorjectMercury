@@ -77,6 +77,8 @@ MonoBehaviour:
   - {fileID: 5094518254837195715, guid: 9d94b38b1f44d8d4a9ac422bfdeed1ef, type: 3}
   - {fileID: 5997770457491892451, guid: f5f1743443da310439a44f81f2661b2c, type: 3}
   - {fileID: 1738151101732422459, guid: edf2a1f89edbea34b96112efacc1a446, type: 3}
+  - {fileID: 2857908509915117566, guid: 9b0f7b0bb425a7d4886c7001b2564e23, type: 3}
+  - {fileID: 3833612589430598997, guid: f09874984a4a1db4e8ce0ff7dee1c171, type: 3}
   Images:
   - {fileID: 21300000, guid: 6c90289d25ce20d488b9d568112d66d0, type: 3}
   - {fileID: 21300000, guid: e309e8468638cc542ab96071d55d51d5, type: 3}
@@ -128,8 +130,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 01644da88944c6645a45cfa8e31d20cf, type: 3}
   - {fileID: 21300000, guid: 01644da88944c6645a45cfa8e31d20cf, type: 3}
   skillImg:
-  - {fileID: 21300000, guid: ca6618680d3354240a706ad46bcdc616, type: 3}
-  - {fileID: 21300000, guid: ac985c6d47fb91849987d966db80faef, type: 3}
+  - {fileID: 21300000, guid: d5765bca35d977d4e859e3c434102bdd, type: 3}
+  - {fileID: 21300000, guid: 149ce02ce1698a84caae253bbcc42d23, type: 3}
   - {fileID: 21300000, guid: 507080ef285f28c4a800ee8017bd8fae, type: 3}
   ItemPools: 
   Role:
@@ -155,6 +157,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0ddd7946aa593ce4e9f2cec47cdb9fda, type: 3}
   - {fileID: 8300000, guid: ae3191d358a9fcf48895090e90018be6, type: 3}
   - {fileID: 8300000, guid: cc1442b290faf6148800059d915371e1, type: 3}
+  - {fileID: 8300000, guid: f8a9105c1a4482549b4eeaebc87b1569, type: 3}
+  - {fileID: 8300000, guid: 71e67969f6a25d0468a1c5f06d5ccffe, type: 3}
 --- !u!114 &2595712026980275643
 MonoBehaviour:
   m_ObjectHideFlags: 0

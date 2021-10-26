@@ -20,6 +20,7 @@ public class Dash : Skill
         role.Move.GravityEffect = false;
         role.Move.CanMove = false;
         role.anim.Play("Rush");
+        Sound.Play(GameManager.Audio[5]);
     }
     public override bool CanUse()
     {

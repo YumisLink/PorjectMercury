@@ -109,9 +109,9 @@ public class Effect : Entity
             if (effs.damage != null && damage != null)
                 if (effs.damage.damageEffect == DamageEffect.katana && damage.damageEffect == DamageEffect.katana)
                 {
-                    GameManager.SpeedDownTime = 0.5f;
-                    
-                    CreateUnderAttackEffect(damage,Master);
+                        GameManager.SpeedDownTime = 0.6f;
+                        Sound.Play(GameManager.Audio[6]);
+                        CreateUnderAttackEffect(damage,Master);
                 }
         }
         if (collision.gameObject.TryGetComponent<Role>(out var ent))
@@ -129,7 +129,8 @@ public class Effect : Entity
                         Damage.DealDamage(damage,Master.GetComponent<Role>(), ent);
                         TriggerTimes--;
                     }
-                Master.GetComponent<Role>().OnSucceedAttack(ent);
+                if (Master)
+                    Master.GetComponent<Role>().OnSucceedAttack(ent);
             }
         }
         if (collision.gameObject.TryGetComponent<Land>(out var lad))
@@ -421,7 +422,7 @@ public class Effect : Entity
     {
         var go = Instantiate(gameObject);
         var ret = go.GetComponent<Effect>();
-        ret.faction = gameObject.GetComponent<Entity>().faction;
+        ret.faction = master.GetComponent<Entity>().faction;
         if (ret == null)
         {
             Destroy(go);

@@ -24,19 +24,19 @@ public class Jump : Skill
         role.Move.GravityEffect = false;
         if (JumpCount == 1)
         {
-            go = Effect.Create(GameManager.Effect[0], gameObject, transform.position);
-            particle = Effect.Create(GameManager.Particle[0], gameObject, transform.position);
-            go.GetComponent<SpriteRenderer>().color = color;
-            particle.GetComponent<ParticleSystem>().startColor = color;
-            go.SetFollow();
-            particle.SetFollow();
-            if (role.FaceTo == 1)
-                Lib.SetFlipX(go.gameObject);
-            Limt = 8;
+            //go = Effect.Create(GameManager.Effect[0], gameObject, transform.position);
+            //particle = Effect.Create(GameManager.Particle[0], gameObject, transform.position);
+            //go.GetComponent<SpriteRenderer>().color = color;
+            //particle.GetComponent<ParticleSystem>().startColor = color;
+            //go.SetFollow();
+            //particle.SetFollow();
+            //if (role.FaceTo == 1)
+            //    Lib.SetFlipX(go.gameObject);
+            Limt = 10;
         }
         else
         {
-            Limt = 12;
+            Limt = 13;
         }
         JumpCount--;
         Jumping = 0.45f;
@@ -151,7 +151,7 @@ public class Jump : Skill
                     Velocity.y -= 9.8f * Time.fixedDeltaTime;
                 if (Velocity.y < Limt)
                 {
-                    Velocity.y += 60 * Time.fixedDeltaTime;
+                    Velocity.y += 120 * Time.fixedDeltaTime;
                     if (Velocity.y > Limt)
                         Velocity.y = Limt;
                 }

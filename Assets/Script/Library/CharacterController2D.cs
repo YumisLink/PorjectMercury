@@ -11,7 +11,7 @@ public class CharacterController2D : MonoBehaviour
     public float GravityMult = 1;
     public bool CanMove = true;
     public bool Paqiang = false;
-    public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 5;
+    public float LimitSpeed => Mathf.Min(2f,role.Properties.MoveSpeed) * 8;
     public float HitBackDefense = 25;
     public float BaseMoveSpeed = 250;
 
@@ -67,10 +67,10 @@ public class CharacterController2D : MonoBehaviour
         IsLastFrameTouchWall = (IsLeftTouch != 0);
         if (GravityEffect && !IsGrounded)
         {
-            if (FallTime >= 0.75f)
+            if (FallTime >= 1.75f)
                 limit = 18 * GravityMult;
             else
-                limit = 8 * GravityMult;
+                limit = 10 * GravityMult;
             if (Velocity.y >= -limit)
             {
                 if (Velocity.y - 25 * Time.fixedDeltaTime < -limit * 2)
@@ -80,7 +80,7 @@ public class CharacterController2D : MonoBehaviour
                 }
                 else
                 {
-                    Velocity.y -= 25 * Time.fixedDeltaTime;
+                    Velocity.y -= 40 * Time.fixedDeltaTime;
                     FallTime += Time.fixedDeltaTime;
                 }
             }

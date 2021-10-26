@@ -9,4 +9,8 @@ public class GoSence : MonoBehaviour
     {
         cLOSE.awak = true;
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

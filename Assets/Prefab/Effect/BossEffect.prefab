@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
+  anim: {fileID: 0}
   Master: {fileID: 0}
   Type: 0
   Duration: 0.17

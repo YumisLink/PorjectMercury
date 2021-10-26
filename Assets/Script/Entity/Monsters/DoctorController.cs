@@ -67,9 +67,10 @@ public class DoctorController : Role
 
         
     }
-    protected override void Dead()
+    public override void Dead()
     {
         base.Dead();
+        GameManager.AllMoney += 2;
         var id = GameManager.ItemPool.GetItem();
         Item.CreateItem(id, transform.position);
         var r = GetComponent<SpriteRenderer>();

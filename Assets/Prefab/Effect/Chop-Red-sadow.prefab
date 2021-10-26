@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1855375809339038152}
   - component: {fileID: 1855375809339039284}
   - component: {fileID: 1855375809339039287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chop-Red-sadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,10 +143,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
+  anim: {fileID: 0}
   Master: {fileID: 0}
+  Type: 0
   Duration: 0.3
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
+  CList: []
+  ClearFloat: []
   land: []
-  Follow: 0
+  Star: {x: 0, y: 0}
+  Delt: {x: 0, y: 0}

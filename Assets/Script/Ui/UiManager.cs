@@ -9,7 +9,7 @@ public class UiManager : MonoBehaviour
     public Image UnderAttackBlack;
     public static float BlackTime = 0;
     public static UiManager Manager;
-
+    public List<Image> ls = new List<Image>();
 
     public Image BossesHp;
     public Image Spirit;
@@ -36,6 +36,12 @@ public class UiManager : MonoBehaviour
         Bosses.Clear();
         Manager = this;
         Select.gameObject.SetActive(false);
+    }
+    public int x = -865;
+    public int Y = 381;
+    public void AddItem(int id)
+    {
+        
     }
     private void Update()
     {

@@ -41,6 +41,12 @@ public class Lib
         angle.z += direction;
         go.transform.localEulerAngles = angle;
     }
+    public static void RotateX(GameObject go, float direction)
+    {
+        var angle = go.transform.localEulerAngles;
+        angle.x += direction;
+        go.transform.localEulerAngles = angle;
+    }
     public static void SetRotate(GameObject go, float direction)
     {
         var angle = go.transform.localEulerAngles;

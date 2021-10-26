@@ -209,6 +209,7 @@ public class GameManager : MonoBehaviour
         cm = VirtualCamera.GetComponent<CinemachineVirtualCamera>();
         Roles = Role;
         Rooms = Room;
+        ak = 0;
     }
     public void LoadOnce()
     {
@@ -327,6 +328,7 @@ public class GameManager : MonoBehaviour
         AllRooms.Add(rm);
         return rm;
     }
+    static int ak = 0;
     public static Item GetItem(int id,Role Creater)
     {
         Item item;
@@ -341,6 +343,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < item.Data.Length; i++)
             item.Data[i] = (float)ItemData[id].Data[i];
         UiManager.ShowItemDetail(5,item.Message);
+        UiManager.Manager.ls[ak].sprite = GameManager.ItemImage[id];
+        ak++;
         return item;
     }
     /// <summary>

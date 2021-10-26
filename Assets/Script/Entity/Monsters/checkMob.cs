@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class checkMob : Role
 {
     private EasyAttack _easyAtk;
     private float _jumpInterval = 2.0f;
-
+    public Image ig;
     public override void Init()
     {
         base.Init();
@@ -26,14 +27,6 @@ public class checkMob : Role
         if (SkillState == NormalState)
         {
             SetFaceToPlayer();
-            if (Mathf.Abs(dis.y) > 2.0f)
-            {
-                if (_jumpInterval < 0.0f)
-                {
-                    HitBack(new Vector2(0, 20));
-                    _jumpInterval = 2.0f;
-                }
-            }
         }
         if (dis.magnitude < 3.0f)
         {
@@ -47,8 +40,16 @@ public class checkMob : Role
             }
         }
     }
+    public int cnt = 0;
     public override void UnderAttack(Damage dam, Role from)
     {
-        Lib.SetMultScale(gameObject, 1.1f, 1.1f);
+        cnt++;
+        if (cnt >= 15)
+        {
+            UiTextController.end = true;
+            UiTextController.Add("心中亦有戏,"); 
+            UiTextController.Add("目中皆无人。");
+        }
+        Lib.SetMultScale(gameObject, 1.4f, 1.4f);
     }
 }

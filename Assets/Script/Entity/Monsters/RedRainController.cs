@@ -20,6 +20,7 @@ public class RedRainController : Role
     public float VeryFarTimeCount;
     public float HigherTimeCount;
     public float TimeCount;
+    int attacked = 0;
 
     public override void Init()
     {
@@ -33,7 +34,35 @@ public class RedRainController : Role
         PhantomSword = gameObject.AddComponent<RedRainPhantomSword>();
         Health = 3800;
     }
+    public override void Dead()
+    {
+        anim.Play("Rest");
+        Effect.Create(GameManager.Particle[3], GameManager.Manager.gameObject, 9999, transform.position);
+        UiTextController.Add("终于要谢幕了吗？");
+        UiTextController.Add("是啊，戏是，人也是…");
+        UiTextController.end = true;
+    }
     bool p2 = false;
+    public override void UnderAttack(Damage dam, Role from)
+    {
+        if (SkillState == SkillStiff)
+        {
+            Move.CanMoveTime = 0;
+            var eff = Effect.Create(GameManager.Effect[12],gameObject,transform.position);
+            eff.SetDamage(new Damage(0,DamageType.Continue));
+            eff.damage.fromSkill = "Sun";
+        }
+        base.UnderAttack(dam, from);
+        attacked++;
+        if (attacked >= 12)
+        {
+            anim.Play("Rest");
+            SkillState = SkillStiff;
+            Move.CanMoveTime = 5; 
+            attacked = 0;
+            Stop();
+        }
+    }
     public override void OnUpdate()
     {
         if (Health<= 0.5f && !p2)
@@ -58,7 +87,9 @@ public class RedRainController : Role
         if (!weak)
             return;
         if (Health <= 0)
+        {
             return;
+        }
         base.OnUpdate();
         TimeCount += Time.deltaTime;
         if (!Part0)
@@ -67,6 +98,8 @@ public class RedRainController : Role
             return;
         }
         if (SkillState != "noon")
+            return;
+        if (SkillState == SkillStiff)
             return;
         if (FaceTo == 1)
             Move.Go(-1);

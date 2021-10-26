@@ -17,7 +17,7 @@ public class Role : Entity
     public List<Passive> passives = new List<Passive>();
     public Queue<Passive> DeletePossiveQueue = new Queue<Passive>();
     public Skill nowSkill;
-    private bool die;
+    protected bool die;
     /// <summary>
     /// 被攻击到了，变红的持续时间
     /// </summary>
@@ -65,7 +65,7 @@ public class Role : Entity
                 sprlist.Add(k);
         GameManager.AllRoles.Add(this);
     }
-    protected virtual void Dead() { }
+    public virtual void Dead() { }
     public override void OnUpdate()
     {
         if (SkillState == SkillStiff && Move.CanMoveTime <= 0)
@@ -74,16 +74,15 @@ public class Role : Entity
         }
         if (Health <= 0 && !die)
         {
-            Effect.Create(GameManager.Particle[1], gameObject, transform.position);
+            //Effect.Create(GameManager.Particle[1], gameObject, transform.position);
             Dead();
             die = true;
-            return;
-            //Move.CanMove = false;
-            //SkillState = "Die";
+            Move.CanMove = false;
+            SkillState = "Die";
             //k.transform.position = transform.position;
             //k.GetComponent<Effect>().Master = gameObject;
             //k.GetComponent<Effect>().SetFollow();
-            //Move.controller.velocity = Vector2.zero;
+            Move.controller.velocity = Vector2.zero;
         }
         InvisibleTime -= Time.deltaTime;
         if (SkillQueue.Count > 0)
@@ -142,6 +141,12 @@ public class Role : Entity
         BeforeTakeDamage(dam);
         Health -= dam.FinalDamage;
         AttackedRed = 0.12f;
+        var k = Lib.GetAngle(from.gameObject,gameObject);
+        if (dam.damageEffect == DamageEffect.katana)
+        {
+            var eff = Effect.Create(GameManager.Particle[4],gameObject,transform.position);
+            Lib.RotateX(eff.gameObject, k);
+        }
         if (from)
             AfterTakeDamage(dam,from);
         AfterTakeDamage(dam);
@@ -221,6 +226,8 @@ public class Role : Entity
     }
     public void HitBack(Vector2 v2)
     {
+        if (!Move.controller)
+            return;
         var v = Move.controller.velocity;
         v.x += v2.x;
         v.y += v2.y;

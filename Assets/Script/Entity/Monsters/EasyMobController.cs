@@ -15,7 +15,11 @@ public class EasyMobController : Role
         base.Init();
         _easyAtk = gameObject.AddComponent<EasyAttack>();
     }
-
+    public override void Dead()
+    {
+        Destroy(gameObject);
+        GameManager.AllMoney += 2;
+    }
     void FixedUpdate()
     {
         if (GameManager.IsStop)

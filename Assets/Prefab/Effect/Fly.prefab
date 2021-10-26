@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8508628683521400089}
   - component: {fileID: -4288505473062702490}
   - component: {fileID: 603914257910200337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
+  anim: {fileID: 0}
   Master: {fileID: 0}
   Type: 0
   Duration: 1

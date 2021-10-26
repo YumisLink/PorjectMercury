@@ -53,6 +53,7 @@ public class Room : MonoBehaviour
                 k.ReInit();
                 j.gameObject.SetActive(true);
             }
+            awake = false;
         }
     }
     public void LeaveEnviroment()
@@ -66,21 +67,23 @@ public class Room : MonoBehaviour
             }
         }
     }
-    void Update()
-    {
-        if (awake) ReSetEnvironment();
-        awake = false;
-    }
+    int tc = 0;
     private void FixedUpdate()
     {
-        while(AllMonsters.Count > 0)
+        tc++;
+        if (tc > 2 && awake)
+        {
+            ReSetEnvironment();
+        }
+        while (AllMonsters.Count > 0)
         {
             if (AllMonsters[0] == null)
                 AllMonsters.RemoveAt(0);
             else if (AllMonsters[0].Health <= -0.1f)
             {
                 GameManager.AllMoney += 2;
-                Destroy(AllMonsters[0].gameObject);
+                AllMonsters[0].gameObject.GetComponent<Role>().Dead();
+                //Destroy(AllMonsters[0].gameObject);
                 AllMonsters.RemoveAt(0);
             }
             else

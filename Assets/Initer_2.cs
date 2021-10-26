@@ -37,5 +37,6 @@ public class Initer_2 : MonoBehaviour
 
         GameManager.VirtualCamera.m_BoundingShape2D = rm3.Limit;
         GameManager.DeleteGate();
+        rm3.awake = true;
     }
 }

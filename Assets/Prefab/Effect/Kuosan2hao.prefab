@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 5887458210065006432}
   - component: {fileID: 8711446627230173088}
   - component: {fileID: 668848041174515524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kuosan2hao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 0
+  anim: {fileID: 0}
   Master: {fileID: 0}
   Type: 0
   Duration: 2

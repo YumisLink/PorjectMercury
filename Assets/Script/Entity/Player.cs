@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : Role
@@ -11,6 +12,8 @@ public class Player : Role
     public Skill Skill2;
     public Skill Attack;
     public static Player player;
+    public Image ui;
+
     public override void Init()
     {
         player = this;
@@ -31,8 +34,20 @@ public class Player : Role
         //for (var i = 7; i <= 16;i ++)
         //    Item.CreateItem(i, transform.position + new Vector3(5+i*1, 0,0));
     }
+    float t = 0;
     public override void OnUpdate()
     {
+        if (die)
+        {
+            t += Time.deltaTime;
+            var c = ui.color;
+            c.a += Time.deltaTime / 2;
+            ui.color = c;
+            if (t > 3)
+            {
+                SceneManager.LoadScene(3);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             Properties.Attack += 10000;
@@ -57,6 +72,10 @@ public class Player : Role
             Skill1.NextSkill();
         if (Input.GetKeyDown(KeyCode.S))
             Skill2.NextSkill();
+    }
+    public override void Dead()
+    {
+        ui.gameObject.SetActive(true);
     }
     public override void UnderAttack(Damage dam, Role from)
     {

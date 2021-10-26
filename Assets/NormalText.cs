@@ -20,7 +20,7 @@ public class NormalText : MonoBehaviour
     {
         Add("爷爷是一名变脸艺术家。");
         Add("他的一生都奉献给了川剧变脸艺术。");
-        Add("但是直到临终前，仍然没有把变脸艺术传承下去…………");
+        Add("爷爷临终前喊我到床边，他喊着我的小名对我说，他刚刚做了一个很长很长的冒险的梦，在梦里……");
     }
     private void Update()
     {

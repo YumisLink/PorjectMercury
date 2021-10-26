@@ -119,7 +119,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   Master: {fileID: 4880308877263529293}
   Type: 0
-  Duration: 0.3
+  Duration: 0.18
   CanDealDamage: 0
   rig: {fileID: 0}
   list: []
